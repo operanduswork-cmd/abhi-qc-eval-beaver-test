@@ -23,7 +23,7 @@ const t0 = Date.now();
 
 const r = await scoreTranscript(pack, {
   callType: pack.callType, transcript, effort,
-  onProgress: (done, total, id) => { process.stdout.write(`  ${done}/${total} ${id}   
+  onProgress: (ev) => { process.stdout.write(`  ${ev.done}/${ev.total} ${ev.dimensionId}   
 `); },
 });
 

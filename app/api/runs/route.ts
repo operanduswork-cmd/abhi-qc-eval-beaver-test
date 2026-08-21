@@ -9,9 +9,15 @@ import { start, execute } from "../../../lib/run.ts";
  * pass happens in `after()`, which Next runs once the response has already been flushed, so the
  * operator can close the tab the instant they have their link.
  *
- * Fluid compute gives 300s, which comfortably covers the measured ~240s for thirteen calls. If
- * that ever stopped being enough, the per-dimension commits in the worker mean splitting into
- * two invocations of six is a config change rather than a rewrite.
+ * Fluid compute gives 300s. The one end-to-end measurement is 243s for fourteen calls — but that
+ * was `coaching-99-synthetic.txt` at 9 KB, the SMALLEST fixture. `coaching-02.txt` is 65 KB, seven
+ * times the cached prefix over the same fourteen calls, and has never been timed. So the headroom
+ * above 9 KB is unmeasured, not comfortable, and a long transcript may be killed here.
+ *
+ * When that happens the loss is now partial rather than total: the worker commits each dimension
+ * as it lands, so the stale sweep reports "9 of 12 dimensions had finished" instead of losing
+ * everything. Those same per-dimension commits are what would make splitting into two invocations
+ * of six a config change rather than a rewrite.
  */
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";

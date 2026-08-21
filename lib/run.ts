@@ -13,6 +13,7 @@ import {
   saveDimension, saveCaps, saveReport, loadRun, type RunStatus,
 } from "./db/queries.ts";
 import type { ReportContract } from "./report/contract.ts";
+import { phaseOf, currentDimensionId, estimate, staleIn, humanDuration, type Phase } from "./progress.ts";
 
 /**
  * One run, start to finish.
@@ -104,9 +105,16 @@ export async function start(input: {
 /**
  * The worker. Runs after the response has been sent.
  *
- * Commits per dimension and beats the heartbeat after each, so a death partway through is
- * visible as a stalled heartbeat rather than a run that claims to be working forever. That
- * per-dimension commit is also what would let this be split across two invocations of six
+ * Commits per dimension and beats the heartbeat after each, so a death partway through loses one
+ * dimension rather than twelve, and shows as a stalled heartbeat rather than a run that claims to
+ * be working forever.
+ *
+ * That was not true until the callbacks below were wired: `onProgress` used to beat the heartbeat
+ * and save nothing, so every row landed after the loop and the progress screen read 0/12 for the
+ * entire run and then 12/12. The comment claiming otherwise sat here through a 243s run that
+ * looked frozen to the person watching it.
+ *
+ * The per-dimension commit is also what would let this be split across two invocations of six
  * without a rewrite, if 300s ever stopped being enough.
  */
 export async function execute(runId: string, callType: "kickoff" | "coaching", transcript: string, effort: "low" | "medium" | "high" = "low"): Promise<void> {
@@ -119,11 +127,40 @@ export async function execute(runId: string, callType: "kickoff" | "coaching", t
 
     const result = await scoreTranscript(pack, {
       callType, transcript, effort, runId,
-      // Beat after every dimension. A run that dies then has a heartbeat that stops
-      // advancing, which is what lets GET distinguish "still going" from "the worker died".
-      onProgress: async () => { await heartbeat(runId); },
+
+      // The fact pass has returned and every cap is resolved. Cap outcomes are FINAL at this
+      // point — computeTotal reads caps, it never rewrites them — so this is a real commit, not
+      // a provisional one. It is also the only durable evidence that the ~30s fact pass
+      // finished, which is what lets progressFor tell "reading the call for facts" from "no
+      // dimension has landed yet". Those are the same 0/12 and different truths.
+      onFacts: async (caps) => {
+        try { await saveCaps(runId, caps); }
+        catch (e) { console.warn(`[${runId}] cap commit failed: ${e}`); }
+        await heartbeat(runId);
+      },
+
+      // Commit each dimension AS IT LANDS, then beat.
+      //
+      // COMMIT THEN BEAT, in that order: a heartbeat written first claims liveness for work that
+      // may not have landed, and the stale sweep in loadRun trusts it.
+      //
+      // The try/catch is load-bearing rather than defensive. Without it a transient Supabase
+      // failure on dimension 11 throws into execute's outer catch, which calls failRun, and a
+      // paid run that had already succeeded eleven twelfths is destroyed. The end-of-run pass
+      // writes this row again regardless, so all a failure here costs is one tick of progress —
+      // the page looks slower than it is, which is the safe direction.
+      onProgress: async (ev) => {
+        try { await saveDimension(runId, ev.provisional); }
+        catch (e) { console.warn(`[${runId}] provisional commit of ${ev.dimensionId} failed: ${e}`); }
+        await heartbeat(runId);
+      },
     });
 
+    // NOT redundant with the commits above. Every row written during the loop is PRE-arithmetic:
+    // resolveActiveSet can promote maxPoints and scale score (D2 N/A sends D3 from 15 to 25), and
+    // applyDimensionCaps can clamp or floor to 0 on a non-recoverable cap. This pass rewrites all
+    // twelve with the post-computeTotal values and is the authoritative one. saveDimension upserts
+    // on (run_id, dimension_id).
     for (const d of result.dimensions) await saveDimension(runId, d);
     await saveCaps(runId, result.caps);
 
@@ -248,51 +285,86 @@ export async function contractFor(runId: string): Promise<ReportContract | null>
 export interface RunProgress {
   done: number;
   total: number;
-  /** Every dimension of the rubric, in order, with the ones that have landed carrying scores. */
+  phase: Phase;
+  /** ISO. The client re-syncs its local elapsed counter from this, so clock skew never accumulates. */
+  startedAt: string | null;
+  elapsedMs: number;
+  /** The dimension actually being scored, in CALL order. Null once all twelve have landed. */
+  currentDimensionId: string | null;
+  /** null when there is no evidence to estimate from. Never a guess. */
+  etaMs: number | null;
+  etaBasis: string;
+  /**
+   * The estimate already worded, so the browser never re-implements the formatter and the two
+   * cannot drift. Coarse and qualified by construction — see humanDuration.
+   */
+  etaText: string;
+  /** How long since the last dimension landed, and how long until the sweep declares it dead. */
+  heartbeatAgeMs: number | null;
+  staleInMs: number | null;
+  /** Every dimension of the run's own rubric, in rubric order, with the ones that have landed. */
   dimensions: Array<{
     id: string;
     title: string;
     maxPoints: number;
-    /** Set only once the dimension has landed. */
-    score: number | null;
     state: "scored" | "pending";
   }>;
 }
 
 /**
- * Progress for the running state — which of the twelve have landed, not merely how many.
+ * Progress for the running state — which of the twelve have landed, which one is live, and how
+ * long it is likely to be.
  *
- * The progress screen is a designed layout with a row per dimension, so it needs the names and
- * the per-row state. It was previously served the design's own mock rows, which showed a
- * hardcoded "9 / 12" and twelve invented scores directly above the real count. Two numbers
- * about the same run, disagreeing, on one screen.
+ * A thin adapter: everything that decides what may be *said* lives in lib/progress.ts, pure and
+ * unit-tested without a database.
  *
- * A dimension is only ever "scored" or "pending" here. There is no third row state for a
- * dimension that failed: the worker fails the whole run rather than banking eleven twelfths,
- * because a report missing one dimension still shows a total, and that total would be wrong.
+ * Note what is deliberately absent from `dimensions`: a score. Rows committed mid-run are
+ * pre-arithmetic and can still change, so the progress screen shows state and never a number.
  */
 export async function progressFor(runId: string): Promise<RunProgress | null> {
   const loaded = await loadRun(runId);
   if (!loaded) return null;
 
   const pack = packFor(loaded.run.call_type);
-  const landed = new Map(
-    loaded.dimensions.map((d) => [String(d.dimension_id), d as Record<string, unknown>]),
-  );
+  const landedIds = loaded.dimensions.map((d) => String(d.dimension_id));
+  const landed = new Set(landedIds);
+  const now = Date.now();
+
+  const input = {
+    status: loaded.run.status,
+    startedAt: loaded.run.started_at,
+    heartbeatAt: loaded.run.heartbeat_at,
+    capsLanded: loaded.caps.length,
+    landedIds,
+    pack,
+    now,
+  };
+
+  const eta = estimate(input);
+  const startedMs = loaded.run.started_at ? new Date(loaded.run.started_at).getTime() : null;
+  const beatMs = loaded.run.heartbeat_at ? new Date(loaded.run.heartbeat_at).getTime() : null;
 
   return {
-    done: loaded.dimensions.length,
+    done: landedIds.length,
     total: pack.dimensions.length,
-    dimensions: pack.dimensions.map((d) => {
-      const row = landed.get(d.id);
-      return {
-        id: d.id,
-        title: d.title,
-        maxPoints: row ? Number(row.max_points) : d.maxPoints,
-        score: row && row.score !== null ? Number(row.score) : null,
-        state: row ? ("scored" as const) : ("pending" as const),
-      };
-    }),
+    phase: phaseOf(input),
+    startedAt: loaded.run.started_at,
+    elapsedMs: startedMs ? Math.max(0, now - startedMs) : 0,
+    currentDimensionId: currentDimensionId(pack, landedIds),
+    etaMs: eta.etaMs,
+    etaBasis: eta.basis,
+    etaText:
+      eta.etaMs === null
+        ? (phaseOf(input) === "facts" ? "ESTIMATE ONCE THE FIRST DIMENSION LANDS" : "NO ESTIMATE")
+        : `ABOUT ${humanDuration(eta.etaMs).toUpperCase()} LEFT`,
+    heartbeatAgeMs: beatMs ? Math.max(0, now - beatMs) : null,
+    staleInMs: staleIn(loaded.run.heartbeat_at, now),
+    dimensions: pack.dimensions.map((d) => ({
+      id: d.id,
+      title: d.title,
+      maxPoints: d.maxPoints,
+      state: landed.has(d.id) ? ("scored" as const) : ("pending" as const),
+    })),
   };
 }
 

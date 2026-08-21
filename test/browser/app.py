@@ -19,7 +19,7 @@ The design deck ships every screen fully populated with plausible content, and s
 content as the app turned it into a claim. Only an assertion that names the mock catches it
 coming back.
 """
-import json, os, subprocess, sys
+import json, os, re, subprocess, sys
 from playwright.sync_api import sync_playwright
 
 BASE = os.environ.get("QC_BASE", "http://localhost:3210")
@@ -27,16 +27,17 @@ RUN = "8898427a-e9b2-4cda-81af-d05c000d2010"
 def seeded(key, fallback=""):
     """Ids of the seeded demo runs, from `npm run browser-seed`. Env wins, so the suite can be
     pointed at any run without re-seeding."""
-    env = os.environ.get({"running": "QC_RUNNING", "failed": "QC_FAILED"}[key])
+    env = os.environ.get({"running": "QC_RUNNING", "failed": "QC_FAILED", "facts": "QC_FACTS"}[key])
     if env:
         return env
     try:
         with open(os.path.join(os.path.dirname(__file__), "seeded.json"), encoding="utf-8") as fh:
-            return json.load(fh)[key]
+            return json.load(fh).get(key, fallback)
     except Exception:
         return fallback
 
 
+FACTS   = seeded("facts")
 RUNNING = seeded("running")
 FAILED  = seeded("failed")
 
@@ -223,6 +224,129 @@ with sync_playwright() as p:
     check("unscored dimensions say so", "QUEUED" in prog.upper())
     check("no mock failure card on a healthy run", "EVIDENCE_NOT_FOUND" not in prog)
     check("it promises the tab can be closed", "close this tab" in prog.lower())
+
+
+    # ------------------------------------------- 3b. the progress screen, in detail
+    # Everything below guards a bug that shipped, so each assertion names the wrong behaviour.
+    subprocess.run(["node", "--experimental-strip-types", "test/browser/beat.ts", RUNNING],
+                   check=True, capture_output=True)
+    pg.goto(f"{BASE}/runs/{RUNNING}", wait_until="networkidle")
+    pg.wait_for_timeout(600)
+
+    # ONE spinner, and on the dimension that is genuinely next in CALL order. The screen used to
+    # mark it as rubricOrder[done]; callOrder groups by score enum and forces D12 last, so from
+    # the third dimension that names a different one. Invisible before, because done was always 0.
+    spin = pg.evaluate("""() => {
+        const all = document.querySelectorAll('[data-spin]');
+        if (all.length !== 1) return {count: all.length};
+        const row = all[0].closest('[data-dim]');
+        return {count: 1, on: row ? row.getAttribute('data-dim') : 'phase-line'};
+    }""")
+    check("exactly one spinner on the page", spin["count"] == 1, str(spin))
+    expected = pg.evaluate("""async () => {
+        const r = await fetch(location.pathname.replace('/runs/', '/api/runs/'));
+        return (await r.json()).progress.currentDimensionId;
+    }""")
+    check("the spinner sits on the CALL-order dimension, not the rubric-order one",
+          spin.get("on") == expected, f"spinner on {spin.get('on')}, next in call order is {expected}")
+
+    prog = pg.inner_text("body")
+    # Rows committed mid-run are pre-arithmetic — computeTotal can still promote a maximum, scale
+    # a score, or floor one to 0. A number that later changes must not be printed.
+    check("no provisional score is shown on the progress list",
+          not re.search(r"\b\d+\s*/\s*(5|10|15|25)\b", prog.split("TWELVE DIMENSIONS")[-1]),
+          "a score pill appeared mid-run")
+    check("landed dimensions say SCORED", "SCORED" in prog)
+    check("the phase is named", "SCORING THE TWELVE DIMENSIONS" in prog.upper())
+    check("run numbers carry a #", "RUN #" in prog)
+
+    # The ETA is qualified, evidence-backed, and never a bare countdown at zero.
+    eta = pg.inner_text('[data-qc="prog-eta"], [data-qc="eta-text"]') if pg.locator('[data-qc="eta-text"]').count() else ""
+    basis = pg.inner_text('[data-qc="eta-basis"]') if pg.locator('[data-qc="eta-basis"]').count() else ""
+    check("the ETA is qualified rather than asserted",
+          "ABOUT" in eta.upper() or "ESTIMATE" in eta.upper() or "NO ESTIMATE" in eta.upper(), eta)
+    check("the ETA never renders 0:00", "0:00" not in eta and "0 MIN LEFT" not in eta.upper(), eta)
+    if "ABOUT" in eta.upper():
+        check("and it names the evidence behind it", "on this run" in basis, basis[:60])
+
+    # The fact pass: a real ~30s state in which zero dimensions have landed. It must NOT invent a
+    # number, and it must NOT spin a dimension row that is not being scored.
+    if FACTS:
+        # Same reason the running seed needs one: the suite takes well over the 120s STALE_MS to
+        # reach here, so by now loadRun has correctly swept the fact-pass seed to worker_died.
+        subprocess.run(["node", "--experimental-strip-types", "test/browser/beat.ts", FACTS],
+                       check=True, capture_output=True)
+        pg.goto(f"{BASE}/runs/{FACTS}", wait_until="networkidle")
+        pg.wait_for_timeout(600)
+        ftext = pg.inner_text("body")
+        check("the fact pass is named rather than shown as an idle 0/12",
+              "READING THE CALL FOR FACTS" in ftext.upper(), ftext[:70].replace("\n", " "))
+        check("no invented estimate before the first dimension lands",
+              not re.search(r"ABOUT \d+ MIN", ftext.upper()), "a number appeared with nothing to base it on")
+        onrow = pg.evaluate("""() => {
+            const s = document.querySelector('[data-spin]');
+            return s ? !!s.closest('[data-dim]') : false;
+        }""")
+        check("no dimension row spins while the fact pass is running", onrow is False)
+
+    # Polling replaced the 5s full reload: 429KB x ~48 reloads was ~20MB per run, and it restarted
+    # the spinner animation from zero every time.
+    pg.goto(f"{BASE}/runs/{RUNNING}", wait_until="networkidle")
+    polls = []
+    pg.on("request", lambda r: polls.append(r.url) if "/api/runs/" in r.url else None)
+    pg.evaluate("() => { window.__qcMark = 1; }")
+    pg.wait_for_timeout(12000)
+    survived = pg.evaluate("() => window.__qcMark === 1")
+    check("the page polls instead of reloading", survived, "window marker was destroyed by a reload")
+    check("and it actually polled", len(polls) >= 1, f"{len(polls)} poll(s)")
+
+    # ------------------------------------------------ 3c. reduced motion
+    # app/index.html carries `*,*::before,*::after{animation-duration:.01ms!important}` with NO
+    # animation-iteration-count:1. An `infinite` animation under that does not stop — it runs
+    # ~100k cycles/sec sampled once a frame, i.e. a strobe, aimed at the people the media query
+    # exists to protect. This is the only assertion that can catch it.
+    rm = b.new_context(viewport={"width": 1280, "height": 900}, reduced_motion="reduce")
+    rmp = rm.new_page()
+    rmp.goto(f"{BASE}/runs/{RUNNING}", wait_until="networkidle")
+    rmp.wait_for_timeout(500)
+    anim = rmp.evaluate("""() => {
+        const s = document.querySelector('[data-spin]');
+        if (!s) return 'no spinner';
+        return getComputedStyle(s, '::after').animationName;
+    }""")
+    check("reduced motion stops the spinner rather than strobing it", anim == "none", str(anim))
+    rm.close()
+
+    # ------------------------------------------------ 3d. the citation context
+    pg.goto(f"{BASE}/runs/{RUN}", wait_until="networkidle")
+    dets = pg.locator("details")
+    for i in range(dets.count()):
+        head = (dets.nth(i).inner_text().strip().splitlines() or [""])[0].strip()
+        if head.isdigit():
+            dets.nth(i).click()
+            break
+    pg.wait_for_timeout(300)
+    cite = pg.locator("[data-cite-line]").first
+    check("evidence line numbers are controls", cite.count() > 0)
+    if cite.count():
+        line = cite.get_attribute("data-cite-line")
+        cite.click()
+        pg.wait_for_selector('[data-qc="cite-pop"]', timeout=8000)
+        pg.wait_for_function(
+            """() => { const b = document.querySelector('[data-qc="cite-body"]');
+                       return b && !/loading/.test(b.textContent); }""", timeout=8000)
+        pop = pg.inner_text('[data-qc="cite-pop"]')
+        check("clicking one shows the transcript around that line",
+              f"L{int(line):03d}" in pop and len(pop) > 40, pop[:70].replace("\n", " "))
+        pg.keyboard.press("Escape")
+        pg.wait_for_timeout(200)
+        check("escape closes it", pg.locator('[data-qc="cite-pop"]').count() == 0)
+
+    # ------------------------------------------------ 3e. a way out of the report
+    check("the report offers a way to score another call",
+          pg.locator("#qcAgain").count() == 1)
+    check("the badge no longer claims a well-evidenced dimension has no evidence",
+          "NOT EVIDENCED" not in pg.inner_text("body").upper())
 
     # ------------------------------------------------------- 4. failed screen
     pg.goto(f"{BASE}/runs/{FAILED}", wait_until="networkidle")

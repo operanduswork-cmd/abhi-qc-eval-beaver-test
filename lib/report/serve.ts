@@ -85,6 +85,15 @@ const RESPONSIVE = `
   [id="3d"] [style*="gap:28px"]{flex-direction:column!important;gap:16px!important;align-items:stretch!important}
   [id="3d"] [style*="gap:34px"]>*,[id="2b"] [style*="gap:34px"]>*{width:100%!important}
 
+  /* The masthead action row went from one button to three (Evaluate another call / Share link /
+     Download PDF) and the deck sets flex-shrink:0 on it, so at 390px it pushed the card 55px
+     wider than the viewport. Let it wrap instead. */
+  [id="3d"] [data-qc="report-actions"]{
+    flex-wrap:wrap!important;flex-shrink:1!important;min-width:0!important;
+    justify-content:flex-start!important;
+  }
+  [id="3d"] [data-qc="report-actions"] .qc-dl{flex:0 1 auto!important}
+
   /* Evidence quotes and long ids must never push a row wide. */
   [id="3d"] blockquote,[id="3d"] code,[id="3d"] p,[id="3d"] summary{overflow-wrap:anywhere!important}
 
@@ -163,7 +172,7 @@ const SURFACE = `
   }`;
 
 /** Hide the deck's own navigation and show exactly one screen. */
-function only(screenId: string, extraScript = ""): string {
+function only(screenId: string, extraScript = "", extraCss = ""): string {
   return `<style>
   .vw-bar,.vw-menu,.vw-edge{display:none!important}
   .vw-screen{display:none!important}
@@ -179,6 +188,7 @@ function only(screenId: string, extraScript = ""): string {
   .dv-card{width:100%!important}
 ${SURFACE}
 ${RESPONSIVE}
+${extraCss}
 </style>
 <script>${extraScript}</script>`;
 }
@@ -211,7 +221,8 @@ export function renderNotice(title: string, heading: string, body: string): stri
        padding:2px 6px;border-radius:4px}
   a{color:#6F00FF;font-weight:600}
 </style>
-<div class="card"><h1>${heading}</h1><p>${body}</p></div>`;
+<div class="card"><h1>${heading}</h1><p>${body}</p></div>
+<script>setTimeout(function(){ location.href = '/'; }, 600000);</script>`;
 }
 
 function escapeHtml(s: string): string {
@@ -574,6 +585,14 @@ export function renderRunForm(): string {
   if(clearEl){ clearEl.style.cursor='pointer';
     clearEl.onclick = function(){ if(ta) ta.value=''; last = null; repaint(); msg.textContent=''; }; }
 
+  // The ten-minute return to the landing, with the one guard that matters here: a transcript
+  // typed or pasted and not yet submitted is unsaved work, and bouncing the tab would bin it
+  // without asking. An empty form is an abandoned tab and goes back.
+  setTimeout(function(){
+    if(ta && ta.value.trim()) return;
+    location.href = '/';
+  }, 600000);
+
   // 6 -- reorder: CHOOSE THE CALL first, then the transcript, then the button, then past runs.
   //
   // The deck stacks it paste-then-choose, with the Run evaluation row living inside the
@@ -611,48 +630,161 @@ export function renderFinished(contract: ReportContract): string {
     COPY +
     String.raw`
 (function(){
-  qcRemember(` +
-    JSON.stringify(contract.runId) +
-    String.raw`);
+  var RUN = ` + JSON.stringify(contract.runId) + String.raw`;
+  qcRemember(RUN);
 
   var actions = document.querySelector('.vw-screen[id="3d"] [data-qc="report-actions"]');
-  if(!actions) return;
+  if(actions){
+    var mk = function(id, label, title, svg, primary){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'qc-dl'; b.id = id; b.title = title;
+      b.style.cssText = primary ? '' :
+        'background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)';
+      b.innerHTML = svg + '<span data-qc="' + id + '-label">' + label + '</span>';
+      return b;
+    };
 
-  // Two ways out of a finished report: a file for the client, a link for the team. The link is
-  // what the shareable-URL constraint is for -- it resolves for anyone, with no login, and it
-  // still resolves next week.
-  var share = document.createElement('button');
-  share.type = 'button';
-  share.className = 'qc-dl';
-  share.id = 'qcShare';
-  share.title = 'Copy a link to this report';
-  share.style.cssText = 'background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)';
-  share.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" '+
-    'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex:none">'+
-    '<path d="M9 12h9"/><path d="M14.5 8.5 18 12l-3.5 3.5"/>'+
-    '<path d="M12 5.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-.5"/></svg>'+
-    '<span data-qc="share-label">Share link</span>';
-  share.onclick = function(){
-    qcCopy(location.href, share.querySelector('[data-qc="share-label"]'), 'Link copied');
-  };
-  actions.insertBefore(share, actions.firstChild);
-})();`;
+    // Three ways out, in the order they are wanted: start the next call, send this one to a
+    // colleague, hand the client a file.
+    var again = mk('qcAgain', 'Evaluate another call', 'Score another transcript',
+      '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" '+
+      'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex:none">'+
+      '<path d="M12 5v14"/><path d="M5 12h14"/></svg>');
+    again.onclick = function(){ location.href = '/new'; };
+
+    // The link is what the shareable-URL constraint is for — it resolves for anyone, with no
+    // login, and it still resolves next week.
+    var share = mk('qcShare', 'Share link', 'Copy a link to this report',
+      '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" '+
+      'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex:none">'+
+      '<path d="M9 12h9"/><path d="M14.5 8.5 18 12l-3.5 3.5"/>'+
+      '<path d="M12 5.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-.5"/></svg>');
+    share.onclick = function(){
+      qcCopy(location.href, share.querySelector('[data-qc="qcShare-label"]'), 'Link copied');
+    };
+
+    actions.insertBefore(share, actions.firstChild);
+    actions.insertBefore(again, actions.firstChild);
+  }
+
+  // ---------------------------------------------------------------- citation context
+  //
+  // Every evidence row's line number is a button. Clicking it fetches the transcript AROUND that
+  // line, so the citation can be checked in place instead of trusted.
+  //
+  // A bounded window, not the whole transcript embedded in the page: this URL is shareable
+  // without a login, and today it discloses the quotes the scorer cited. Shipping the entire
+  // call inside the HTML would quietly upgrade every shared link from "the evidence" to "the
+  // whole conversation".
+  var pop = null;
+  function closePop(){ if(pop){ pop.remove(); pop = null; } }
+
+  document.addEventListener('click', function(ev){
+    var btn = ev.target && ev.target.closest ? ev.target.closest('[data-cite-line]') : null;
+    if(!btn){ if(pop && !pop.contains(ev.target)) closePop(); return; }
+    ev.preventDefault();
+    var line = btn.getAttribute('data-cite-line');
+    closePop();
+
+    pop = document.createElement('div');
+    pop.setAttribute('data-qc','cite-pop');
+    pop.style.cssText =
+      'position:absolute;z-index:60;max-width:min(560px,92vw);background:var(--qc-raised);'+
+      'border:2px solid var(--qc-rule-strong);border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.22);'+
+      'padding:12px 14px;font:11.5px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace';
+    pop.innerHTML = '<div style="font:700 8.5px var(--qc-mono);letter-spacing:.16em;'+
+      'color:var(--qc-ink-dim);margin-bottom:8px">TRANSCRIPT AROUND L'+line+'</div>'+
+      '<div data-qc="cite-body" style="color:var(--qc-ink-muted)">loading…</div>';
+    document.body.appendChild(pop);
+
+    var r = btn.getBoundingClientRect();
+    pop.style.top  = (window.scrollY + r.bottom + 8) + 'px';
+    pop.style.left = (window.scrollX + Math.min(r.left, document.documentElement.clientWidth - pop.offsetWidth - 16)) + 'px';
+
+    fetch('/api/runs/' + RUN + '/context?line=' + encodeURIComponent(line) + '&radius=3')
+      .then(function(res){ if(!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+      .then(function(j){
+        var body = pop && pop.querySelector('[data-qc="cite-body"]');
+        if(!body) return;
+        body.innerHTML = j.lines.map(function(l){
+          return '<div style="display:flex;gap:10px;padding:2px 0'+
+            (l.cited ? ';background:var(--qc-brand-tint);margin:0 -6px;padding-left:6px;padding-right:6px;border-radius:4px' : '')+'">'+
+            '<span style="color:'+(l.cited ? 'var(--qc-cite);font-weight:700' : 'var(--qc-ink-dim)')+
+              ';width:34px;flex:none">L'+String(l.n).padStart(3,'0')+'</span>'+
+            '<span style="color:'+(l.cited ? 'var(--qc-brand)' : 'var(--qc-ink-muted)')+
+              ';overflow-wrap:anywhere">'+
+              String(l.text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+
+            '</span></div>';
+        }).join('');
+      })
+      .catch(function(e){
+        var body = pop && pop.querySelector('[data-qc="cite-body"]');
+        if(body) body.textContent = 'Could not load that line. ' + e;
+      });
+  });
+
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closePop(); });
+})();
+` + REDIRECT_HOME;
   const html = renderReport(contract, {}, page());
   return inject(html, only("3d", script));
 }
 
 /**
- * GET /runs/:id while it is still scoring, or once it has died.
+ * The rotating arc, and the override that stops it being a strobe.
  *
- * The brief forbids a spinner that spins forever, so this names how many dimensions have landed,
- * which ones, and refreshes itself — and if the worker died it states the reason in full rather
- * than a status code.
+ * Only the progress screen gets this, via only()'s extraCss slot.
  *
- * The deck draws this screen with a hardcoded "9 / 12", twelve invented scores and a mock
- * "EVIDENCE_NOT_FOUND · D10" card. Serving that with a real progress box appended underneath put
- * two contradicting numbers about the same run on one screen. Every element below is now either
- * filled from the run or removed.
+ * The arc is an ::after over the ring the deck already draws, so moving the spinner is one
+ * attribute write — nothing is inserted or removed and the keyframe never restarts.
+ *
+ * THE REDUCED-MOTION OVERRIDE IS NOT OPTIONAL. app/index.html carries this, twice:
+ *
+ *     @media (prefers-reduced-motion: reduce){
+ *       *, *::before, *::after { animation-duration:.01ms !important; ... }
+ *     }
+ *
+ * That is the well-known pattern with its second half missing — it sets duration but NOT
+ * `animation-iteration-count: 1`. An `infinite` animation under it does not stop; it completes
+ * ~100,000 cycles a second and gets sampled once per frame, so the arc lands on an arbitrary
+ * angle every frame. That is a strobe, delivered precisely to the people the media query exists
+ * to protect. `[data-spin]::after` (0,1,1) outranks `*::after` (0,0,1) at equal !important
+ * weight, so this wins regardless of source order — which matters, because only() injects at
+ * end-of-body while the deck's block is in <head>.
  */
+const SPINNER_CSS = `
+  @keyframes qc-spin { to { transform: rotate(360deg); } }
+  [data-spin]{position:relative}
+  [data-spin]::after{
+    content:"";position:absolute;inset:-1.25px;border-radius:999px;
+    border:1.25px solid transparent;
+    border-top-color:#6F00FF;          /* the literal the SCORING… label uses. NOT
+                                          var(--qc-brand) — that is #131628, near-black ink,
+                                          and the arc would vanish into the ring. */
+    animation:qc-spin .9s linear infinite;
+    will-change:transform;
+  }
+  /* On the dark hero, purple-on-purple has no contrast. */
+  [data-spin][data-on-dark]::after{border-top-color:#fff}
+
+  @media (prefers-reduced-motion: reduce){
+    [data-spin]::after{
+      animation:none!important;
+      border-right-color:#6F00FF;      /* a static quarter turn still marks the live row */
+    }
+    [data-spin][data-on-dark]::after{border-right-color:#fff}
+  }`;
+
+/**
+ * Send an abandoned tab back to the start after ten minutes.
+ *
+ * Asked for explicitly, and applied to every page including a finished report. Worth stating
+ * once: this also fires for someone who opened a link you shared and is still reading it. A full
+ * reload at a terminal state restarts the clock naturally, which is the behaviour you want.
+ */
+const REDIRECT_HOME = `
+setTimeout(function(){ if(location.pathname !== '/') location.href = '/'; }, 600000);`;
+
 export function renderPending(contract: ReportContract, progress: RunProgress): string {
   const failed = contract.status === "failed";
   const marks: Record<string, string> = {};
@@ -667,6 +799,7 @@ export function renderPending(contract: ReportContract, progress: RunProgress): 
     code: String(contract.transcriptSha256).slice(0, 6).toUpperCase(),
     failed,
     failureReason: contract.failureReason,
+    clock: iconSvg("ui:clock", 11, "currentColor"),
   });
 
   const script =
@@ -674,15 +807,9 @@ export function renderPending(contract: ReportContract, progress: RunProgress): 
     COPY +
     String.raw`
 (function(){
-  var C = ` +
-    state +
-    String.raw`;
-  var P = ` +
-    JSON.stringify(progress) +
-    String.raw`;
-  var M = ` +
-    JSON.stringify(marks) +
-    String.raw`;
+  var C = ` + state + String.raw`;
+  var P = ` + JSON.stringify(progress) + String.raw`;
+  var M = ` + JSON.stringify(marks) + String.raw`;
 
   var scr = document.querySelector('.vw-screen[id="3c"]');
   if(!scr) return;
@@ -690,95 +817,236 @@ export function renderPending(contract: ReportContract, progress: RunProgress): 
   var set = function(s, text){ var e = q(s); if(e) e.textContent = text; };
 
   qcRemember(C.runId);
+  set('[data-qc="prog-meta"]', C.callType.toUpperCase() + ' CALL  ·  RUN #' + C.code);
 
-  // ---- hero
-  set('[data-qc="prog-meta"]', C.callType.toUpperCase() + ' CALL  ·  RUN ' + C.code);
-  set('[data-qc="prog-title"]',
-      C.failed ? 'This run stopped' : (C.client ? 'Scoring ' + C.client : 'Scoring this call'));
-  set('[data-qc="prog-count"]', P.done + ' / ' + P.total);
-  set('[data-qc="prog-note"]', C.failed ? 'STOPPED' : 'YOU CAN CLOSE THIS TAB');
-
-  var bar = q('[data-qc="prog-bar"]');
-  if(bar){
-    bar.style.width = (P.total ? Math.round(P.done / P.total * 100) : 0) + '%';
-    if(C.failed) bar.style.background = 'var(--qc-fail)';
+  // ---------------------------------------------------------------- hero extras
+  // The deck draws a count, a bar and a label. It has nowhere to say WHICH phase the run is in,
+  // and the fact pass alone is ~30s of the window that felt stuck.
+  var head = q('[data-qc="prog-count"]');
+  var heroRow = head && head.parentElement;
+  if(heroRow && heroRow.parentElement){
+    var extra = document.createElement('div');
+    extra.innerHTML =
+      '<div style="display:flex;align-items:center;gap:9px;margin-top:15px">'+
+        '<span data-qc="phase-ring" data-on-dark style="width:13px;height:13px;border-radius:999px;'+
+          'border:1.25px solid rgba(255,255,255,.4);flex:none;display:block"></span>'+
+        '<span data-qc="phase-text" style="font:600 9.5px var(--qc-mono);letter-spacing:.12em;'+
+          'color:rgba(255,255,255,.88)"></span>'+
+        '<span style="flex:1"></span>'+
+        '<span style="display:flex;align-items:center;gap:6px;font:600 9.5px var(--qc-mono);'+
+          'letter-spacing:.08em;color:rgba(255,255,255,.68)">'+
+          C.clock + '<span data-qc="eta-text"></span></span>'+
+      '</div>'+
+      '<div data-qc="eta-basis" style="font:9px var(--qc-mono);color:rgba(255,255,255,.42);'+
+        'margin-top:6px;text-align:right"></div>'+
+      '<div data-qc="prog-stale" hidden style="font:600 9.5px/1.5 var(--qc-mono);'+
+        'color:#F6C453;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.14)"></div>';
+    heroRow.parentElement.appendChild(extra);
   }
 
-  var tally = q('[data-qc="prog-tally"]');
-  if(tally){
-    tally.textContent = C.failed ? 'NOTHING FURTHER WILL LAND' : (P.total - P.done) + ' TO GO';
-    if(!C.failed) tally.style.color = 'var(--qc-ink-dim)';
-  }
-
-  // ---- the twelve rows, from the rubric and this run's committed dimensions
+  // ---------------------------------------------------------------- rows, built ONCE
+  //
+  // Built once and thereafter only mutated. Reassigning innerHTML on every poll would destroy the
+  // node the animation lives on and restart the keyframe from zero each time — the original
+  // full-page-reload bug, at 1/100th the bandwidth.
   var list = q('[data-qc="prog-list"]');
   if(list){
     var ROW = 'display:flex;align-items:center;gap:12px;padding:9px 15px;border-bottom:1px solid var(--qc-rule)';
-    var DOT = 'width:13px;height:13px;border-radius:999px;border:1.25px solid';
     list.innerHTML = P.dimensions.map(function(d, i){
-      var done = d.state === 'scored';
-      var ring = done ? '--qc-elite' : (C.failed ? '--qc-fail' : '--qc-rule-strong');
-      var right = done
-        ? '<span style="font:10px var(--qc-mono);padding:2px 8px;border-radius:999px;'+
-          'background:var(--qc-brand-tint);color:var(--qc-brand)">' + d.score + '/' + d.maxPoints + '</span>'
-        : '<span style="font:9.5px var(--qc-mono);letter-spacing:.1em;color:' +
-          (C.failed ? 'var(--qc-ink-dim)' : '#6F00FF') + '">' +
-          (C.failed ? 'NOT SCORED' : (i === P.done ? 'SCORING…' : 'QUEUED')) + '</span>';
-      return '<div style="' + ROW + (done ? '' : ';opacity:.55') + '">'+
+      return '<div data-dim="' + d.id + '" style="' + ROW + '">'+
              '<span style="font:9.5px var(--qc-mono);color:var(--qc-ink-dim);width:16px">'+
              ('0' + (i+1)).slice(-2) + '</span>'+
-             '<div style="' + DOT + ' var(' + ring + ')"></div>'+
+             '<span data-qc="ring" style="width:13px;height:13px;border-radius:999px;'+
+               'border:1.25px solid var(--qc-rule-strong);flex:none;display:block"></span>'+
              '<span style="display:flex;color:var(--qc-ink-dim)">' + (M[d.id] || '') + '</span>'+
              '<span style="flex:1;font:11.5px var(--qc-body);color:var(--qc-brand)">' + d.title + '</span>'+
-             right + '</div>';
+             '<span data-qc="state" style="font:700 9.5px var(--qc-mono);letter-spacing:.1em"></span>'+
+             '</div>';
     }).join('');
   }
 
-  // ---- the promise the brief makes, in a sentence rather than a tiny mono label
+  // ---------------------------------------------------------------- the standing promise
   if(list && list.parentElement && !C.failed){
     var note = document.createElement('p');
     note.setAttribute('data-qc', 'prog-note-long');
     note.style.cssText = 'margin:12px 2px 0;font:400 12.5px/1.6 var(--qc-body);color:var(--qc-ink-muted);max-width:70ch';
     note.textContent = 'You can close this tab. Scoring continues on the server, and this URL ' +
-      'shows the finished report whenever you come back to it. This page re-checks every five seconds.';
+      'shows the finished report whenever you come back to it. This page checks every five ' +
+      'seconds without reloading.';
     var card = list.closest('[style*="border-radius:16px"]') || list.parentElement;
     if(card && card.parentElement) card.parentElement.appendChild(note);
   }
 
-  // ---- the failure card, shown only when there IS a failure
-  var err = q('[data-qc="prog-error"]');
-  if(err){
-    if(!C.failed){ err.remove(); }
-    else {
-      // failureReason is "<code>: <sentence>" -- split it so the code sits in the design's
-      // monospace chip and the sentence reads as prose underneath.
-      var whole = String(C.failureReason || '');
-      var cut = whole.indexOf(': ');
-      var code = cut > 0 ? whole.slice(0, cut) : 'failed';
-      var why  = cut > 0 ? whole.slice(cut + 2) : (whole || 'No reason was recorded.');
-      set('[data-qc="prog-error-code"]', code.toUpperCase() + '  ·  RUN ' + C.code);
+  // ---------------------------------------------------------------- painting
+  var PHASE_TEXT = {
+    queued:     'QUEUED',
+    facts:      'READING THE CALL FOR FACTS',
+    dimensions: 'SCORING THE TWELVE DIMENSIONS',
+    synthesis:  'WRITING THE BRIEF'
+  };
 
-      var body = q('[data-qc="prog-error-body"]');
-      if(body){
-        body.style.cssText = 'max-width:70ch;font:400 12.5px/1.65 var(--qc-body);color:var(--qc-ink-muted)';
-        body.textContent = why;
-      }
-
-      // "Retry this run" is honest because a failed run genuinely is re-runnable: re-pasting the
-      // transcript resolves to THIS id and the worker starts again, so a link already shared
-      // begins working rather than a second URL appearing for the same call.
-      var retry = q('[data-qc="retry"]');
-      if(retry) retry.onclick = function(){ location.href = '/new'; };
-      var diag = q('[data-qc="copy-diag"]');
-      if(diag) diag.onclick = function(){
-        qcCopy('run ' + C.runId + '\n' + C.callType + ' · transcript ' + C.code + '\n' + whole,
-               diag, 'Copied');
-      };
-    }
+  function spinOn(el){
+    var was = scr.querySelector('[data-spin]');
+    if(was === el) return;
+    if(was) was.removeAttribute('data-spin');
+    if(el) el.setAttribute('data-spin','');
   }
-})();
-` +
-    (failed ? "" : "setTimeout(function(){location.reload()},5000);");
 
-  return inject(page(), only("3c", script));
+  function paint(prog, isFailed, reason){
+    set('[data-qc="prog-count"]', prog.done + ' / ' + prog.total);
+    set('[data-qc="prog-note"]', isFailed ? 'STOPPED' : 'YOU CAN CLOSE THIS TAB');
+    set('[data-qc="prog-title"]',
+        isFailed ? 'This run stopped' : (C.client ? 'Scoring ' + C.client : 'Scoring this call'));
+
+    // The BAR spans all fourteen steps — the fact pass, twelve dimensions, synthesis — so it
+    // cannot fill while the page still says it is scoring. The COUNT stays n/12, because twelve
+    // is the number of things in the report it is counting toward.
+    var steps = (prog.phase === 'queued' ? 0 : 1) + prog.done;
+    var bar = q('[data-qc="prog-bar"]');
+    if(bar){
+      bar.style.width = Math.round(steps / (prog.total + 2) * 100) + '%';
+      if(isFailed) bar.style.background = 'var(--qc-fail)';
+    }
+
+    var tally = q('[data-qc="prog-tally"]');
+    if(tally){
+      tally.textContent = isFailed ? 'NOTHING FURTHER WILL LAND' : (prog.total - prog.done) + ' TO GO';
+      tally.style.color = isFailed ? 'var(--qc-fail)' : 'var(--qc-ink-dim)';
+    }
+
+    set('[data-qc="phase-text"]', isFailed ? 'STOPPED' : (PHASE_TEXT[prog.phase] || ''));
+    set('[data-qc="eta-text"]', isFailed ? 'NO LONGER RUNNING' : (prog.etaText || ''));
+    set('[data-qc="eta-basis"]', isFailed ? '' : (prog.etaBasis || ''));
+
+    // The one countdown that is allowed, because it counts toward something that genuinely
+    // happens: loadRun sweeps a run with no heartbeat for 120s, and says why.
+    var stale = q('[data-qc="prog-stale"]');
+    if(stale){
+      var age = prog.heartbeatAgeMs, left = prog.staleInMs;
+      if(!isFailed && age != null && left != null && age > 60000){
+        stale.textContent = 'NO DIMENSION HAS LANDED FOR ' + Math.round(age/1000) + 'S. IF NOTHING '+
+          'LANDS WITHIN ' + Math.round(left/1000) + 'S THIS RUN WILL BE DECLARED DEAD AND WILL SAY WHY.';
+        stale.removeAttribute('hidden');
+      } else stale.setAttribute('hidden','');
+    }
+
+    (prog.dimensions || []).forEach(function(d){
+      var row = scr.querySelector('[data-dim="' + d.id + '"]');
+      if(!row) return;
+      var ring = row.querySelector('[data-qc="ring"]');
+      var st   = row.querySelector('[data-qc="state"]');
+      var done = d.state === 'scored';
+      var live = !isFailed && d.id === prog.currentDimensionId && prog.phase === 'dimensions';
+
+      row.style.opacity = done ? '1' : '.55';
+      if(ring) ring.style.borderColor = done ? 'var(--qc-elite)'
+                                     : (isFailed ? 'var(--qc-fail)' : 'var(--qc-rule-strong)');
+      if(st){
+        // Deliberately NOT a score. Rows committed mid-run are pre-arithmetic: computeTotal can
+        // still promote a maximum, scale a score, or floor one to 0 on a non-recoverable cap. A
+        // number that later changes is the one thing this project does not print.
+        st.textContent = done ? 'SCORED' : (isFailed ? 'NOT SCORED' : (live ? 'SCORING…' : 'QUEUED'));
+        st.style.color = done ? 'var(--qc-elite)'
+                       : (isFailed ? 'var(--qc-ink-dim)' : (live ? '#6F00FF' : 'var(--qc-ink-dim)'));
+      }
+    });
+
+    // The spinner belongs on the work actually happening. During the fact pass no dimension is
+    // being scored, so putting it on row 01 would be a lie for the ~30s that matters most.
+    if(isFailed) spinOn(null);
+    else if(prog.phase === 'dimensions' && prog.currentDimensionId)
+      spinOn(scr.querySelector('[data-dim="' + prog.currentDimensionId + '"] [data-qc="ring"]'));
+    else spinOn(q('[data-qc="phase-ring"]'));
+
+    if(isFailed) showError(reason);
+  }
+
+  // ---------------------------------------------------------------- the failure card
+  var err = q('[data-qc="prog-error"]');
+  function showError(reason){
+    if(!err) return;
+    err.removeAttribute('hidden');
+    var whole = String(reason || '');
+    var cut = whole.indexOf(': ');
+    var code = cut > 0 ? whole.slice(0, cut) : 'failed';
+    var why  = cut > 0 ? whole.slice(cut + 2) : (whole || 'No reason was recorded.');
+    set('[data-qc="prog-error-code"]', code.toUpperCase() + '  ·  RUN #' + C.code);
+    var body = q('[data-qc="prog-error-body"]');
+    if(body){
+      body.style.cssText = 'max-width:70ch;font:400 12.5px/1.65 var(--qc-body);color:var(--qc-ink-muted)';
+      body.textContent = why + ' Scores are not shown for a partial run: a dimension’s final ' +
+        'score depends on arithmetic that runs only once all twelve have landed.';
+    }
+    var retry = q('[data-qc="retry"]');
+    if(retry) retry.onclick = function(){ location.href = '/new'; };
+    var diag = q('[data-qc="copy-diag"]');
+    if(diag) diag.onclick = function(){
+      qcCopy('run ' + C.runId + '\n' + C.callType + ' · transcript ' + C.code + '\n' + whole,
+             diag, 'Copied');
+    };
+  }
+  if(err && !C.failed) err.setAttribute('hidden','');
+
+  paint(P, C.failed, C.failureReason);
+
+  // ---------------------------------------------------------------- polling
+  //
+  // Replaces setTimeout(location.reload, 5000). The served page is ~429KB and a 243s run reloaded
+  // it ~48 times — roughly 20MB, plus a scroll reset and a re-triggered font load each time, to
+  // say "5 of 12". The JSON this polls is ~900 bytes.
+  var POLL_MS = 5000, fails = 0, timer = null, stopped = false, lastOkAt = Date.now();
+
+  function schedule(){
+    if(stopped || document.visibilityState === 'hidden') return;
+    timer = setTimeout(tick, POLL_MS * Math.min(Math.pow(2, fails), 6));
+  }
+
+  function degrade(){
+    var since = Math.round((Date.now() - lastOkAt)/1000);
+    if(fails < 3){ set('[data-qc="eta-basis"]', 'last checked ' + since + 's ago'); return; }
+    // A spinner still turning while the page has no idea what is happening IS the forever-spinner
+    // the brief forbids — at the network layer rather than the worker layer. Stop it and say so.
+    spinOn(null);
+    set('[data-qc="phase-text"]', 'CANNOT REACH THE SERVER');
+    set('[data-qc="eta-text"]', '');
+    set('[data-qc="eta-basis"]',
+        'last successful check ' + since + 's ago · scoring is unaffected, it runs on the server');
+  }
+
+  function tick(){
+    fetch('/api/runs/' + C.runId, { cache:'no-store', headers:{ Accept:'application/json' } })
+      .then(function(r){
+        if(r.status === 404){ stopped = true; return null; }   // terminal; do not retry forever
+        if(!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function(j){
+        if(!j) return;
+        fails = 0; lastOkAt = Date.now();
+        // A terminal state is rendered by the SERVER — renderReport for a finished run, the
+        // sweep's own message for a dead one. Rebuilding either here would duplicate the
+        // renderer, which is the drift this file exists to prevent. One reload is the right price.
+        if(j.status !== 'running'){ stopped = true; location.reload(); return; }
+        if(j.progress) paint(j.progress, false, null);
+      })
+      .catch(function(e){
+        // console.warn, never console.error: test/browser/app.py fails the whole suite on any
+        // console error, and the offline test would fail its own assertion.
+        fails++; console.warn('poll failed: ' + e); degrade();
+      })
+      .then(schedule);
+  }
+
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible' && !stopped){ clearTimeout(timer); tick(); }
+  });
+
+  // The client never decides a run is dead. The stale sweep lives in loadRun and runs on read, so
+  // the next poll simply comes back failed. Two authorities on liveness would eventually
+  // disagree, on the one screen whose job is to never be ambiguous.
+  if(!C.failed) schedule();
+})();
+` + REDIRECT_HOME;
+
+  return inject(page(), only("3c", script, SPINNER_CSS));
 }

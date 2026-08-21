@@ -160,7 +160,19 @@ export async function failRun(runId: string, code: string, message: string): Pro
   }).eq("id", runId);
 }
 
-/** Commit one dimension as soon as it lands, so a death mid-run loses one dimension, not twelve. */
+/**
+ * Commit one dimension. Called twice per dimension per run, and the two calls mean different things.
+ *
+ * DURING the run (from execute's onProgress) the values are PROVISIONAL — computeTotal has not run,
+ * so `score` and `max_points` can still change: resolveActiveSet promotes maxima and scales scores
+ * when D2 is N/A, and applyDimensionCaps can floor a score to 0 on a non-recoverable cap. AFTER the
+ * run the same rows are rewritten with the post-arithmetic values, which are authoritative.
+ *
+ * So `0001_init.sql`'s note that max_points is "post-promotion" holds for a SUCCEEDED run only. A
+ * row belonging to a run that is still `running`, or that died, is pre-arithmetic — which is why
+ * nothing renders a score from these rows except the finished report, and the finished report
+ * reads `run_reports.contract` rather than these rows at all.
+ */
 export async function saveDimension(runId: string, d: ScoreResult["dimensions"][number]): Promise<void> {
   await db().from("run_dimensions").upsert({
     run_id: runId,

@@ -1588,3 +1588,227 @@ failure looked like a regression in the progress screen and was not.
 Browser assertions: 67 → **74**, adding the DOM order, the box height, the history's position
 below the button, the absence of the chrome furniture, and the computed page ground and
 four-sided border widths.
+
+---
+
+# The progress screen could not show progress, and two bugs hiding behind that one
+
+The report of it was "it's stuck on first scoring forever, so bad". The run was not stuck. It
+finished in 243s and scored 65 AT RISK on a transcript written for the occasion, catching all five
+facts planted in it. What was broken was the screen.
+
+## The root cause
+
+```ts
+const result = await scoreTranscript(pack, {
+  onProgress: async () => { await heartbeat(runId); },   // beats, saves NOTHING
+});
+for (const d of result.dimensions) await saveDimension(runId, d);   // saves all twelve, at the end
+```
+
+`progressFor()` counts rows in `run_dimensions`. Those rows did not exist until the loop had
+finished, so progress read **0/12 for the entire run and then 12/12**. Verified against the live
+row while it was running: 0 committed at 195s, 12 at 243s.
+
+The comment directly above that callback said *"Commits per dimension and beats the heartbeat
+after each, so a death partway through loses one dimension, not twelve."* It had been there since
+the worker was written and it was never true. A death at dimension 11 lost all eleven.
+
+Three things followed, and only the first is cosmetic:
+
+1. progress could never move
+2. a mid-run death was total loss, not partial
+3. a spinner and a countdown were both impossible, because the page **full-reloaded every 5
+   seconds** — 429 KB × ~48 reloads ≈ **20 MB per run** — and any animation restarted each time
+
+## Two bugs that the obvious fix would have exposed
+
+**The spinner would have sat on the wrong row.** The screen marked the live dimension as
+`rubricOrder[done]`. The scorer iterates `callOrder(pack)`, which groups dimensions by score enum
+so same-enum calls share a warm prompt cache, and forces D12 last because its inputs are the other
+dimensions' outcomes:
+
+```
+coaching  rubric: D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12
+coaching  call:   D1 D2 D5 D3 D4 D6 D7 D8 D9 D11 D10 D12
+kickoff   call:   D1 D2 D6 D8 D9 D3 D10 D4 D5 D7 D11 D12
+```
+
+Both diverge at the **third** call. It was invisible only because `done` was pinned at 0, so the
+marker never left row 1. The moment dimensions started landing you would have had a scored row and
+a spinning row several places apart. `currentDimensionId()` now takes the first id in call order
+that has not been committed, and there is a unit test asserting
+`currentDimensionId(COACHING_PACK, ["D1","D2"]) === "D5"` and explicitly `!== "D3"`.
+
+**The deck's reduced-motion block would have turned the spinner into a strobe.** I said in
+planning that `app/index.html` had no `prefers-reduced-motion` rule. It has two, and they are the
+dangerous variant:
+
+```css
+*, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+```
+
+That is the well-known snippet with its second half missing — it sets duration but **not
+`animation-iteration-count: 1`**. An `infinite` animation under it does not stop. It completes
+~100,000 cycles a second and is sampled once per frame, so the arc lands on an arbitrary angle
+every frame: a strobe, delivered precisely to the people the media query exists to protect. Worse
+than shipping no reduced-motion support at all.
+
+`[data-spin]::after` (specificity 0,1,1) beats `*::after` (0,0,1) at equal `!important` weight, so
+an explicit `animation:none!important` wins regardless of source order — which matters, because
+`only()` injects at end-of-body while the deck's block is in `<head>`. There is a Playwright
+assertion in a `reduced_motion="reduce"` context checking `animationName === 'none'`, because
+nothing else can catch this.
+
+## What the screen says now
+
+- **Phases.** A run is 1 fact pass → 12 dimensions → 1 synthesis. The fact pass takes ~20–30s
+  during which zero dimensions have landed — the same `0/12` as a run that has not started, and
+  more than half the window that felt stuck. A `run_caps` row is the only durable thing separating
+  them, so `execute()` now commits caps the moment the fact pass returns (they are final there —
+  `computeTotal` reads caps, it never rewrites them). During the fact pass **no dimension row
+  spins**; the spinner sits on a phase line, because spinning row 01 while row 01 is not being
+  scored is a lie for exactly the 30s that matters.
+- **The count stays `n / 12`** — it maps onto the twelve-dimension report. The **bar** spans all
+  fourteen steps, so it cannot fill while the page still says it is scoring.
+- **No score is shown mid-run.** Rows committed during the loop are pre-arithmetic: D-02
+  redistribution promotes maxima and scales scores, and a non-recoverable cap floors D10 to 0. A
+  number that later changes is the one thing this project does not print, and the progress screen
+  had a score pill that no real run had ever reached — only the seed fixture had.
+
+## The estimate, built so it cannot lie
+
+`perDim = (heartbeatAt − startedAt) / done`, `remaining = (12 − done + 1) × perDim`. Two deliberate
+over-estimates: `perDim` amortises the fact pass so it is worst at `done = 1` and tightens
+monotonically, and synthesis is charged a full dimension. There is a unit test asserting the
+overshoot is positive at `done=1`, positive at `done=6`, and **smaller at 6 than at 1** — the bias
+encoded as a property so nobody later "improves" it into a trailing-window rate that can undershoot.
+
+Before the first dimension lands there is **no number at all**, just `ESTIMATE ONCE THE FIRST
+DIMENSION LANDS`. The ~20s/dimension figure from an earlier run was measured on a 9 KB transcript;
+`coaching-02` is 65 KB. Displaying it would be an invented number, which is the failure this
+codebase has already fixed twice.
+
+The remaining figure is **never interpolated client-side**. It changes only when a dimension lands.
+That is the structural guarantee: it cannot reach zero through time passing, only through evidence
+arriving. Every lying countdown ever shipped was built by interpolating between polls.
+
+**One countdown is allowed**, because it counts toward something that genuinely happens: past 60s
+without a landing, the page says how many seconds remain before the stale sweep declares the run
+dead and says why. That makes the never-a-forever-spinner promise visible rather than merely
+honoured.
+
+## Polling
+
+`GET /api/runs/:id` already returned `{...contract, progress}` and measures **907 bytes** while
+running. The rows are built once and thereafter only mutated — reassigning `innerHTML` per poll
+would destroy the node the animation lives on and restart the keyframe, which is the original bug
+at 1/100th the bandwidth. A terminal state does one `location.reload()`, so the finished report
+still comes from `renderReport` rather than a second client-side renderer.
+
+Three consecutive failed polls **stop the spinner** and say *"cannot reach the server … scoring is
+unaffected, it runs on the server"*. A spinner still turning while the page has no idea what is
+happening is the forbidden forever-spinner at the network layer. `console.warn`, never
+`console.error`, because `app.py` fails the whole suite on any console error.
+
+The client never decides a run is dead. The sweep is on read, so the next poll simply returns
+`failed`. Two authorities on liveness would eventually disagree, on the one screen whose job is to
+never be ambiguous.
+
+---
+
+# "Not evidenced" meant something other than what it said
+
+Asked to score every `notEvidenced` dimension 0 and suppress its feedback, with an invitation to
+push back. The data said no. All three flagged dimensions on that run **had evidence**:
+
+| dim | score | verified quotes | what the flag actually meant |
+|---|---|---|---|
+| D3 | 5/15 | 2 | 1 of 4 required behaviours missing |
+| D4 | 10/15 | **9** | 1 of 4 required behaviours missing |
+| D10 | 0/5 | **5** | the booking contradiction, both sides quoted |
+
+`notEvidenced` means *at least one required behaviour was looked for and not found*. Zeroing them
+would take D4 from 10/15 to 0 **on nine verified quotes** and drop the total 65 → ~45: a false
+negative, the same failure the system exists to prevent, pointed the other way. D10 was already
+0/5, and its 0 rests on five quotes — suppressing its feedback would delete the single finding the
+whole design was built to catch.
+
+**The bug was the badge.** It read `NOT EVIDENCED`, which any reader takes as "no evidence". It now
+reads `2 OF 5 NOT MET`, parsed out of the `absenceStatement` the contract already carried, with a
+tooltip saying the rest of the dimension is still evidenced. The arithmetic did not change.
+
+Where the instinct was right: a dimension with genuinely **zero** evidence is different —
+`kickoff-02` D8 scored 0/10 with 7 of 7 behaviours unevidenced. Detected as `evidence.length === 0`
+rather than from the flag.
+
+---
+
+# The PDF was losing its masthead entirely
+
+The whole print stylesheet was five rules. The Download button did expand every `<details>` first,
+so the content was there. The problem was that **`print-color-adjust` was set nowhere**, so
+browsers strip background colours in print — and three elements are `background:#423A5E;
+color:#fff`. On paper that is **white text on white**: the client name, "FULL ANALYSIS · COACHING
+CALL · RUN #…" and "Coached by …" printed as nothing at all.
+
+Print now has its own treatment rather than forcing backgrounds on (a reader can disable that, and
+a full-bleed dark panel is a page of wasted ink): masthead in dark ink with a rule under it,
+chips outlined instead of filled, single column, ~8pt labels and ~10.5pt body, band colour carried
+as **text** colour which survives, and break control so headings do not orphan and quotes do not
+split.
+
+**A bug in my own print CSS, caught by checking rather than trusting.** The masthead rule listed
+two selectors:
+
+```css
+body.qc-printing #3d [style*="background:#423A5E"],
+body.qc-printing [id="3d"] [style*="background:#423A5E"]{ ... }
+```
+
+`#3d` is an **invalid CSS selector** — an id may not begin with a digit unless escaped — and one
+invalid selector in a comma-separated list voids the **entire rule**. So the background stayed
+`#423A5E` while the separate `… *{color:#131628}` rule worked, which is why the first check showed
+dark text on a dark panel. Verified afterwards under `emulate_media(media="print")`, which is also
+the mistake in the first check: `getComputedStyle` reads screen media unless print is emulated, so
+the initial "still white" reading was measuring the wrong thing.
+
+---
+
+# Smaller things in the same pass
+
+**Evidence line numbers are now controls.** Clicking `L005` on the report shows the transcript
+around it — L002–L008 with the cited line highlighted — so a citation can be checked in place
+instead of trusted. It is a **bounded** `GET /api/runs/:id/context?line=&radius=` window, clamped
+to 6, and not an embed of the whole transcript: the run URL is shareable without a login, and
+today it discloses the quotes the scorer cited. Shipping the entire call inside the HTML would
+quietly upgrade every shared link from "the evidence" to "the whole conversation". Not in the PDF.
+
+**`Evaluate another call`** beside Share and Download, and a hard ten-minute return to the landing
+on every page — asked for explicitly, including the consequence that it also fires for a colleague
+reading a link you shared. The one guard: the run form does not bounce while there is an unsent
+transcript in the box, because silently binning someone's paste is not what "go back to the
+landing" was asking for.
+
+**Run numbers carry a `#`** everywhere they appear — progress hero, failure card, report masthead,
+grade card, and the deck's own static copy.
+
+**Report weight.** Every panel is built from one `CARD` constant, so section borders went 1px →
+2px in one place. Coloured text — severity labels, cap determinations, score chips, the absence
+badge — was 9–10px with no font-weight, so colour was doing all the work and thin colour read
+washed out.
+
+**The browser seed depicted an impossible state.** It committed `D1–D5` for a *kickoff* run, but
+kickoff call order is `D1 D2 D6 D8 D9 D3 …`. No worker produces that set, so the fixture documented
+something that cannot happen — and would have made the corrected live-row marker look broken when
+it was right. Now a call-order prefix, with cap rows, plus a third seed for the fact-pass phase
+which was previously unphotographable.
+
+**Also corrected:** `app/api/runs/route.ts` claimed 300s "comfortably covers the measured ~240s".
+That 243s was the *smallest* fixture at 9 KB; `coaching-02` is 65 KB over the same fourteen calls
+and has never been timed. The comment now says the headroom above 9 KB is unmeasured, and notes
+that per-dimension commits turn a kill from total loss into a partial one with an honest message.
+
+**Counts:** 94 → **107** unit tests, 74 → **94** browser assertions. Most of the new ones are
+negative — no provisional score, no invented estimate, no reload, no strobe under reduced motion —
+because every one of them names a behaviour that shipped.

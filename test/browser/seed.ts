@@ -34,7 +34,7 @@ const { canonicalise } = await import("../../lib/transcript/canonicalise.ts");
  * idempotency index covers it, so a seeded row can never collide with — or be returned instead
  * of — a genuine run of the same transcript.
  */
-async function seedRunning(fixture: string, callType: "coaching" | "kickoff", landed: string[], ageMs: number) {
+async function seedRunning(fixture: string, callType: "coaching" | "kickoff", landed: string[], ageMs: number, factsDone = true) {
   const body = canonicalise(readFileSync(join(ROOT, "fixtures", "transcripts", fixture), "utf8"));
   const sha = createHash("sha256").update(body, "utf8").digest("hex");
   const packSha = `seed-${sha.slice(0, 16)}`;
@@ -58,24 +58,41 @@ async function seedRunning(fixture: string, callType: "coaching" | "kickoff", la
     })));
     if (e.error) throw e.error;
   }
+  // A cap row is the durable proof the fact pass finished. Without it phaseOf() correctly reports
+  // "facts" and the seeded run depicts the wrong screen.
+  if (factsDone) {
+    const c = await db().from("run_caps").insert({
+      run_id: id, cap_id: `${callType}-cap-talkshare`, determination: "not_fired",
+      scope: "total", clamp_value: null, supporting: [], counter_evidence: [],
+    });
+    if (c.error) throw c.error;
+  }
   return id;
 }
 
 // Still going: five of twelve landed, heartbeat fresh.
-const running = await seedRunning("kickoff-01.txt", "kickoff", ["D1", "D2", "D3", "D4", "D5"], 0);
+// Call-order prefix, NOT rubric order. kickoff runs D1 D2 D6 D8 D9 D3 D10 D4 D5 D7 D11 D12, so
+// a run five dimensions in has committed exactly these five. Seeding D1-D5 depicted a state no
+// worker produces, and made the live-row marker look broken when it was right.
+const running = await seedRunning("kickoff-01.txt", "kickoff", ["D1", "D2", "D6", "D8", "D9"], 0);
 
 // Dead: three landed, heartbeat older than STALE_MS. Reading it is what kills it.
-const dying = await seedRunning("coaching-02.txt", "coaching", ["D1", "D2", "D3"], 216_000);
+const dying = await seedRunning("coaching-02.txt", "coaching", ["D1", "D2", "D5"], 216_000);
 const swept = await loadRun(dying);
 if (!swept?.sweptDead) throw new Error("the stale sweep did not fire — is STALE_MS still 120s?");
 
+// The fact pass in flight: heartbeat fresh, caps not yet committed, no dimension landed. A real
+// state that lasts ~30s of every run, and the one the screen used to have nothing to say about.
+const facts = await seedRunning("kickoff-02.txt", "kickoff", [], 0, false);
+
 writeFileSync(
   join(import.meta.dirname, "seeded.json"),
-  JSON.stringify({ running, failed: dying }, null, 2) + "\n",
+  JSON.stringify({ running, failed: dying, facts }, null, 2) + "\n",
   "utf8",
 );
 
 console.log(`QC_RUNNING=${running}`);
 console.log(`QC_FAILED=${dying}`);
+console.log(`QC_FACTS=${facts}`);
 console.log("written to test/browser/seeded.json");
 console.log(`\nswept by loadRun, not by hand:\n  ${swept.run.error_code}: ${swept.run.error_message}`);

@@ -84,6 +84,12 @@ export const DIMENSION_ICONS: Record<string, Icon> = {
   "kickoff:D12": { name: "paper plane", paths: [
     "M21 3L3 10.5l7 3z", "M21 3l-3 18-8-7.5z", "M10 13.5L21 3" ] },
 
+  // ------------------------------------------------------------ interface marks
+  // Not a dimension. Lives here so every mark in the product is in one file, which is the
+  // property test/presentation.test.ts guards.
+  "ui:clock": { name: "clock face", paths: [
+    "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z", "M12 7v5.2l3.4 2" ] },
+
   // --------------------------------------------------- the two call-type marks
   "call:kickoff":  { name: "door", paths: [
     "M6 3h12v18H6z", "M3 21h18", "M15.4 12.5a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z" ] },

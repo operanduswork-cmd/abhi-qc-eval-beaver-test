@@ -34,10 +34,11 @@ test("the two rubrics do not share a mark at the same id", () => {
   }
 });
 
-test("24 dimension marks plus the two call-type marks, all distinct", () => {
-  assert.equal(Object.keys(DIMENSION_ICONS).length, 26);
+test("24 dimension marks, two call-type marks and one interface mark, all distinct", () => {
+  assert.equal(Object.keys(DIMENSION_ICONS).length, 27);
   assert.ok(DIMENSION_ICONS["call:kickoff"]);
   assert.ok(DIMENSION_ICONS["call:coaching"]);
+  assert.ok(DIMENSION_ICONS["ui:clock"], "the ETA's clock lives in the icon set, not inline");
 
   const seen = new Map<string, string>();
   for (const [key, icon] of Object.entries(DIMENSION_ICONS)) {

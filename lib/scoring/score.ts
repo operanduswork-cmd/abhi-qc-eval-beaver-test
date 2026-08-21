@@ -32,8 +32,45 @@ export interface ScoreOptions {
   coachName?: string;
   effort?: Effort;
   runId?: string;
-  /** Called after each dimension lands, for the heartbeat. */
-  onProgress?: (done: number, total: number, dimensionId: string) => void | Promise<void>;
+  /**
+   * Called once the fact pass returns and every cap is resolved.
+   *
+   * Cap outcomes are FINAL here — `computeTotal` reads caps, it never rewrites them — so a
+   * caller may durably commit them. That commit is also the only evidence the ~30s fact pass
+   * finished, which is what lets a progress screen tell "reading the call for facts" from
+   * "no dimension has landed yet". Those are the same 0/12 and different truths.
+   */
+  onFacts?: (caps: ScoreResult["caps"]) => void | Promise<void>;
+  /**
+   * Called as each dimension lands, so a caller can commit it rather than waiting for all twelve.
+   *
+   * A single object rather than positional arguments: there is one production caller and four
+   * positional args, three of them `number | string`, is where a caller eventually transposes two.
+   */
+  onProgress?: (ev: DimensionLanded) => void | Promise<void>;
+}
+
+export interface DimensionLanded {
+  done: number;
+  total: number;
+  /**
+   * Position in CALL order, which is NOT rubric order. `callOrder()` groups dimensions by score
+   * enum so same-enum calls share a warm prompt cache, and forces D12 last because its negative
+   * signals are the other dimensions' outcomes. Coaching runs D1 D2 D5 D3 D4 …, so an index into
+   * `pack.dimensions` names the wrong dimension from the third call onward.
+   */
+  index: number;
+  dimensionId: string;
+  /**
+   * PROVISIONAL. `computeTotal` has not run yet. Between here and the report:
+   *   - resolveActiveSet may promote maxPoints AND scale score (D2 N/A -> D3 15 becomes 25)
+   *   - applyDimensionCaps may clamp, or floor to 0 on a non-recoverable cap (D8, D10)
+   * The top-bucket gate has already run — it lives inside resolveDimensionScore.
+   *
+   * A caller MUST overwrite this with the post-arithmetic value at the end of the run, and MUST
+   * NOT render it as a score. See lib/run.ts execute().
+   */
+  provisional: DimensionResult;
 }
 
 export interface DimensionResult {
@@ -109,6 +146,7 @@ export async function scoreTranscript(pack: RubricPack, opts: ScoreOptions): Pro
   if (!factRes.ok) failures.push(`fact pass failed: ${factRes.error}`);
 
   const capOutcomes = resolveCaps(pack.caps, factRes.data?.cap_findings ?? [], verifyAll, shares, factRes.ok);
+  await opts.onFacts?.(capOutcomes);
 
   const givenFacts = capOutcomes
     .filter((c) => c.determination !== "not_fired")
@@ -134,7 +172,9 @@ export async function scoreTranscript(pack: RubricPack, opts: ScoreOptions): Pro
     if (res.reasoning === "") failures.push(`${id} produced no result`);
     results.push(res);
     priorOutcomes.push(`${id} ${dim.title}: ${res.score ?? "N/A"}/${res.maxPoints}`);
-    await opts.onProgress?.(i + 1, order.length, id);
+    await opts.onProgress?.({
+      done: i + 1, total: order.length, index: i, dimensionId: id, provisional: res,
+    });
   }
 
   // restore rubric order for the report

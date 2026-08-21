@@ -15,8 +15,12 @@ const esc = (s: unknown) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 // ---- tokens shared with the rest of the page -------------------------------
+// Every panel in the report is built from this one constant, so weight is changed in one place.
+// At 1px against a light card the sections read as ruled areas of one sheet rather than as
+// separate cards, which is what "the text is all over" was partly describing.
 const CARD =
-  "background:var(--qc-raised);border:1px solid var(--qc-rule);border-radius:16px;overflow:hidden";
+  "background:var(--qc-raised);border:2px solid var(--qc-rule-strong);border-radius:16px;" +
+  "overflow:hidden;box-shadow:0 1px 0 rgba(19,22,40,.04)";
 const HEAD =
   "padding:9px 15px;background:var(--qc-sunk);border-bottom:1px solid var(--qc-rule);display:flex;align-items:center;gap:9px";
 const LAB = "font:8.5px/1 var(--qc-mono);letter-spacing:.16em;color:var(--qc-ink-dim)";
@@ -90,7 +94,7 @@ const capLines = capShown.length
         return (
           `<details style="margin-bottom:5px">` +
           `<summary style="list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px">` +
-          `<span style="font:9.5px var(--qc-mono);letter-spacing:.1em;color:var(${tone});flex:none">` +
+          `<span style="font:700 9.5px var(--qc-mono);letter-spacing:.1em;color:var(${tone});flex:none">` +
           `${esc(String(c.determination).toUpperCase())}</span>` +
           `<span style="font:11.5px var(--qc-body);color:var(--qc-ink-muted);flex:1">` +
           `<b style="color:var(--qc-brand);font-weight:600">${esc(c.id)}</b> &mdash; ${verdict}</span>` +
@@ -115,7 +119,7 @@ const runCode = String(run.transcriptSha256).slice(0, 6).toUpperCase();
 
 const grade =
   `<div style="${CARD};margin-bottom:14px">` +
-  head("A GRADE AND A TOTAL", `RUN ${runCode}`) +
+  head("A GRADE AND A TOTAL", `RUN #${runCode}`) +
   `<div style="padding:18px 18px 20px;display:flex;gap:34px;align-items:flex-start">` +
   `<div style="flex:none"><div style="display:flex;align-items:baseline;gap:8px">` +
   `<span style="font-family:var(--qc-display);font-weight:700;font-size:74px;line-height:.9;` +
@@ -207,7 +211,7 @@ const flags =
     .map(
       (f: any) =>
         `<div style="display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--qc-rule)">` +
-        `<span style="font:9.5px var(--qc-mono);letter-spacing:.1em;color:var(${SEV[f.severity]});` +
+        `<span style="font:700 9.5px var(--qc-mono);letter-spacing:.1em;color:var(${SEV[f.severity]});` +
         `width:58px;flex:none;padding-top:2px">${esc(f.severity)}</span>` +
         `<span style="flex:1;font:12px/1.6 var(--qc-body);color:var(--qc-ink-muted)">${esc(f.text)}</span>` +
         `<span style="font:9.5px var(--qc-mono);color:var(--qc-ink-dim);flex:none;padding-top:3px">` +
@@ -224,14 +228,46 @@ const evRow = (e: any) => {
   const label = e.line == null ? "&mdash;" : "L" + String(e.line).padStart(3, "0");
   return (
     `<div style="display:flex;gap:14px;margin-top:11px">` +
-    `<span style="font:10px var(--qc-mono);color:var(${ok ? "--qc-cite" : "--qc-ink-dim"});` +
-    `width:34px;flex:none;padding-top:2px">${label}</span>` +
+    // The line number is a control on the live report: it opens the transcript around the quote,
+    // so a reader can check the citation in place rather than taking it on faith. A quote that
+    // failed verification has no line to open, so it stays inert text.
+    (e.line == null
+      ? `<span style="font:10px var(--qc-mono);color:var(--qc-ink-dim);width:34px;flex:none;` +
+        `padding-top:2px">${label}</span>`
+      : `<button type="button" data-cite-line="${Number(e.line)}" ` +
+        `title="Show this line in the transcript" ` +
+        `style="font:700 10px var(--qc-mono);color:var(--qc-cite);width:34px;flex:none;` +
+        `padding:2px 0 0;background:none;border:0;border-bottom:1px dotted var(--qc-cite);` +
+        `cursor:pointer;text-align:left">${label}</button>`) +
     `<div style="border-left:2px ${ok ? "solid var(--qc-rule-strong)" : "dashed var(--qc-rule-strong)"};padding-left:14px">` +
     `<div style="${LAB};margin-bottom:5px">${esc(e.speaker)}` +
-    (ok ? "" : ` &nbsp;·&nbsp; <span style="color:var(--qc-at-risk)">${esc(e.status)}</span>`) +
+    (ok ? "" : ` &nbsp;·&nbsp; <span style="font-weight:700;color:var(--qc-at-risk)">${esc(e.status)}</span>`) +
     `</div>` +
     `<div style="font:12px/1.55 var(--qc-body);color:var(--qc-brand);max-width:70ch">` +
     `&ldquo;${esc(e.exact ?? e.quote)}&rdquo;</div></div></div>`
+  );
+};
+
+/**
+ * The badge on a dimension that has an unmet requirement.
+ *
+ * It used to read NOT EVIDENCED, which every reader takes as "this dimension has no evidence".
+ * It does not mean that. `notEvidenced` means AT LEAST ONE required behaviour was looked for and
+ * not found — the dimension can be, and usually is, extensively evidenced otherwise. On one real
+ * run all three flagged dimensions carried evidence: D3 with 2 quotes, D4 with NINE and a score
+ * of 10/15, and D10 with five (the booking contradiction). Read as "no evidence", that badge
+ * argues for zeroing a score that nine verified quotes support.
+ *
+ * So it names the gap and, where the scorer counted it, how big the gap is — the count comes out
+ * of the absenceStatement the contract already carries.
+ */
+const gapBadge = (d: any) => {
+  const m = /(\d+)\s+of\s+(\d+)\s+required behaviours?/i.exec(String(d.absenceStatement ?? ""));
+  const label = m ? `${m[1]} OF ${m[2]} NOT MET` : "REQUIREMENT NOT MET";
+  return (
+    `<span title="Some required behaviour was not found. The rest of this dimension is still ` +
+    `evidenced." style="font:700 9px var(--qc-mono);letter-spacing:.1em;color:var(--qc-at-risk);` +
+    `border:1px solid var(--qc-at-risk);border-radius:999px;padding:2px 7px;flex:none">${label}</span>`
   );
 };
 
@@ -247,10 +283,8 @@ const row = (d: any) => {
     `${String(d.id).replace("D", "").padStart(2, "0")}</span>` +
     icon(d.id) +
     `<span style="flex:1;font:600 12.5px var(--qc-body);color:var(--qc-brand)">${esc(d.title)}</span>` +
-    (d.notEvidenced
-      ? `<span style="font:9px var(--qc-mono);letter-spacing:.1em;color:var(--qc-at-risk)">NOT EVIDENCED</span>`
-      : "") +
-    `<span style="font:10px var(--qc-mono);padding:2px 8px;border-radius:999px;` +
+    (d.notEvidenced ? gapBadge(d) : "") +
+    `<span style="font:700 10px var(--qc-mono);padding:2px 8px;border-radius:999px;` +
     `background:${isFail ? `var(${tok})` : "var(--qc-brand-tint)"};color:${isFail ? "#fff" : `var(${tok})`}">${chip}</span>` +
     `<span class="qc-chev" style="font:11px var(--qc-mono);color:var(--qc-ink-dim)">&rsaquo;</span>` +
     `</summary>` +
@@ -330,7 +364,7 @@ const fill = (hook: string, text: string) => {
   if (gt < 0 || close < 0) return;
   keep = keep.slice(0, gt + 1) + esc(text) + keep.slice(close);
 };
-fill("report-meta", `FULL ANALYSIS  \u00b7  ${String(run.callType).toUpperCase()} CALL  \u00b7  RUN ${runCode}`);
+fill("report-meta", `FULL ANALYSIS  \u00b7  ${String(run.callType).toUpperCase()} CALL  \u00b7  RUN #${runCode}`);
 fill("report-title", run.client || "This call");
 fill("report-sub", run.coach ? `Coached by ${run.coach}` : "Coach not named in the transcript");
 

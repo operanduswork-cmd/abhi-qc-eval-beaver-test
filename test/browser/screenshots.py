@@ -20,6 +20,7 @@ FINISHED = "8898427a-e9b2-4cda-81af-d05c000d2010"
 with open(os.path.join(os.path.dirname(__file__), "seeded.json"), encoding="utf-8") as fh:
     _seeded = json.load(fh)
 RUNNING  = os.environ.get("QC_RUNNING", _seeded["running"])
+FACTS    = os.environ.get("QC_FACTS", _seeded.get("facts", _seeded["running"]))
 FAILED   = os.environ.get("QC_FAILED", _seeded["failed"])
 
 # The progress page only shows "still going" while the heartbeat is fresh; loadRun sweeps a run
@@ -65,6 +66,18 @@ def open_dimension(pg):
     print("    ! no dimension disclosure found")
 
 
+def open_citation(pg):
+    """The evidence line number opens the transcript around the quote — the point of the feature."""
+    open_dimension(pg)
+    c = pg.locator("[data-cite-line]").first
+    c.scroll_into_view_if_needed()
+    c.click()
+    pg.wait_for_selector('[data-qc="cite-pop"]', timeout=8000)
+    pg.wait_for_function(
+        """() => { const b = document.querySelector('[data-qc="cite-body"]');
+                   return b && !/loading/.test(b.textContent); }""", timeout=8000)
+
+
 def click_share(pg):
     pg.locator("#qcShare").click()
     pg.wait_for_timeout(350)
@@ -96,10 +109,12 @@ with sync_playwright() as p:
                 % str([FINISHED, RUNNING, FAILED]).replace("'", '"'))
     shot(pg, f"{BASE}/new", "02b-run-form-with-history.png", full=True, before=wait_for_rows)
     shot(pg, f"{BASE}/new", "02c-run-form-pasted.png",       full=True, before=paste_then_wait)
-    shot(pg, f"{BASE}/runs/{RUNNING}",  "03-progress.png")
+    shot(pg, f"{BASE}/runs/{FACTS}",    "03-progress-fact-pass.png")
+    shot(pg, f"{BASE}/runs/{RUNNING}",  "03b-progress-scoring.png")
     shot(pg, f"{BASE}/runs/{FINISHED}", "04-report.png",            full=True)
     shot(pg, f"{BASE}/runs/{FINISHED}", "05-report-dimension.png",  full=True, before=open_dimension)
     shot(pg, f"{BASE}/runs/{FINISHED}", "06-report-share.png",      before=click_share)
+    shot(pg, f"{BASE}/runs/{FINISHED}", "06b-report-citation.png",   before=open_citation)
     shot(pg, f"{BASE}/runs/{FAILED}",   "07-failed-run.png")
     shot(pg, f"{BASE}/runs/00000000-0000-4000-8000-000000000000", "08-run-not-found.png")
     fresh.close()

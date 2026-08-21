@@ -43,6 +43,10 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
 
   // progressFor re-reads the run, so it can only be null if the row vanished between the two
   // reads. Fall back to an empty rubric rather than inventing twelve rows we cannot name.
-  const p = (await progressFor(id)) ?? { done: 0, total: 12, dimensions: [] };
+  const p = (await progressFor(id)) ?? {
+    done: 0, total: 12, phase: "queued" as const, startedAt: null, elapsedMs: 0,
+    currentDimensionId: null, etaMs: null, etaBasis: "this run could not be read", etaText: "NO ESTIMATE",
+    heartbeatAgeMs: null, staleInMs: null, dimensions: [],
+  };
   return html(renderPending(contract, p));
 }
