@@ -9,6 +9,16 @@ Total API spend for the entire build, probes included: **$8.16**.
 
 ## 1. Determinism — 11/12, and the one that moves is named
 
+> **Check this yourself: `npm run evidence`.** It recomputes every figure in this section, and in
+> §2 and §2b, straight from the raw API responses in `probes/out/` and `eval/out/` — which are
+> committed for exactly that reason. It prints the source file beside each number and exits
+> non-zero if any of them stops matching this write-up.
+>
+> Counted honestly, that is **32 repeated Opus measurements** for the system that ships (20 + 10
+> at the level of a single scored question, plus 2 full end-to-end runs) and **25 Sonnet
+> measurements** that exist only to justify rejecting it. Adding those into one number would
+> overstate what has been measured about the thing being submitted.
+
 Two runs of `coaching-01`, **identical code on both sides**, inside the 1-hour prompt-cache
 window.
 

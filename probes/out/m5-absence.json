@@ -1,0 +1,262 @@
+{
+  "probe": "M5",
+  "transcript": "coaching-01",
+  "n": 10,
+  "verdict": "STRONG — 10/10 fully correct. The prompt design holds; proceed.",
+  "distribution": {
+    "indeterminate": 10
+  },
+  "quoted_both": 10,
+  "indeterminate": 10,
+  "booked_live": 0,
+  "fully_correct": 10,
+  "total_cost": 0.4194575,
+  "avg_output_tokens": 859,
+  "avg_reasoning_tokens": 278,
+  "question": "Resolve this cap predicate: \"Next call NOT booked live during the call.\"\n\n1. In booking_evidence, list EVERY instance where a next call was booked live during this\n   call - a specific date/time agreed, a link used, or a confirmation given. Verbatim quotes\n   of at least 8 words, with the line number. Empty array if there are none.\n2. In counter_evidence, list EVERY statement that contradicts or walks back a booking, or\n   that defers scheduling to after the call. Same format. Empty array if there are none.\n3. Then state your determination. Use \"indeterminate\" when both arrays are non-empty and\n   they genuinely conflict.",
+  "results": [
+    {
+      "label": "run-01",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 0,
+      "out": 789,
+      "reasoning_tokens": 217,
+      "cost": 0.15464
+    },
+    {
+      "label": "run-02",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 825,
+      "reasoning_tokens": 236,
+      "cost": 0.0283825
+    },
+    {
+      "label": "run-03",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 879,
+      "reasoning_tokens": 318,
+      "cost": 0.0297325
+    },
+    {
+      "label": "run-04",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 842,
+      "reasoning_tokens": 223,
+      "cost": 0.0288075
+    },
+    {
+      "label": "run-05",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193,
+        184
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 672,
+      "reasoning_tokens": 333,
+      "cost": 0.0245575
+    },
+    {
+      "label": "run-06",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193,
+        189
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 856,
+      "reasoning_tokens": 197,
+      "cost": 0.0291575
+    },
+    {
+      "label": "run-07",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 826,
+      "reasoning_tokens": 250,
+      "cost": 0.0284075
+    },
+    {
+      "label": "run-08",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 924,
+      "reasoning_tokens": 350,
+      "cost": 0.0308575
+    },
+    {
+      "label": "run-09",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193,
+        186
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 1075,
+      "reasoning_tokens": 315,
+      "cost": 0.0346325
+    },
+    {
+      "label": "run-10",
+      "ok": true,
+      "err": null,
+      "determination": "indeterminate",
+      "booking_lines": [
+        185,
+        187,
+        188
+      ],
+      "counter_lines": [
+        193
+      ],
+      "quoted_188_and_193": true,
+      "contradiction_lines_seen": [
+        185,
+        188,
+        193
+      ],
+      "cached": 13385,
+      "out": 901,
+      "reasoning_tokens": 337,
+      "cost": 0.0302825
+    }
+  ]
+}

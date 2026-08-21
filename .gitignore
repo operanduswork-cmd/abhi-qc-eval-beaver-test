@@ -32,8 +32,11 @@ yarn-debug.log*
 yarn-error.log*
 *.log
 
-# probe output — measured numbers are committed deliberately via eval/REPORT.md
-/probes/out/
+# probe output IS committed. Every determinism and stability number in eval/REPORT.md and
+# probes/RESULTS.md is derived from these files, and a number nobody can check is just a claim.
+# `npm run evidence` recomputes the headline figures straight from them.
+# (Checked for credentials before un-ignoring: they hold distributions, verdicts and token
+#  counts, no keys and no Authorization headers.)
 
 # graphify working files (graph.json + report are kept)
 graphify-out/.graphify_*
@@ -49,10 +52,11 @@ supabase/.temp/
 # compilation intermediates — regenerate via scripts/assemble-packs.mjs
 .scratch/
 
-# scorer output — except the demo run, which app/index.html is rendered from and
-# which the deployed site therefore depends on. Un-ignore it explicitly.
+# Scorer output IS committed. These are the runs eval/REPORT.md quotes — including
+# coaching-01.run1.json, which is the second determinism run and the only way anyone can verify
+# the "11 of 12 identical" claim rather than taking it on trust.
 eval/out/*
-!eval/out/coaching-01.json
+!eval/out/*.json
 
 # report page backups from local edit sessions — regenerate with `npm run render`
 app/index.bak*.html

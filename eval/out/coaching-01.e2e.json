@@ -1,0 +1,1714 @@
+{
+  "caps": [
+    {
+      "id": "coaching-cap-booking",
+      "clamp": 0,
+      "scope": "dimension",
+      "target": "D10",
+      "statement": "Both supporting and contradicting evidence exist, so this cannot be settled from the transcript. The cap is NOT applied and the call is scored on the branch where it does not fire. Supporting: L187 \"Okay, what about Wednesday the 10th instead, same four o'clock slot?\" · L188 \"Wednesday the 10th at four, yeah, I'm off that day, that one works. Let's lock t\" · L185 \"Let's just lock it in right now instead of me chasing you down later.\". Contradicting: L193 \"Alright, go get some rest, I'll get you those times soon so we can get this lock\".",
+      "determination": "indeterminate",
+      "nonRecoverable": true
+    },
+    {
+      "id": "coaching-cap-vision",
+      "clamp": 10,
+      "scope": "dimension",
+      "target": "D3",
+      "statement": "Found 5 instance(s), so this condition does not hold. L101 \"that specific goal of getting back to full duty and getting on the floor with Zu\" · L109 \"so you never lose sight of Zuri and getting back to full shift work while we're \" · L107 \"unrestricted duty clearance is a completely realistic target for you, that's not\"",
+      "determination": "not_fired",
+      "nonRecoverable": false
+    },
+    {
+      "id": "coaching-cap-talkshare",
+      "clamp": 75,
+      "scope": "total",
+      "target": null,
+      "statement": "Coach word share 66.6%. The rubric states this cap in TIME, but the transcript has no timestamps, so time share is bounded at 62.4%-68.9% for a speaking-rate ratio of 0.9-1.2. Threshold is 75.0%. The entire interval sits at or below it, so the cap does not fire.",
+      "determination": "not_fired",
+      "nonRecoverable": false
+    },
+    {
+      "id": "coaching-cap-accountability",
+      "clamp": 10,
+      "scope": "dimension",
+      "target": "D6",
+      "statement": "Found 4 instance(s), so this condition does not hold. L168 \"One step-down clip, five reps, hip staying level, before cycle five starts, and \" · L164 \"Yeah, I'll shoot that over, probably tomorrow, I've got it saved on my phone alr\" · L162 \"Okay yeah, I can do the clips, and I'll log the sessions like usual, that part's\"",
+      "determination": "not_fired",
+      "nonRecoverable": false
+    },
+    {
+      "id": "coaching-cap-struggle",
+      "clamp": 0,
+      "scope": "dimension",
+      "target": "D8",
+      "statement": "No instances found, so this condition does not hold and the cap does not apply. Struggles (missed sessions, guilt, fatigue, unanswered community post) were each engaged with at length.",
+      "determination": "not_fired",
+      "nonRecoverable": true
+    },
+    {
+      "id": "coaching-cap-actionsteps",
+      "clamp": 70,
+      "scope": "total",
+      "target": null,
+      "statement": "Found 9 instance(s), so this condition does not hold. L135 \"Done, I'll build you a ten minute \"rough shift\" version this week specifically, \" · L157 \"I'm building that ten minute rough-shift version and I'll have it sitting live i\" · L159 \"I'll get you feedback on the video tool, I'm thinking within about two days of y\"",
+      "determination": "not_fired",
+      "nonRecoverable": false
+    }
+  ],
+  "brief": "Priya, this is about as good as a check-in call gets. You opened by refusing the highlight-reel answer and then let Malik pick his own order, which is why the win came out first and the four missed sessions came out honestly a minute later. The side-by-side video against his cycle-one clip did more work than any explanation could have, and you were disciplined about spending live time only on the leaking piece rather than listing ten corrections. The missed-session conversation was the standout: you diagnosed depletion versus disinterest, asked what was realistically possible, invited criticism of your own plan, and turned his own ten-minute answer into a pre-built rough-shift session with a Thursday deadline. Narrowing the ask to one clean step-down clip and having him repeat it back verbatim is exactly right. The one loose end is the booking. You said you'd lock it in right now, you got to Wednesday the 10th at four, and then closed with \"I'll get you those times soon\" — no link, nothing actually on a calendar. That's the only place a call this strong leaks.",
+  "coach": "Priya Raman",
+  "runId": "31c21fbf-0522-4473-bbed-9b62f28b9f23",
+  "total": {
+    "band": {
+      "max": 100,
+      "min": 90,
+      "name": "ELITE"
+    },
+    "rawTotal": 98,
+    "maxPossible": 105,
+    "arithmeticNotes": [
+      "coaching-cap-booking is INDETERMINATE — supporting and contradicting evidence both exist. It is NOT applied: a penalty that cannot be established is not applied. Scored on the branch where the cap does not fire.",
+      "The coaching rubric's twelve dimensions sum to 105 while the document states the total is 100. The result is reported on the 100 scale by normalising against the true sum of active maxima, which is the mechanism the document itself specifies for the D4 case."
+    ],
+    "normalizedTotal": 93,
+    "appliedTotalCaps": []
+  },
+  "client": "Malik Osei",
+  "status": "finished",
+  "callType": "coaching",
+  "oneThing": {
+    "text": "Share your booking link live on the call and have Malik book Wednesday the 10th at four while you're both still on, then confirm out loud that you can see it locked in.",
+    "wouldScore": 5,
+    "dimensionId": "D10"
+  },
+  "redFlags": [
+    {
+      "line": 193,
+      "text": "Next call was verbally agreed but never actually booked in a system, and the close contradicted the agreement — leaving the most schedule-volatile client on the roster with no locked slot after a rotation that already cost him four sessions.",
+      "severity": "MEDIUM"
+    },
+    {
+      "line": 170,
+      "text": "Malik used the community channel once when his knee felt off and got no reply. He already treats support channels as a possible black hole, which is exactly the behaviour that precedes going quiet.",
+      "severity": "MEDIUM"
+    },
+    {
+      "line": 20,
+      "text": "He arrived braced for a lecture and had an apology prepped. The shame-to-avoidance loop is live; if one more rotation goes badly before the fix lands, silence is his default.",
+      "severity": "LOW"
+    }
+  ],
+  "talkShare": {
+    "coachWordShare": 0.6655689115758274,
+    "rateRatioRange": {
+      "max": 1.2,
+      "min": 0.9
+    },
+    "coachTimeShareLow": 0.6238424496851463,
+    "coachTimeShareHigh": 0.688597761461013
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "score": 10,
+      "title": "Check-In & Connection",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 5,
+          "exact": "how's the knee feeling today, right now, not the highlight reel version you'd give me in a text",
+          "quote": "how's the knee feeling today, right now, not the highlight reel version you'd give me in a text",
+          "status": "verified",
+          "charEnd": 696,
+          "speaker": "Priya Raman",
+          "charStart": 601,
+          "wordCount": 18,
+          "claimedLine": 5
+        },
+        {
+          "line": 9,
+          "exact": "How's the body been since we last talked, what's felt like a genuine win, and what's felt hardest.",
+          "quote": "How's the body been since we last talked, what's felt like a genuine win, and what's felt hardest.",
+          "status": "verified",
+          "charEnd": 1346,
+          "speaker": "Priya Raman",
+          "charStart": 1248,
+          "wordCount": 18,
+          "claimedLine": 9
+        },
+        {
+          "line": 13,
+          "exact": "Malik. That is not a small thing, say more. What did that actually feel like in the moment?",
+          "quote": "Malik. That is not a small thing, say more. What did that actually feel like in the moment?",
+          "status": "verified",
+          "charEnd": 1892,
+          "speaker": "Priya Raman",
+          "charStart": 1801,
+          "wordCount": 18,
+          "claimedLine": 13
+        },
+        {
+          "line": 19,
+          "exact": "Thank you for just telling me straight instead of dancing around it, I mean that",
+          "quote": "Thank you for just telling me straight instead of dancing around it, I mean that",
+          "status": "verified",
+          "charEnd": 3042,
+          "speaker": "Priya Raman",
+          "charStart": 2962,
+          "wordCount": 15,
+          "claimedLine": 19
+        },
+        {
+          "line": 25,
+          "exact": "a two with no swelling and no locking after a rough rotation like that is honestly a great data point",
+          "quote": "a two with no swelling and no locking after a rough rotation like that is honestly a great data point",
+          "status": "verified",
+          "charEnd": 4097,
+          "speaker": "Priya Raman",
+          "charStart": 3996,
+          "wordCount": 20,
+          "claimedLine": 25
+        },
+        {
+          "line": 115,
+          "exact": "That snowball thing, where missing one makes missing the next one feel almost inevitable, I want you to know that's really common",
+          "quote": "That snowball thing, where missing one makes missing the next one feel almost inevitable, I want you to know that's really common",
+          "status": "verified",
+          "charEnd": 20060,
+          "speaker": "Priya Raman",
+          "charStart": 19931,
+          "wordCount": 22,
+          "claimedLine": 115
+        },
+        {
+          "line": 21,
+          "exact": "Here's what I want to do with today then. I want to look at the two clips you uploaded, get you moving live on camera",
+          "quote": "Here's what I want to do with today then. I want to look at the two clips you uploaded, get you moving live on camera",
+          "status": "verified",
+          "charEnd": 3374,
+          "speaker": "Priya Raman",
+          "charStart": 3257,
+          "wordCount": 25,
+          "claimedLine": 21
+        },
+        {
+          "line": 21,
+          "exact": "spend real time on what actually happened with those sessions and how we protect the next few weeks",
+          "quote": "spend real time on what actually happened with those sessions and how we protect the next few weeks",
+          "status": "verified",
+          "charEnd": 3606,
+          "speaker": "Priya Raman",
+          "charStart": 3507,
+          "wordCount": 18,
+          "claimedLine": 21
+        },
+        {
+          "line": 21,
+          "exact": "Cancel the apology, you don't need it with me.",
+          "quote": "Cancel the apology, you don't need it with me.",
+          "status": "verified",
+          "charEnd": 3256,
+          "speaker": "Priya Raman",
+          "charStart": 3210,
+          "wordCount": 9,
+          "claimedLine": 21
+        },
+        {
+          "line": 9,
+          "exact": "we'll come back to that when I get you moving in a bit",
+          "quote": "we'll come back to that when I get you moving in a bit",
+          "status": "verified",
+          "charEnd": 1191,
+          "speaker": "Priya Raman",
+          "charStart": 1137,
+          "wordCount": 13,
+          "claimedLine": 9
+        }
+      ],
+      "quickFix": "Already at full marks; to keep it there, occasionally name the reflection explicitly (\"what I'm hearing is depleted, not disinterested\") so the summary is unmistakable to the client.",
+      "maxPoints": 10,
+      "reasoning": "At L5 Priya explicitly asks for the non-\"highlight reel\" version of the knee before any program content, then at L9 asks the full triad — body, genuine win, hardest thing — and lets Malik choose the order. She follows the win with curiosity rather than moving on (L13, L15), and does not interrupt; every turn responds to what he said. She reflects content back accurately (L25 pain rating framed as a data point; L115 naming the snowball pattern and separating depleted from lazy), even if she never uses the literal \"what I'm hearing is\" phrasing. The call intention at L21 is specific and directly tied to his disclosed state — clips, live movement, motivation, and explicit time on the missed sessions rather than glossing over them. And she visibly adapts: on hearing four missed sessions and a prepped apology she cancels the apology (L21) and builds the agenda around protection of the next weeks, and after the stiffness answer she defers to live movement assessment. Client responses confirm it landed (L22 \"Yeah, okay, that works for me\"; L24 gives a concrete 2/10). All five behaviours are evidenced.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D2",
+      "score": 10,
+      "title": "Diagnostics Review",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 27,
+          "exact": "okay, can you see my screen, the split squat clip from Sunday?",
+          "quote": "okay, can you see my screen, the split squat clip from Sunday?",
+          "status": "verified",
+          "charEnd": 4479,
+          "speaker": "Priya Raman",
+          "charStart": 4417,
+          "wordCount": 12,
+          "claimedLine": 27
+        },
+        {
+          "line": 35,
+          "exact": "Okay, now let's look at the step-down, this is the one I actually want to slow way down.",
+          "quote": "Okay, now let's look at the step-down, this is the one I actually want to slow way down.",
+          "status": "verified",
+          "charEnd": 6015,
+          "speaker": "Priya Raman",
+          "charStart": 5927,
+          "wordCount": 18,
+          "claimedLine": 35
+        },
+        {
+          "line": 43,
+          "exact": "The split squat's already trending the right direction, we don't need to spend live time fixing something that's already working",
+          "quote": "The split squat's already trending the right direction, we don't need to spend live time fixing something that's already working",
+          "status": "verified",
+          "charEnd": 7245,
+          "speaker": "Priya Raman",
+          "charStart": 7117,
+          "wordCount": 20,
+          "claimedLine": 43
+        },
+        {
+          "line": 29,
+          "exact": "see how your front knee is tracking pretty much right over your second toe the whole way down?",
+          "quote": "see how your front knee is tracking pretty much right over your second toe the whole way down?",
+          "status": "verified",
+          "charEnd": 4784,
+          "speaker": "Priya Raman",
+          "charStart": 4690,
+          "wordCount": 18,
+          "claimedLine": 29
+        },
+        {
+          "line": 37,
+          "exact": "Watch your left hip right at the bottom of the movement, I'm gonna go frame by frame... see that little dip, right there, where your left hip drops down toward the ground?",
+          "quote": "Watch your left hip right at the bottom of the movement, I'm gonna go frame by frame... see that little dip, right there, where your left hip drops down toward the ground?",
+          "status": "verified",
+          "charEnd": 6233,
+          "speaker": "Priya Raman",
+          "charStart": 6062,
+          "wordCount": 32,
+          "claimedLine": 37
+        },
+        {
+          "line": 39,
+          "exact": "that's a glute medius thing on your standing leg, it's not a knee problem directly, but it's absolutely going to load the knee wrong",
+          "quote": "that's a glute medius thing on your standing leg, it's not a knee problem directly, but it's absolutely going to load the knee wrong",
+          "status": "verified",
+          "charEnd": 6441,
+          "speaker": "Priya Raman",
+          "charStart": 6309,
+          "wordCount": 24,
+          "claimedLine": 39
+        },
+        {
+          "line": 33,
+          "exact": "that inward collapse is exactly the pattern that was probably loading the inside of your knee and contributing to that catch you used to feel",
+          "quote": "that inward collapse is exactly the pattern that was probably loading the inside of your knee and contributing to that catch you used to feel",
+          "status": "verified",
+          "charEnd": 5431,
+          "speaker": "Priya Raman",
+          "charStart": 5290,
+          "wordCount": 25,
+          "claimedLine": 33
+        },
+        {
+          "line": 41,
+          "exact": "so this one ties straight back to your goal of getting cleared for full unrestricted ladder ops, no light-duty stipulations attached to it",
+          "quote": "so this one ties straight back to your goal of getting cleared for full unrestricted ladder ops, no light-duty stipulations attached to it",
+          "status": "verified",
+          "charEnd": 6873,
+          "speaker": "Priya Raman",
+          "charStart": 6735,
+          "wordCount": 23,
+          "claimedLine": 41
+        },
+        {
+          "line": 40,
+          "exact": "that's basically every ladder descent I've done on shift since the fall, now that you say it",
+          "quote": "that's basically every ladder descent I've done on shift since the fall, now that you say it",
+          "status": "verified",
+          "charEnd": 6711,
+          "speaker": "Malik Osei",
+          "charStart": 6619,
+          "wordCount": 17,
+          "claimedLine": 40
+        },
+        {
+          "line": 32,
+          "exact": "wow, that's a pretty big difference actually, I didn't remember it looking that bad",
+          "quote": "wow, that's a pretty big difference actually, I didn't remember it looking that bad",
+          "status": "verified",
+          "charEnd": 5179,
+          "speaker": "Malik Osei",
+          "charStart": 5096,
+          "wordCount": 14,
+          "claimedLine": 32
+        },
+        {
+          "line": 41,
+          "exact": "That hip drop is the piece I actually want us to go hunt down live today, not just talk about on a call.",
+          "quote": "That hip drop is the piece I actually want us to go hunt down live today, not just talk about on a call.",
+          "status": "verified",
+          "charEnd": 6979,
+          "speaker": "Priya Raman",
+          "charStart": 6875,
+          "wordCount": 23,
+          "claimedLine": 41
+        },
+        {
+          "line": 43,
+          "exact": "one or two things, the ones that actually matter for where you're trying to go, not a laundry list of ten corrections",
+          "quote": "one or two things, the ones that actually matter for where you're trying to go, not a laundry list of ten corrections",
+          "status": "verified",
+          "charEnd": 7454,
+          "speaker": "Priya Raman",
+          "charStart": 7337,
+          "wordCount": 22,
+          "claimedLine": 43
+        },
+        {
+          "line": 33,
+          "exact": "is exactly the kind of control that lets you load a hose line off one knee for twelve minutes without it folding underneath you",
+          "quote": "is exactly the kind of control that lets you load a hose line off one knee for twelve minutes without it folding underneath you",
+          "status": "verified",
+          "charEnd": 5604,
+          "speaker": "Priya Raman",
+          "charStart": 5477,
+          "wordCount": 24,
+          "claimedLine": 33
+        }
+      ],
+      "quickFix": "Already at full marks; to sustain it, keep the side-by-side baseline comparison and the explicit \"why this clip and not that one\" rationale in every diagnostics review.",
+      "maxPoints": 10,
+      "reasoning": "At L29 the coach scrubs to the bottom of the split squat rep and names knee tracking over the second toe, then at L37 goes frame-by-frame on the left hip drop — exactly two movements screen-shared, with a side-by-side against the cycle-one baseline (L31). Observations are anatomically precise (glute medius on the standing leg, inward collapse loading the medial knee). Findings are tied to stated goals: unrestricted ladder ops (L41) and holding a hose line on one knee (L33). Client comprehension is explicit and unprompted — \"that's basically every ladder descent I've done on shift since the fall\" (L40) and the \"I didn't even clock that\" moment at L34. Movement selection is explicitly justified by relevance to the why (L43). All four behaviours evidenced with client confirmation; no counter-evidence.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D3",
+      "score": 15,
+      "title": "Program Focus + Vision",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 95,
+          "exact": "So Phase 2 for you specifically is about rebuilding real load tolerance in that knee, under positions that actually look like your job — kneeling, single leg work, controlled descending",
+          "quote": "So Phase 2 for you specifically is about rebuilding real load tolerance in that knee, under positions that actually look like your job — kneeling, single leg work, controlled descending",
+          "status": "verified",
+          "charEnd": 14321,
+          "speaker": "Priya Raman",
+          "charStart": 14136,
+          "wordCount": 30,
+          "claimedLine": 95
+        },
+        {
+          "line": 93,
+          "exact": "you're in cycle four of your Rebuild block, six cycles total, and that puts you right in the thick of Phase 2 Remodeling",
+          "quote": "you're in cycle four of your Rebuild block, six cycles total, and that puts you right in the thick of Phase 2 Remodeling",
+          "status": "verified",
+          "charEnd": 14050,
+          "speaker": "Priya Raman",
+          "charStart": 13930,
+          "wordCount": 23,
+          "claimedLine": 93
+        },
+        {
+          "line": 103,
+          "exact": "this specific block, Phase 2, is what sets up Phase 3 Integrating, which is where we start putting all of it together into actual duty-simulation work",
+          "quote": "this specific block, Phase 2, is what sets up Phase 3 Integrating, which is where we start putting all of it together into actual duty-simulation work",
+          "status": "verified",
+          "charEnd": 16772,
+          "speaker": "Priya Raman",
+          "charStart": 16622,
+          "wordCount": 26,
+          "claimedLine": 103
+        },
+        {
+          "line": 41,
+          "exact": "this one ties straight back to your goal of getting cleared for full unrestricted ladder ops, no light-duty stipulations attached to it",
+          "quote": "this one ties straight back to your goal of getting cleared for full unrestricted ladder ops, no light-duty stipulations attached to it",
+          "status": "verified",
+          "charEnd": 6873,
+          "speaker": "Priya Raman",
+          "charStart": 6738,
+          "wordCount": 22,
+          "claimedLine": 41
+        },
+        {
+          "line": 107,
+          "exact": "By the time you finish out cycle six of Rebuild and roll into Mastery, unrestricted duty clearance is a completely realistic target for you",
+          "quote": "By the time you finish out cycle six of Rebuild and roll into Mastery, unrestricted duty clearance is a completely realistic target for you",
+          "status": "verified",
+          "charEnd": 18012,
+          "speaker": "Priya Raman",
+          "charStart": 17873,
+          "wordCount": 24,
+          "claimedLine": 107
+        },
+        {
+          "line": 109,
+          "exact": "so you never lose sight of Zuri and getting back to full shift work while we're doing it",
+          "quote": "so you never lose sight of Zuri and getting back to full shift work while we're doing it",
+          "status": "verified",
+          "charEnd": 18511,
+          "speaker": "Priya Raman",
+          "charStart": 18423,
+          "wordCount": 18,
+          "claimedLine": 109
+        },
+        {
+          "line": 101,
+          "exact": "That's built directly off your actual diagnostics from cycle one, off where your body actually broke down after the fall",
+          "quote": "That's built directly off your actual diagnostics from cycle one, off where your body actually broke down after the fall",
+          "status": "verified",
+          "charEnd": 16123,
+          "speaker": "Priya Raman",
+          "charStart": 16003,
+          "wordCount": 20,
+          "claimedLine": 101
+        },
+        {
+          "line": 101,
+          "exact": "We build from your diagnostics and your actual goals, not a program everybody on the platform just gets handed the same way.",
+          "quote": "We build from your diagnostics and your actual goals, not a program everybody on the platform just gets handed the same way.",
+          "status": "verified",
+          "charEnd": 16357,
+          "speaker": "Priya Raman",
+          "charStart": 16233,
+          "wordCount": 22,
+          "claimedLine": 101
+        },
+        {
+          "line": 102,
+          "exact": "that's honestly why I stuck with this when the last program I tried after the surgery just had me doing the same leg press for twelve weeks straight",
+          "quote": "that's honestly why I stuck with this when the last program I tried after the surgery just had me doing the same leg press for twelve weeks straight",
+          "status": "verified",
+          "charEnd": 16539,
+          "speaker": "Malik Osei",
+          "charStart": 16391,
+          "wordCount": 28,
+          "claimedLine": 102
+        },
+        {
+          "line": 104,
+          "exact": "Okay, that actually helps, because not gonna lie I was starting to wonder why we're still doing what feels like \"basic\" stuff this far into the program.",
+          "quote": "Okay, that actually helps, because not gonna lie I was starting to wonder why we're still doing what feels like \"basic\" stuff this far into the program.",
+          "status": "verified",
+          "charEnd": 17167,
+          "speaker": "Malik Osei",
+          "charStart": 17015,
+          "wordCount": 27,
+          "claimedLine": 104
+        },
+        {
+          "line": 108,
+          "exact": "That's the first time anyone's actually put a real shape on it like that, instead of just \"keep doing the exercises and we'll see how it goes.\"",
+          "quote": "That's the first time anyone's actually put a real shape on it like that, instead of just \"keep doing the exercises and we'll see how it goes.\"",
+          "status": "verified",
+          "charEnd": 18275,
+          "speaker": "Malik Osei",
+          "charStart": 18132,
+          "wordCount": 27,
+          "claimedLine": 108
+        },
+        {
+          "line": 96,
+          "exact": "that tracks with everything we've been doing, I just hadn't heard it laid out like that before, connected together like that",
+          "quote": "that tracks with everything we've been doing, I just hadn't heard it laid out like that before, connected together like that",
+          "status": "verified",
+          "charEnd": 14775,
+          "speaker": "Malik Osei",
+          "charStart": 14651,
+          "wordCount": 21,
+          "claimedLine": 96
+        }
+      ],
+      "quickFix": "Already at full marks; to keep it there, add a one-line 12-month timeline anchor (\"twelve months from now, cleared, no stipulations\") when recapping so the vision has a date attached, not just a phase.",
+      "maxPoints": 15,
+      "reasoning": "At L93–L109 Priya names the exact block (cycle four of Rebuild, Phase 2 Remodeling), states what it targets (load tolerance in job-specific positions), bridges backward to Phase 1 and forward to Phase 3 Integrating and Mastery, and ties it to the named vision: unrestricted duty clearance and getting on the floor with Zuri. She revisits the original why at L97 (\"take yourself back to right after the ladder fall... What was actually driving you to sign up?\"), which produced the Zuri memory and the light-duty identity loss. The Halden differentiator is stated almost verbatim at L101 and the client responds with genuine insight at L102 contrasting the leg-press program. Client confirmation of WHY-this-block-now is explicit at L104 and L108. All four behaviours are evidenced with client buy-in.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D4",
+      "score": 15,
+      "title": "Movement Coaching Quality",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 29,
+          "exact": "Alright, this is your right leg forward, left leg elevated on the bench behind you. Watch right here, I'm gonna scrub back to the bottom of the rep",
+          "quote": "Alright, this is your right leg forward, left leg elevated on the bench behind you. Watch right here, I'm gonna scrub back to the bottom of the rep",
+          "status": "verified",
+          "charEnd": 4686,
+          "speaker": "Priya Raman",
+          "charStart": 4539,
+          "wordCount": 28,
+          "claimedLine": 29
+        },
+        {
+          "line": 35,
+          "exact": "Okay, now let's look at the step-down, this is the one I actually want to slow way down.",
+          "quote": "Okay, now let's look at the step-down, this is the one I actually want to slow way down.",
+          "status": "verified",
+          "charEnd": 6015,
+          "speaker": "Priya Raman",
+          "charStart": 5927,
+          "wordCount": 18,
+          "claimedLine": 35
+        },
+        {
+          "line": 45,
+          "exact": "Alright, let's get you up and get you moving so we can go fix that hip.",
+          "quote": "Alright, let's get you up and get you moving so we can go fix that hip.",
+          "status": "verified",
+          "charEnd": 7843,
+          "speaker": "Priya Raman",
+          "charStart": 7772,
+          "wordCount": 16,
+          "claimedLine": 45
+        },
+        {
+          "line": 49,
+          "exact": "Okay, set your feet up like we did in the clip, back foot up on the bench behind you.",
+          "quote": "Okay, set your feet up like we did in the clip, back foot up on the bench behind you.",
+          "status": "verified",
+          "charEnd": 8227,
+          "speaker": "Priya Raman",
+          "charStart": 8142,
+          "wordCount": 19,
+          "claimedLine": 49
+        },
+        {
+          "line": 51,
+          "exact": "Before you move at all, give me a breath first. In through the nose, and brace like someone's about to poke you in the stomach.",
+          "quote": "Before you move at all, give me a breath first. In through the nose, and brace like someone's about to poke you in the stomach.",
+          "status": "verified",
+          "charEnd": 8411,
+          "speaker": "Priya Raman",
+          "charStart": 8284,
+          "wordCount": 25,
+          "claimedLine": 51
+        },
+        {
+          "line": 53,
+          "exact": "now lower down slow, three count, and I want you thinking the whole way about that front heel driving into the floor",
+          "quote": "now lower down slow, three count, and I want you thinking the whole way about that front heel driving into the floor",
+          "status": "verified",
+          "charEnd": 8581,
+          "speaker": "Priya Raman",
+          "charStart": 8465,
+          "wordCount": 22,
+          "claimedLine": 53
+        },
+        {
+          "line": 73,
+          "exact": "this time I actually want you thinking about pushing the ground away with your standing leg, instead of just letting gravity lower you down into it",
+          "quote": "this time I actually want you thinking about pushing the ground away with your standing leg, instead of just letting gravity lower you down into it",
+          "status": "verified",
+          "charEnd": 11269,
+          "speaker": "Priya Raman",
+          "charStart": 11122,
+          "wordCount": 26,
+          "claimedLine": 73
+        },
+        {
+          "line": 57,
+          "exact": "Yeah, right there. Where do you feel that most right now?",
+          "quote": "Yeah, right there. Where do you feel that most right now?",
+          "status": "verified",
+          "charEnd": 8797,
+          "speaker": "Priya Raman",
+          "charStart": 8740,
+          "wordCount": 11,
+          "claimedLine": 57
+        },
+        {
+          "line": 63,
+          "exact": "What do you think changed on that one?",
+          "quote": "What do you think changed on that one?",
+          "status": "verified",
+          "charEnd": 9396,
+          "speaker": "Priya Raman",
+          "charStart": 9358,
+          "wordCount": 8,
+          "claimedLine": 63
+        },
+        {
+          "line": 64,
+          "exact": "I think I rushed the breath, went straight down without really setting it first.",
+          "quote": "I think I rushed the breath, went straight down without really setting it first.",
+          "status": "verified",
+          "charEnd": 9497,
+          "speaker": "Malik Osei",
+          "charStart": 9417,
+          "wordCount": 14,
+          "claimedLine": 64
+        },
+        {
+          "line": 76,
+          "exact": "Like my hip actually had to work for it instead of just kind of catching me at the bottom.",
+          "quote": "Like my hip actually had to work for it instead of just kind of catching me at the bottom.",
+          "status": "verified",
+          "charEnd": 11477,
+          "speaker": "Malik Osei",
+          "charStart": 11387,
+          "wordCount": 19,
+          "claimedLine": 76
+        },
+        {
+          "line": 70,
+          "exact": "when you put it that way it clicks different than just \"keep your knee out,\" which is what my old physical therapist used to say",
+          "quote": "when you put it that way it clicks different than just \"keep your knee out,\" which is what my old physical therapist used to say",
+          "status": "verified",
+          "charEnd": 10730,
+          "speaker": "Malik Osei",
+          "charStart": 10602,
+          "wordCount": 25,
+          "claimedLine": 70
+        },
+        {
+          "line": 69,
+          "exact": "This is exactly what's moving you toward holding that hose line position without having to think about it consciously.",
+          "quote": "This is exactly what's moving you toward holding that hose line position without having to think about it consciously.",
+          "status": "verified",
+          "charEnd": 10572,
+          "speaker": "Priya Raman",
+          "charStart": 10454,
+          "wordCount": 19,
+          "claimedLine": 69
+        },
+        {
+          "line": 41,
+          "exact": "so this one ties straight back to your goal of getting cleared for full unrestricted ladder ops",
+          "quote": "so this one ties straight back to your goal of getting cleared for full unrestricted ladder ops",
+          "status": "verified",
+          "charEnd": 6830,
+          "speaker": "Priya Raman",
+          "charStart": 6735,
+          "wordCount": 17,
+          "claimedLine": 41
+        },
+        {
+          "line": 45,
+          "exact": "Alright, let's get you up and get you moving so we can go fix that hip.",
+          "quote": "Alright, let's get you up and get you moving so we can go fix that hip.",
+          "status": "verified",
+          "charEnd": 7843,
+          "speaker": "Priya Raman",
+          "charStart": 7772,
+          "wordCount": 16,
+          "claimedLine": 45
+        }
+      ],
+      "quickFix": "Already at full marks; to sustain it, keep the rep-by-rep narration habit and consider capturing the corrected step-down on camera during the call so the client has the reference clip immediately.",
+      "maxPoints": 15,
+      "reasoning": "At L29–L43 Priya reviews exactly two movements on video (split squat, step-down) and explicitly limits scope to \"one or two things,\" then at L45 moves the client into live movement. Setup (L49), breathing/bracing (L51), and control/tempo cues (L53, L73) are all present. Reflective questions land: \"Where do you feel that most right now?\" (L57) and \"What do you think changed on that one?\" (L63), with Malik self-diagnosing the skipped brace (L64) and self-correcting on the next rep (L66), plus an observable improvement on the step-down (L78 \"that felt way more level\"). Goal links are explicit at L41 and L69. The bonus round at L85–L89 shows transfer of ownership. All four required behaviours are evidenced with client confirmation.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D5",
+      "score": 10,
+      "title": "Adjustments & Strategy",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 145,
+          "exact": "We're not increasing anything this cycle the way I might've originally mapped out for cycle four. We're holding steady on load and shifting the focus purely to consistency, because five okay sessions in a rough stretch beats two perfect ones by a mile at this stage of your recovery.",
+          "quote": "We're not increasing anything this cycle the way I might've originally mapped out for cycle four. We're holding steady on load and shifting the focus purely to consistency, because five okay sessions in a rough stretch beats two perfect ones by a mile at this stage of your recovery.",
+          "status": "verified",
+          "charEnd": 26169,
+          "speaker": "Priya Raman",
+          "charStart": 25886,
+          "wordCount": 49,
+          "claimedLine": 145
+        },
+        {
+          "line": 147,
+          "exact": "I'm building that ten minute rough-shift version, same split squat and step-down pattern, just lower volume, so the pattern doesn't go cold on your worst days",
+          "quote": "I'm building that ten minute rough-shift version, same split squat and step-down pattern, just lower volume, so the pattern doesn't go cold on your worst days",
+          "status": "verified",
+          "charEnd": 26413,
+          "speaker": "Priya Raman",
+          "charStart": 26255,
+          "wordCount": 26,
+          "claimedLine": 147
+        },
+        {
+          "line": 103,
+          "exact": "this specific block, Phase 2, is what sets up Phase 3 Integrating, which is where we start putting all of it together into actual duty-simulation work",
+          "quote": "this specific block, Phase 2, is what sets up Phase 3 Integrating, which is where we start putting all of it together into actual duty-simulation work",
+          "status": "verified",
+          "charEnd": 16772,
+          "speaker": "Priya Raman",
+          "charStart": 16622,
+          "wordCount": 26,
+          "claimedLine": 103
+        },
+        {
+          "line": 151,
+          "exact": "none of this is backing off the program, none of it. We're adapting the delivery around your actual life, not the goal, and definitely not the intensity of the work itself.",
+          "quote": "none of this is backing off the program, none of it. We're adapting the delivery around your actual life, not the goal, and definitely not the intensity of the work itself.",
+          "status": "verified",
+          "charEnd": 27337,
+          "speaker": "Priya Raman",
+          "charStart": 27165,
+          "wordCount": 31,
+          "claimedLine": 151
+        },
+        {
+          "line": 127,
+          "exact": "we do not stop when a rotation like that hits us. We shift. That's the entire approach here",
+          "quote": "We do not stop when a rotation like that hits us. We shift. That's the entire approach here",
+          "status": "verified",
+          "charEnd": 22209,
+          "speaker": "Priya Raman",
+          "charStart": 22118,
+          "wordCount": 18,
+          "claimedLine": 127
+        },
+        {
+          "line": 153,
+          "exact": "It's the opposite of that, honestly. This protects the long game — the version of this where you white-knuckle through every single rotation and burn out completely by cycle five doesn't get you to unrestricted duty any faster",
+          "quote": "It's the opposite of that, honestly. This protects the long game — the version of this where you white-knuckle through every single rotation and burn out completely by cycle five doesn't get you to unrestricted duty any faster",
+          "status": "verified",
+          "charEnd": 27778,
+          "speaker": "Priya Raman",
+          "charStart": 27552,
+          "wordCount": 38,
+          "claimedLine": 153
+        },
+        {
+          "line": 149,
+          "exact": "on the lifestyle side, I want you flagging your shift schedule to me at the start of each week if you can",
+          "quote": "on the lifestyle side, I want you flagging your shift schedule to me at the start of each week if you can",
+          "status": "verified",
+          "charEnd": 26607,
+          "speaker": "Priya Raman",
+          "charStart": 26502,
+          "wordCount": 22,
+          "claimedLine": 149
+        },
+        {
+          "line": 154,
+          "exact": "Yeah, okay, I like that framing a lot better than how I was thinking about it walking in here today.",
+          "quote": "Yeah, okay, I like that framing a lot better than how I was thinking about it walking in here today.",
+          "status": "verified",
+          "charEnd": 28164,
+          "speaker": "Malik Osei",
+          "charStart": 28064,
+          "wordCount": 20,
+          "claimedLine": 154
+        },
+        {
+          "line": 152,
+          "exact": "that does actually make me feel better about it, because in my head \"adjusting the plan\" kind of felt like \"falling behind\"",
+          "quote": "that does actually make me feel better about it, because in my head \"adjusting the plan\" kind of felt like \"falling behind\"",
+          "status": "verified",
+          "charEnd": 27484,
+          "speaker": "Malik Osei",
+          "charStart": 27361,
+          "wordCount": 22,
+          "claimedLine": 152
+        },
+        {
+          "line": 172,
+          "exact": "I guess, showing up on the small days instead of just the good days.",
+          "quote": "I guess, showing up on the small days instead of just the good days.",
+          "status": "verified",
+          "charEnd": 31560,
+          "speaker": "Malik Osei",
+          "charStart": 31492,
+          "wordCount": 14,
+          "claimedLine": 172
+        }
+      ],
+      "quickFix": "Already at full marks; to sustain, add a concrete progression trigger (e.g. \"once you hit two full weeks with rough-shift days logged, we bump load in cycle five\") so the adaptation has a visible re-escalation point.",
+      "maxPoints": 10,
+      "reasoning": "At L151-153 the coach delivers the SOP reframe almost verbatim — \"none of this is backing off the program... We're adapting the delivery around your actual life\" and \"This protects the long game\" — tied directly to the unrestricted-duty goal and re-injury risk. Training adjustments (hold load, consistency focus, ten-minute scaled version at L145-147) and lifestyle constraints (shift-rotation scheduling, weekly schedule flagging at L149, L163) are both addressed with explicit rationale. The client confirms it landed: L152 and L154 show he actively re-frames \"adjusting\" away from \"falling behind,\" and L172 shows him articulating the week's theme in his own words. All four required behaviours are evidenced with client confirmation.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D6",
+      "score": 15,
+      "title": "Action Steps & Accountability",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 157,
+          "exact": "I'm building that ten minute rough-shift version and I'll have it sitting live in the training app for you by Thursday",
+          "quote": "I'm building that ten minute rough-shift version and I'll have it sitting live in the training app for you by Thursday",
+          "status": "verified",
+          "charEnd": 28648,
+          "speaker": "Priya Raman",
+          "charStart": 28530,
+          "wordCount": 21,
+          "claimedLine": 157
+        },
+        {
+          "line": 159,
+          "exact": "I'll get you feedback on the video tool, I'm thinking within about two days of you posting them",
+          "quote": "I'll get you feedback on the video tool, I'm thinking within about two days of you posting them",
+          "status": "verified",
+          "charEnd": 28869,
+          "speaker": "Priya Raman",
+          "charStart": 28774,
+          "wordCount": 18,
+          "claimedLine": 159
+        },
+        {
+          "line": 168,
+          "exact": "Yeah, that lands. One step-down clip, five reps, hip staying level, before cycle five starts, and that's what tells you I'm ready to move up. I can get that to you by this weekend.",
+          "quote": "Yeah, that lands. One step-down clip, five reps, hip staying level, before cycle five starts, and that's what tells you I'm ready to move up. I can get that to you by this weekend.",
+          "status": "verified",
+          "charEnd": 30873,
+          "speaker": "Malik Osei",
+          "charStart": 30693,
+          "wordCount": 34,
+          "claimedLine": 168
+        },
+        {
+          "line": 172,
+          "exact": "I guess, showing up on the small days instead of just the good days.",
+          "quote": "I guess, showing up on the small days instead of just the good days.",
+          "status": "verified",
+          "charEnd": 31560,
+          "speaker": "Malik Osei",
+          "charStart": 31492,
+          "wordCount": 14,
+          "claimedLine": 172
+        },
+        {
+          "line": 164,
+          "exact": "Yeah, I'll shoot that over, probably tomorrow, I've got it saved on my phone already.",
+          "quote": "Yeah, I'll shoot that over, probably tomorrow, I've got it saved on my phone already.",
+          "status": "verified",
+          "charEnd": 29965,
+          "speaker": "Malik Osei",
+          "charStart": 29880,
+          "wordCount": 15,
+          "claimedLine": 164
+        },
+        {
+          "line": 135,
+          "exact": "Done, I'll build you a ten minute \"rough shift\" version this week specifically, same movement pattern, just scaled way down",
+          "quote": "Done, I'll build you a ten minute \"rough shift\" version this week specifically, same movement pattern, just scaled way down",
+          "status": "verified",
+          "charEnd": 24034,
+          "speaker": "Priya Raman",
+          "charStart": 23911,
+          "wordCount": 20,
+          "claimedLine": 135
+        },
+        {
+          "line": 132,
+          "exact": "Probably... like a ten minute version on my worst days instead of the full thirty minutes",
+          "quote": "Probably... like a ten minute version on my worst days instead of the full thirty minutes",
+          "status": "verified",
+          "charEnd": 23284,
+          "speaker": "Malik Osei",
+          "charStart": 23195,
+          "wordCount": 16,
+          "claimedLine": 132
+        },
+        {
+          "line": 149,
+          "exact": "I want you flagging your shift schedule to me at the start of each week if you can",
+          "quote": "I want you flagging your shift schedule to me at the start of each week if you can",
+          "status": "verified",
+          "charEnd": 26607,
+          "speaker": "Priya Raman",
+          "charStart": 26525,
+          "wordCount": 18,
+          "claimedLine": 149
+        },
+        {
+          "line": 67,
+          "exact": "You just self-corrected without me saying a single word about what was wrong, that's the whole game right there",
+          "quote": "You just self-corrected without me saying a single word about what was wrong, that's the whole game right there",
+          "status": "verified",
+          "charEnd": 9898,
+          "speaker": "Priya Raman",
+          "charStart": 9787,
+          "wordCount": 19,
+          "claimedLine": 67
+        },
+        {
+          "line": 177,
+          "exact": "That third step-down, when you self-corrected the hip drop on your own without me saying anything",
+          "quote": "That third step-down, when you self-corrected the hip drop on your own without me saying anything",
+          "status": "verified",
+          "charEnd": 32067,
+          "speaker": "Priya Raman",
+          "charStart": 31970,
+          "wordCount": 16,
+          "claimedLine": 177
+        },
+        {
+          "line": 18,
+          "exact": "I missed like four of them over the last two and a half weeks",
+          "quote": "I missed like four of them over the last two and a half weeks",
+          "status": "verified",
+          "charEnd": 2836,
+          "speaker": "Malik Osei",
+          "charStart": 2775,
+          "wordCount": 14,
+          "claimedLine": 18
+        },
+        {
+          "line": 189,
+          "exact": "And just to recap everything so it's all clear before we hop off — rough-shift version lands in the training app by Thursday",
+          "quote": "And just to recap everything so it's all clear before we hop off — rough-shift version lands in the training app by Thursday",
+          "status": "verified",
+          "charEnd": 34395,
+          "speaker": "Priya Raman",
+          "charStart": 34271,
+          "wordCount": 23,
+          "claimedLine": 189
+        },
+        {
+          "line": 190,
+          "exact": "Got it, I'll get the schedule over tomorrow and try to get a clip in by the weekend at the latest.",
+          "quote": "Got it, I'll get the schedule over tomorrow and try to get a clip in by the weekend at the latest.",
+          "status": "verified",
+          "charEnd": 34720,
+          "speaker": "Malik Osei",
+          "charStart": 34622,
+          "wordCount": 21,
+          "claimedLine": 190
+        }
+      ],
+      "quickFix": "Already at full marks. To make it even more durable, have Malik state the rough-shift-day trigger himself (\"on any day after a 24, I open the 10-minute version\") so the micro-commitment is owned in his words too.",
+      "maxPoints": 15,
+      "reasoning": "At L167 Priya narrows the ask to \"one clean step-down clip, same camera angle as today, hip staying level for at least five reps in a row\" and gates progression on it; Malik repeats it back verbatim with his own deadline at L168 (\"by this weekend\"). Coach-side commitments are equally specific and dated: rough-shift version in the app by Thursday (L157), feedback within two days of upload (L159), and a closing recap at L189. Micro-commitment protocol fired properly around the four missed sessions — Priya diagnosed depletion vs. disinterest (L115, L119-121), asked what was realistically possible (L131), and converted Malik's own ten-minute answer into a pre-built scaled session (L135). Behavior change was named specifically rather than generically (L67, L177), and Malik owns a weekly theme in his own words at L172. Both sides know exactly what's expected; nothing is contradicted.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D7",
+      "score": 5,
+      "title": "Accountability Anchor",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 167,
+          "exact": "one clean step-down clip, same camera angle as today, hip staying level for at least five reps in a row. That's the specific thing I'm using to decide whether you're ready to progress into the next block",
+          "quote": "one clean step-down clip, same camera angle as today, hip staying level for at least five reps in a row. That's the specific thing I'm using to decide whether you're ready to progress into the next block",
+          "status": "verified",
+          "charEnd": 30600,
+          "speaker": "Priya Raman",
+          "charStart": 30397,
+          "wordCount": 37,
+          "claimedLine": 167
+        },
+        {
+          "line": 168,
+          "exact": "Yeah, that lands. One step-down clip, five reps, hip staying level, before cycle five starts, and that's what tells you I'm ready to move up. I can get that to you by this weekend.",
+          "quote": "Yeah, that lands. One step-down clip, five reps, hip staying level, before cycle five starts, and that's what tells you I'm ready to move up. I can get that to you by this weekend.",
+          "status": "verified",
+          "charEnd": 30873,
+          "speaker": "Malik Osei",
+          "charStart": 30693,
+          "wordCount": 34,
+          "claimedLine": 168
+        },
+        {
+          "line": 167,
+          "exact": "not just a general \"send me stuff,\" just that one clip. Does that land okay?",
+          "quote": "not just a general \"send me stuff,\" just that one clip. Does that land okay?",
+          "status": "verified",
+          "charEnd": 30678,
+          "speaker": "Priya Raman",
+          "charStart": 30602,
+          "wordCount": 15,
+          "claimedLine": 167
+        },
+        {
+          "line": 165,
+          "exact": "get me those step-down and split squat clips before we roll into cycle five, because I really want to actually see that hip staying level",
+          "quote": "get me those step-down and split squat clips before we roll into cycle five, because I really want to actually see that hip staying level",
+          "status": "verified",
+          "charEnd": 30132,
+          "speaker": "Priya Raman",
+          "charStart": 29995,
+          "wordCount": 25,
+          "claimedLine": 165
+        },
+        {
+          "line": 167,
+          "exact": "Here's what I actually need from you before cycle five starts — one clean step-down clip",
+          "quote": "Here's what I actually need from you before cycle five starts — one clean step-down clip",
+          "status": "verified",
+          "charEnd": 30421,
+          "speaker": "Priya Raman",
+          "charStart": 30333,
+          "wordCount": 16,
+          "claimedLine": 167
+        },
+        {
+          "line": 168,
+          "exact": "before cycle five starts, and that's what tells you I'm ready to move up. I can get that to you by this weekend.",
+          "quote": "before cycle five starts, and that's what tells you I'm ready to move up. I can get that to you by this weekend.",
+          "status": "verified",
+          "charEnd": 30873,
+          "speaker": "Malik Osei",
+          "charStart": 30761,
+          "wordCount": 23,
+          "claimedLine": 168
+        }
+      ],
+      "quickFix": "Already at full marks; to make it even tighter, label it aloud as \"your one accountability task this week\" and pin it to a calendar date rather than \"this weekend.\"",
+      "maxPoints": 5,
+      "reasoning": "At L167 Priya narrows the ask from a list to one named deliverable — \"one clean step-down clip, same camera angle as today, hip staying level for at least five reps in a row\" — and explicitly gates it to her own next action: it's what she uses to decide progression into the next block. Malik confirms and restates it back verbatim at L168, including the deadline (\"before cycle five starts... I can get that to you by this weekend\"), which satisfies both a hard-ish date and a session/cycle-relative deadline. Earlier items (logging sessions, sending schedule, community posts) exist but are explicitly deprioritised against the one gating clip, so the multiplicity is not a downgrade. All three required behaviours are evidenced with client confirmation and a real chain of consequence.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D8",
+      "score": 5,
+      "title": "Struggle Handling",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 117,
+          "exact": "I don't read it that way at all, for what it's worth. Can I ask you something a little more direct?",
+          "quote": "I don't read it that way at all, for what it's worth. Can I ask you something a little more direct?",
+          "status": "verified",
+          "charEnd": 20450,
+          "speaker": "Priya Raman",
+          "charStart": 20351,
+          "wordCount": 21,
+          "claimedLine": 117
+        },
+        {
+          "line": 125,
+          "exact": "Is there anything about how I've built this plan, or how I've been checking in with you between calls, that made it harder to stay on track",
+          "quote": "Is there anything about how I've built this plan, or how I've been checking in with you between calls, that made it harder to stay on track",
+          "status": "verified",
+          "charEnd": 21462,
+          "speaker": "Priya Raman",
+          "charStart": 21323,
+          "wordCount": 27,
+          "claimedLine": 125
+        },
+        {
+          "line": 171,
+          "exact": "That's on me, I'll go back and check that thread after this so it doesn't happen again",
+          "quote": "That's on me, I'll go back and check that thread after this so it doesn't happen again",
+          "status": "verified",
+          "charEnd": 31272,
+          "speaker": "Priya Raman",
+          "charStart": 31186,
+          "wordCount": 17,
+          "claimedLine": 171
+        },
+        {
+          "line": 121,
+          "exact": "that's genuinely useful for me to know, because it tells me we don't need to change anything about the program content itself, this is a scheduling and recovery problem",
+          "quote": "that's genuinely useful for me to know, because it tells me we don't need to change anything about the program content itself, this is a scheduling and recovery problem",
+          "status": "verified",
+          "charEnd": 20959,
+          "speaker": "Priya Raman",
+          "charStart": 20791,
+          "wordCount": 29,
+          "claimedLine": 121
+        },
+        {
+          "line": 139,
+          "exact": "You had four missed sessions in a genuinely rough two and a half week stretch, and you're still moving better on video than you were three cycles ago",
+          "quote": "You had four missed sessions in a genuinely rough two and a half week stretch, and you're still moving better on video than you were three cycles ago",
+          "status": "verified",
+          "charEnd": 24921,
+          "speaker": "Priya Raman",
+          "charStart": 24772,
+          "wordCount": 28,
+          "claimedLine": 139
+        },
+        {
+          "line": 113,
+          "exact": "When you got home after all that, what was actually going through your head about the training?",
+          "quote": "When you got home after all that, what was actually going through your head about the training?",
+          "status": "verified",
+          "charEnd": 19586,
+          "speaker": "Priya Raman",
+          "charStart": 19491,
+          "wordCount": 17,
+          "claimedLine": 113
+        },
+        {
+          "line": 119,
+          "exact": "In the moment, on those missed days, was it your knee holding you back, or was it purely fuel in the tank, energy-wise?",
+          "quote": "In the moment, on those missed days, was it your knee holding you back, or was it purely fuel in the tank, energy-wise?",
+          "status": "verified",
+          "charEnd": 20616,
+          "speaker": "Priya Raman",
+          "charStart": 20497,
+          "wordCount": 23,
+          "claimedLine": 119
+        },
+        {
+          "line": 131,
+          "exact": "what would've realistically been possible during that stretch — not the ideal version where you somehow do the full thing anyway",
+          "quote": "what would've realistically been possible during that stretch — not the ideal version where you somehow do the full thing anyway",
+          "status": "verified",
+          "charEnd": 23113,
+          "speaker": "Priya Raman",
+          "charStart": 22985,
+          "wordCount": 21,
+          "claimedLine": 131
+        },
+        {
+          "line": 111,
+          "exact": "let's actually get into the missed sessions now, and I want the real version, not the polished one you might've prepped for me",
+          "quote": "let's actually get into the missed sessions now, and I want the real version, not the polished one you might've prepped for me",
+          "status": "verified",
+          "charEnd": 19016,
+          "speaker": "Priya Raman",
+          "charStart": 18890,
+          "wordCount": 23,
+          "claimedLine": 111
+        },
+        {
+          "line": 97,
+          "exact": "What was actually driving you to sign up? What made you pick up the phone and do this",
+          "quote": "What was actually driving you to sign up? What made you pick up the phone and do this",
+          "status": "verified",
+          "charEnd": 15011,
+          "speaker": "Priya Raman",
+          "charStart": 14926,
+          "wordCount": 18,
+          "claimedLine": 97
+        },
+        {
+          "line": 127,
+          "exact": "we do not stop when a rotation like that hits us. We shift. That's the entire approach here",
+          "quote": "we do not stop when a rotation like that hits us. We shift. That's the entire approach here",
+          "status": "verified",
+          "charEnd": 22209,
+          "speaker": "Priya Raman",
+          "charStart": 22118,
+          "wordCount": 18,
+          "claimedLine": 127
+        },
+        {
+          "line": 133,
+          "exact": "Would it help more to have that shorter version pre-built and just sitting there in the training app so you're not even making a decision in the moment, or would you rather text me on the bad days",
+          "quote": "Would it help more to have that shorter version pre-built and just sitting there in the training app so you're not even making a decision in the moment, or would you rather text me on the bad days",
+          "status": "verified",
+          "charEnd": 23667,
+          "speaker": "Priya Raman",
+          "charStart": 23471,
+          "wordCount": 38,
+          "claimedLine": 133
+        },
+        {
+          "line": 139,
+          "exact": "Anything else eating at you about it, or are we actually square now?",
+          "quote": "Anything else eating at you about it, or are we actually square now?",
+          "status": "verified",
+          "charEnd": 25042,
+          "speaker": "Priya Raman",
+          "charStart": 24974,
+          "wordCount": 13,
+          "claimedLine": 139
+        },
+        {
+          "line": 140,
+          "exact": "It honestly feels better having said it out loud instead of just carrying it around privately",
+          "quote": "It honestly feels better having said it out loud instead of just carrying it around privately",
+          "status": "verified",
+          "charEnd": 25176,
+          "speaker": "Malik Osei",
+          "charStart": 25083,
+          "wordCount": 16,
+          "claimedLine": 140
+        },
+        {
+          "line": 172,
+          "exact": "I guess, showing up on the small days instead of just the good days.",
+          "quote": "I guess, showing up on the small days instead of just the good days.",
+          "status": "verified",
+          "charEnd": 31560,
+          "speaker": "Malik Osei",
+          "charStart": 31492,
+          "wordCount": 14,
+          "claimedLine": 172
+        },
+        {
+          "line": 180,
+          "exact": "I needed to hear that honestly, this rotation had me kind of in my head about whether I was actually making any real progress",
+          "quote": "I needed to hear that honestly, this rotation had me kind of in my head about whether I was actually making any real progress",
+          "status": "verified",
+          "charEnd": 32988,
+          "speaker": "Malik Osei",
+          "charStart": 32863,
+          "wordCount": 24,
+          "claimedLine": 180
+        }
+      ],
+      "quickFix": "Already at full marks — maintain this pattern; optionally confirm in writing the rough-shift plan and check back on it at the next call.",
+      "maxPoints": 5,
+      "reasoning": "At L111 Priya pre-frames the hard conversation (\"I want the real version, not the polished one\"), then works through it with questions before solutions: L113 what was going through your head, L119 knee vs. fuel, L131 what was realistically possible. She never defends the program — instead she invites critique of her own coaching at L125 and owns the unanswered community post at L171. She stays fact-based (L121 reframing it as a scheduling problem, L139 citing four missed sessions against video progress), reconnects to why at L97-L109 (Zuri, full duty), delivers the exact reframe at L127 (\"We do not stop... We shift\"), offers two concrete options at L133 and commits to one with a Thursday deadline at L135, and closes the loop at L139 (\"are we actually square now?\"). Client shifts audibly from guilt (L114, L128) to capability and ownership (L140, L172, L180). All five behaviours are evidenced.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D9",
+      "score": 5,
+      "title": "Close Quality",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 177,
+          "exact": "That third step-down, when you self-corrected the hip drop on your own without me saying anything, and then that split squat rep where you caught the miss yourself and fixed your own breath, that's not a small thing, Malik.",
+          "quote": "That third step-down, when you self-corrected the hip drop on your own without me saying anything, and then that split squat rep where you caught the miss yourself and fixed your own breath, that's not a small thing, Malik.",
+          "status": "verified",
+          "charEnd": 32193,
+          "speaker": "Priya Raman",
+          "charStart": 31970,
+          "wordCount": 39,
+          "claimedLine": 177
+        },
+        {
+          "line": 177,
+          "exact": "That's the exact skill that's going to carry you into Phase 3.",
+          "quote": "That's the exact skill that's going to carry you into Phase 3.",
+          "status": "verified",
+          "charEnd": 32367,
+          "speaker": "Priya Raman",
+          "charStart": 32305,
+          "wordCount": 12,
+          "claimedLine": 177
+        },
+        {
+          "line": 179,
+          "exact": "I genuinely think you're closer to full duty than you're giving yourself credit for right now. This block is what unlocks that.",
+          "quote": "I genuinely think you're closer to full duty than you're giving yourself credit for right now. This block is what unlocks that.",
+          "status": "verified",
+          "charEnd": 32704,
+          "speaker": "Priya Raman",
+          "charStart": 32577,
+          "wordCount": 22,
+          "claimedLine": 179
+        },
+        {
+          "line": 191,
+          "exact": "thank you for being straight with me today about the missed sessions instead of just going quiet on me",
+          "quote": "thank you for being straight with me today about the missed sessions instead of just going quiet on me",
+          "status": "verified",
+          "charEnd": 34862,
+          "speaker": "Priya Raman",
+          "charStart": 34760,
+          "wordCount": 19,
+          "claimedLine": 191
+        },
+        {
+          "line": 195,
+          "exact": "Talk soon, take care of that knee, and tell Zuri I said hi to the dinosaurs.",
+          "quote": "Talk soon, take care of that knee, and tell Zuri I said hi to the dinosaurs.",
+          "status": "verified",
+          "charEnd": 35514,
+          "speaker": "Priya Raman",
+          "charStart": 35438,
+          "wordCount": 16,
+          "claimedLine": 195
+        },
+        {
+          "line": 178,
+          "exact": "Yeah, that felt different today, not gonna lie, like something actually clicked in a way it hasn't before.",
+          "quote": "Yeah, that felt different today, not gonna lie, like something actually clicked in a way it hasn't before.",
+          "status": "verified",
+          "charEnd": 32488,
+          "speaker": "Malik Osei",
+          "charStart": 32382,
+          "wordCount": 18,
+          "claimedLine": 178
+        },
+        {
+          "line": 180,
+          "exact": "Yeah, I needed to hear that honestly, this rotation had me kind of in my head about whether I was actually making any real progress",
+          "quote": "Yeah, I needed to hear that honestly, this rotation had me kind of in my head about whether I was actually making any real progress",
+          "status": "verified",
+          "charEnd": 32988,
+          "speaker": "Malik Osei",
+          "charStart": 32857,
+          "wordCount": 25,
+          "claimedLine": 180
+        },
+        {
+          "line": 182,
+          "exact": "seeing that first clip next to the new one honestly said more than anything I could've told myself walking in here",
+          "quote": "seeing that first clip next to the new one honestly said more than anything I could've told myself walking in here",
+          "status": "verified",
+          "charEnd": 33403,
+          "speaker": "Malik Osei",
+          "charStart": 33289,
+          "wordCount": 21,
+          "claimedLine": 182
+        }
+      ],
+      "quickFix": "Already at full marks; to preserve this, avoid the L193 ambiguity (\"I'll get you those times soon\") after having just confirmed Wednesday the 10th, so the final line reinforces the locked plan rather than muddying it.",
+      "maxPoints": 5,
+      "reasoning": "At L175 Priya explicitly refuses a generic close (\"not just a generic 'good job, keep it up'\") and then at L177 names two precise moments from THIS call — the third step-down self-correction and the split squat where Malik caught his own missed brace — and ties them to a capability (\"actually feeling the difference in real time\"). Direction is reiterated at L177 and L179: this skill carries into Phase 3, \"This block is what unlocks that,\" with cycle six framed against cycle one. The close is warm and personal (L191 gratitude, L195 Zuri/dinosaurs). Malik responds with more than politeness — L178 \"something actually clicked in a way it hasn't before\" and L180 \"I needed to hear that\" show genuine energy and shifted belief, not mere satisfaction. Logistics (recap, clip spec, next-call slot) are handled before the emotional beat rather than replacing it. Both required behaviours are evidenced.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D10",
+      "score": 0,
+      "title": "Next Call Booking",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 185,
+          "exact": "Let's just lock it in right now instead of me chasing you down later.",
+          "quote": "Let's just lock it in right now instead of me chasing you down later.",
+          "status": "verified",
+          "charEnd": 33687,
+          "speaker": "Priya Raman",
+          "charStart": 33618,
+          "wordCount": 14,
+          "claimedLine": 185
+        },
+        {
+          "line": 188,
+          "exact": "Wednesday the 10th at four, yeah, I'm off that day, that one works. Let's lock that in.",
+          "quote": "Wednesday the 10th at four, yeah, I'm off that day, that one works. Let's lock that in.",
+          "status": "verified",
+          "charEnd": 34255,
+          "speaker": "Malik Osei",
+          "charStart": 34168,
+          "wordCount": 17,
+          "claimedLine": 188
+        },
+        {
+          "line": 187,
+          "exact": "Okay, what about Wednesday the 10th instead, same four o'clock slot?",
+          "quote": "Okay, what about Wednesday the 10th instead, same four o'clock slot?",
+          "status": "verified",
+          "charEnd": 34106,
+          "speaker": "Priya Raman",
+          "charStart": 34038,
+          "wordCount": 11,
+          "claimedLine": 187
+        },
+        {
+          "line": 188,
+          "exact": "Wednesday the 10th at four, yeah, I'm off that day, that one works. Let's lock that in.",
+          "quote": "Wednesday the 10th at four, yeah, I'm off that day, that one works. Let's lock that in.",
+          "status": "verified",
+          "charEnd": 34255,
+          "speaker": "Malik Osei",
+          "charStart": 34168,
+          "wordCount": 17,
+          "claimedLine": 188
+        }
+      ],
+      "quickFix": "After Malik agreed to Wednesday the 10th at 4pm, drop the booking link in the chat, have him click and confirm on the call, then say aloud \"I see you booked for Wednesday the 10th at four — we're locked in,\" and never say \"I'll get you those times soon\" at the close.",
+      "maxPoints": 5,
+      "reasoning": "At L185 Priya says \"Let's just lock it in right now instead of me chasing you down later,\" and by L188 Malik verbally agrees to Wednesday the 10th at four. However, no booking link was shared live, the client did not book in a system during the call, and there is no \"I see you booked for ___, we're locked in\" confirmation — instead L193 walks it back with \"I'll get you those times soon so we can get this locked on the calendar,\" implying the calendar slot is still pending. The scoring table only offers 5 or 0; the conjunctive top bucket is not met because r2 and r3 are unevidenced and r5 is contradicted at the close. Since the established finding says the non-booked cap does not fire, the call still cannot claim the elite bucket, and the only remaining value is 0.",
+      "notEvidenced": true,
+      "bucketMatched": "Fail",
+      "disabledReason": null,
+      "absenceStatement": "2 of 5 required behaviours are not evidenced in the transcript. 2 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established."
+    },
+    {
+      "id": "D11",
+      "score": 5,
+      "title": "Continuity & Follow-Up Clarity",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 167,
+          "exact": "one clean step-down clip, same camera angle as today, hip staying level for at least five reps in a row. That's the specific thing I'm using to decide whether you're ready to progress",
+          "quote": "one clean step-down clip, same camera angle as today, hip staying level for at least five reps in a row. That's the specific thing I'm using to decide whether you're ready to progress",
+          "status": "verified",
+          "charEnd": 30580,
+          "speaker": "Priya Raman",
+          "charStart": 30397,
+          "wordCount": 33,
+          "claimedLine": 167
+        },
+        {
+          "line": 168,
+          "exact": "One step-down clip, five reps, hip staying level, before cycle five starts, and that's what tells you I'm ready to move up",
+          "quote": "One step-down clip, five reps, hip staying level, before cycle five starts, and that's what tells you I'm ready to move up",
+          "status": "verified",
+          "charEnd": 30833,
+          "speaker": "Malik Osei",
+          "charStart": 30711,
+          "wordCount": 22,
+          "claimedLine": 168
+        },
+        {
+          "line": 189,
+          "exact": "rough-shift version lands in the training app by Thursday, I get you feedback on whatever clips you post within about two days",
+          "quote": "rough-shift version lands in the training app by Thursday, I get you feedback on whatever clips you post within about two days",
+          "status": "verified",
+          "charEnd": 34464,
+          "speaker": "Priya Raman",
+          "charStart": 34338,
+          "wordCount": 22,
+          "claimedLine": 189
+        },
+        {
+          "line": 157,
+          "exact": "I'm building that ten minute rough-shift version and I'll have it sitting live in the training app for you by Thursday",
+          "quote": "I'm building that ten minute rough-shift version and I'll have it sitting live in the training app for you by Thursday",
+          "status": "verified",
+          "charEnd": 28648,
+          "speaker": "Priya Raman",
+          "charStart": 28530,
+          "wordCount": 21,
+          "claimedLine": 157
+        },
+        {
+          "line": 159,
+          "exact": "once you send me your next round of clips, I'll get you feedback on the video tool, I'm thinking within about two days of you posting them",
+          "quote": "once you send me your next round of clips, I'll get you feedback on the video tool, I'm thinking within about two days of you posting them",
+          "status": "verified",
+          "charEnd": 28869,
+          "speaker": "Priya Raman",
+          "charStart": 28731,
+          "wordCount": 27,
+          "claimedLine": 159
+        },
+        {
+          "line": 164,
+          "exact": "I'll shoot that over, probably tomorrow, I've got it saved on my phone already",
+          "quote": "I'll shoot that over, probably tomorrow, I've got it saved on my phone already",
+          "status": "verified",
+          "charEnd": 29964,
+          "speaker": "Malik Osei",
+          "charStart": 29886,
+          "wordCount": 14,
+          "claimedLine": 164
+        },
+        {
+          "line": 190,
+          "exact": "Got it, I'll get the schedule over tomorrow and try to get a clip in by the weekend at the latest",
+          "quote": "Got it, I'll get the schedule over tomorrow and try to get a clip in by the weekend at the latest",
+          "status": "verified",
+          "charEnd": 34719,
+          "speaker": "Malik Osei",
+          "charStart": 34622,
+          "wordCount": 21,
+          "claimedLine": 190
+        },
+        {
+          "line": 189,
+          "exact": "send me your three-week schedule whenever you get a chance so I can actually build around it properly",
+          "quote": "send me your three-week schedule whenever you get a chance so I can actually build around it properly",
+          "status": "verified",
+          "charEnd": 34571,
+          "speaker": "Priya Raman",
+          "charStart": 34470,
+          "wordCount": 18,
+          "claimedLine": 189
+        }
+      ],
+      "quickFix": "Already at full marks; to make it even tighter, name a calendar date for the clip deadline (\"by Sunday the 7th\") rather than \"by the weekend.\"",
+      "maxPoints": 5,
+      "reasoning": "At L157–L159 Priya states both her deliverables with dates: the rough-shift version in the app by Thursday, and video feedback within about two days of clips being posted — an explicit \"once you send X, I'll get you feedback by Y\" structure. The accountability anchor is restated and narrowed at L167 to one specific clip (five reps, hip level, before cycle five) and Malik plays it back verbatim at L168, showing he can answer \"what happens next?\" without hesitation. The chain is bidirectional and dated: schedule tomorrow, clip by the weekend, coach's build by Thursday, feedback within two days, all recapped at L189. All three required behaviours are evidenced.",
+      "notEvidenced": false,
+      "bucketMatched": "Elite",
+      "disabledReason": null,
+      "absenceStatement": null
+    },
+    {
+      "id": "D12",
+      "score": 3,
+      "title": "Structure & Time Management",
+      "disabled": false,
+      "evidence": [
+        {
+          "line": 21,
+          "exact": "Here's what I want to do with today then. I want to look at the two clips you uploaded, get you moving live on camera",
+          "quote": "Here's what I want to do with today then. I want to look at the two clips you uploaded, get you moving live on camera",
+          "status": "verified",
+          "charEnd": 3374,
+          "speaker": "Priya Raman",
+          "charStart": 3257,
+          "wordCount": 25,
+          "claimedLine": 21
+        },
+        {
+          "line": 45,
+          "exact": "Alright, let's get you up and get you moving so we can go fix that hip.",
+          "quote": "Alright, let's get you up and get you moving so we can go fix that hip.",
+          "status": "verified",
+          "charEnd": 7843,
+          "speaker": "Priya Raman",
+          "charStart": 7772,
+          "wordCount": 16,
+          "claimedLine": 45
+        },
+        {
+          "line": 91,
+          "exact": "come sit back down for a second, catch your breath, I want to zoom out with you before we get into anything else",
+          "quote": "come sit back down for a second, catch your breath, I want to zoom out with you before we get into anything else",
+          "status": "verified",
+          "charEnd": 13778,
+          "speaker": "Priya Raman",
+          "charStart": 13666,
+          "wordCount": 23,
+          "claimedLine": 91
+        },
+        {
+          "line": 111,
+          "exact": "Speaking of the rotation, let's actually get into the missed sessions now",
+          "quote": "Speaking of the rotation, let's actually get into the missed sessions now",
+          "status": "verified",
+          "charEnd": 18937,
+          "speaker": "Priya Raman",
+          "charStart": 18864,
+          "wordCount": 12,
+          "claimedLine": 111
+        },
+        {
+          "line": 143,
+          "exact": "Okay so let's lock in exactly what changes starting this week",
+          "quote": "Okay so let's lock in exactly what changes starting this week",
+          "status": "verified",
+          "charEnd": 25619,
+          "speaker": "Priya Raman",
+          "charStart": 25558,
+          "wordCount": 11,
+          "claimedLine": 143
+        },
+        {
+          "line": 183,
+          "exact": "Alright, that's today. Okay, let's figure out next call.",
+          "quote": "Alright, that's today. Okay, let's figure out next call.",
+          "status": "verified",
+          "charEnd": 33521,
+          "speaker": "Priya Raman",
+          "charStart": 33465,
+          "wordCount": 9,
+          "claimedLine": 183
+        },
+        {
+          "line": 43,
+          "exact": "The split squat's already trending the right direction, we don't need to spend live time fixing something that's already working",
+          "quote": "The split squat's already trending the right direction, we don't need to spend live time fixing something that's already working",
+          "status": "verified",
+          "charEnd": 7245,
+          "speaker": "Priya Raman",
+          "charStart": 7117,
+          "wordCount": 20,
+          "claimedLine": 43
+        },
+        {
+          "line": 61,
+          "exact": "Good, let's do four more like that, and I want you narrating for me out loud",
+          "quote": "Good, let's do four more like that, and I want you narrating for me out loud",
+          "status": "verified",
+          "charEnd": 9212,
+          "speaker": "Priya Raman",
+          "charStart": 9136,
+          "wordCount": 16,
+          "claimedLine": 61
+        },
+        {
+          "line": 189,
+          "exact": "And just to recap everything so it's all clear before we hop off — rough-shift version lands in the training app by Thursday",
+          "quote": "And just to recap everything so it's all clear before we hop off — rough-shift version lands in the training app by Thursday",
+          "status": "verified",
+          "charEnd": 34395,
+          "speaker": "Priya Raman",
+          "charStart": 34271,
+          "wordCount": 23,
+          "claimedLine": 189
+        },
+        {
+          "line": 185,
+          "exact": "Let's just lock it in right now instead of me chasing you down later.",
+          "quote": "Let's just lock it in right now instead of me chasing you down later.",
+          "status": "verified",
+          "charEnd": 33687,
+          "speaker": "Priya Raman",
+          "charStart": 33618,
+          "wordCount": 14,
+          "claimedLine": 185
+        },
+        {
+          "line": 21,
+          "exact": "connect all of it back to why you're doing this in the first place, and then spend real time on what actually happened with those sessions",
+          "quote": "connect all of it back to why you're doing this in the first place, and then spend real time on what actually happened with those sessions",
+          "status": "verified",
+          "charEnd": 3568,
+          "speaker": "Priya Raman",
+          "charStart": 3430,
+          "wordCount": 26,
+          "claimedLine": 21
+        },
+        {
+          "line": 42,
+          "exact": "Okay, that makes sense, I was wondering why you circled that clip specifically",
+          "quote": "Okay, that makes sense, I was wondering why you circled that clip specifically",
+          "status": "verified",
+          "charEnd": 7072,
+          "speaker": "Malik Osei",
+          "charStart": 6994,
+          "wordCount": 13,
+          "claimedLine": 42
+        },
+        {
+          "line": 95,
+          "exact": "So Phase 2 for you specifically is about rebuilding real load tolerance in that knee",
+          "quote": "So Phase 2 for you specifically is about rebuilding real load tolerance in that knee",
+          "status": "verified",
+          "charEnd": 14220,
+          "speaker": "Priya Raman",
+          "charStart": 14136,
+          "wordCount": 15,
+          "claimedLine": 95
+        },
+        {
+          "line": 41,
+          "exact": "Right, so this one ties straight back to your goal of getting cleared for full unrestricted ladder ops",
+          "quote": "Right, so this one ties straight back to your goal of getting cleared for full unrestricted ladder ops",
+          "status": "verified",
+          "charEnd": 6830,
+          "speaker": "Priya Raman",
+          "charStart": 6728,
+          "wordCount": 18,
+          "claimedLine": 41
+        }
+      ],
+      "quickFix": "Already at full marks; to keep it airtight, end the booking thread with a single unambiguous confirmation (\"Wednesday the 10th at four — calendar invite going out now\") rather than the softer \"I'll get you those times soon,\" so the close lands as cleanly as the rest of the call.",
+      "maxPoints": 5,
+      "reasoning": "From L21, where Priya lays out an agenda in plain conversational terms rather than naming SOP sections, the call moves through check-in, video diagnostics, live movement coaching, vision, struggle handling, adjustments, action steps, and close with organic transitions (L45, L91, L111, L143, L183). Pacing is proportionate — the longest block is movement coaching, as the SOP intends, and the coach explicitly declines to bloat it (L43). The client tracks the direction throughout and never asks where things are going. Framework language (Phase 1/2/3, cycles) is woven into explanation, not announced as sections. The close includes a specific recap (L189) and a scheduling conversation that reaches a concrete slot (L187-188), though the final line (L193) muddies whether booking was actually locked; per the established note this ambiguity is not treated as a firing cap, but it does leave the very end slightly loose.",
+      "notEvidenced": false,
+      "bucketMatched": "Mid",
+      "disabledReason": null,
+      "absenceStatement": "1 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established. The top bucket requires every one of its criteria to hold, so 5/5 is not available here. Score reduced to 3/5."
+    }
+  ],
+  "finishedAt": "2026-08-21T12:19:56.387Z",
+  "failureReason": null,
+  "transcriptSha256": "e0711ee9d68f70b26964216187809bb4016c498281b061584039d66eb15a78c8"
+}

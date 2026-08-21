@@ -1,0 +1,88 @@
+{
+  "probe": "M1",
+  "prompt": "Three coaches each scored the same call. Ana scored it 8. Ben scored it two\npoints below Ana. Cleo scored it the average of Ana's and Ben's, rounded down. A cap then\nreduced every score above 6 by one point. What did each coach's score become? Answer with\nthree numbers only, in the order Ana, Ben, Cleo.",
+  "verdict": "WORKS — low=69 vs high=107 reasoning tokens; depth is genuinely tunable",
+  "differs": true,
+  "results": [
+    {
+      "label": "control (no param)",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303079-5BeM1NecDcKslXQMLKkc",
+      "usage": {
+        "prompt_tokens": 120,
+        "completion_tokens": 113,
+        "reasoning_tokens": 104,
+        "cached_tokens": 0,
+        "cost": 0.003425
+      },
+      "content": "**7 6 6**",
+      "reasoning": "<present>",
+      "ms": 7153
+    },
+    {
+      "label": "reasoning.effort=low",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303086-N9TH7PSoMFmwrsKFbM1f",
+      "usage": {
+        "prompt_tokens": 120,
+        "completion_tokens": 78,
+        "reasoning_tokens": 69,
+        "cached_tokens": 0,
+        "cost": 0.00255
+      },
+      "content": "7, 6, 6",
+      "reasoning": "<present>",
+      "ms": 5069
+    },
+    {
+      "label": "reasoning.effort=high",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303091-MqZzEMDPUJuEYiNUNQdP",
+      "usage": {
+        "prompt_tokens": 120,
+        "completion_tokens": 195,
+        "reasoning_tokens": 107,
+        "cached_tokens": 0,
+        "cost": 0.005475
+      },
+      "content": "**7, 6, 6**\n\n- Ana: 8 → above 6 → 7\n- Ben: 8 − 2 = 6 → not above 6 → 6\n- Cleo: ⌊(8+6)/2⌋ = 7 → above 6 → 6",
+      "reasoning": "<present>",
+      "ms": 7681
+    },
+    {
+      "label": "reasoning_effort=high",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303098-OtuV2MTycQjSN6g0bMjd",
+      "usage": {
+        "prompt_tokens": 120,
+        "completion_tokens": 190,
+        "reasoning_tokens": 102,
+        "cached_tokens": 0,
+        "cost": 0.00535
+      },
+      "content": "**7, 6, 6**\n\n- Ana: 8 → above 6 → 7\n- Ben: 8 − 2 = 6 → not above 6 → 6\n- Cleo: ⌊(8+6)/2⌋ = 7 → above 6 → 6",
+      "reasoning": "<present>",
+      "ms": 6825
+    }
+  ]
+}

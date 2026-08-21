@@ -1,0 +1,70 @@
+{
+  "probe": "M2",
+  "transcript": "kickoff-02",
+  "prefix_chars": 16586,
+  "verdict": "SCHEMA BREAKS THE CACHE - identical schema cached 6897 tokens, different schema cached 0. Twelve per-dimension schemas = twelve uncached transcripts. Do NOT sacrifice the enum; try moving the transcript ahead of the schema region, else accept ~$1/run and say so.",
+  "same_schema_cached": 6897,
+  "diff_schema_cached": 0,
+  "results": [
+    {
+      "label": "A  D1 schema (write)",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303223-aWbhZhAcQTu3wkfE58iK",
+      "usage": {
+        "prompt_tokens": 6935,
+        "completion_tokens": 1008,
+        "reasoning_tokens": 142,
+        "cached_tokens": 0,
+        "cost": 0.09436
+      },
+      "content": "{\"evidence\":[\"L5: [Ivan Petrov]: Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.\",\"L9: [Ivan Petrov]: Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis, it's been what, over a year now?\",\"L11: [Ivan Petrov]: Right, right, fourteen months, yeah that's rough. Okay and you're in Tampa, is that right?\",\"L15: [Ivan Petrov]: Cool. So I know you talked to Marcus, or was it — who'd you talk to on the sales side?\",\"L17: [Ivan Petrov]: Marcus, right, yeah he's great. So he's got you down for Foundations, the ninety day, three cycle thing.\",\"L50: [Ivan Petrov]: So if you signed up on the, what was it, the 5th?\",\"L51: [Renata Cruz]: I think it was the 6th actually.\",\"L58: [Ivan Petrov]: Okay, quick one — have you done any other treatment for the foot, like PT, orthotics, cortisone, any of that?\",\"L80: [Ivan Petrov]: Cool, um, let's see — I think that pretty much covers the setup stuff.\",\"L94: [Ivan Petrov]: Okay where was I, um, yeah I think we covered the main stuff. Oh — one thing...\",\"L106: [Ivan Petrov]: Oh, and one more thing I forgot — shoes.\",\"L122: [Ivan Petrov]: Oh — actually real quick, one thing, if the app gives you any trouble logging back in later...\"],\"reasoning\":\"Ivan demonstrates partial preparation: he has the intake open and correctly references her profession (L5), condition and duration (L9, L11), location (L11), and purchased plan (L17). That is real evidence of pre-call review of the file. However, prep is surface-level and imprecise in several places: he cannot recall which salesperson she spoke with (L15), he misstates the signup/billing date and must be corrected by the client (L50–L51), and basic intake-type history (prior PT, orthotics, cortisone — L58) and equipment (L54) are being gathered live rather than confirmed from a reviewed file. His agenda also shows weak structural prep, with repeated recall failures and afterthought items surfacing throughout and even after the stated close (L80, L94, L106, L108 'I think that's everything on my checklist here', L122). Net: recognizable preparation on headline client facts, but inconsistent command of details and a loosely organized, memory-dependent call plan.\",\"score\":6}",
+      "reasoning": "<present>",
+      "ms": 17918
+    },
+    {
+      "label": "A' D1 schema (same)",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303240-8SjD5XxZiKRB4CNa1tvf",
+      "usage": {
+        "prompt_tokens": 6935,
+        "completion_tokens": 781,
+        "reasoning_tokens": 131,
+        "cached_tokens": 6897,
+        "cost": 0.0231635
+      },
+      "content": "{\"evidence\":[\"L5: [Ivan Petrov]: Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.\",\"L9: [Ivan Petrov]: Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis, it's been what, over a year now?\",\"L11: [Ivan Petrov]: Right, right, fourteen months, yeah that's rough. Okay and you're in Tampa, is that right?\",\"L15: [Ivan Petrov]: Cool. So I know you talked to Marcus, or was it — who'd you talk to on the sales side?\",\"L17: [Ivan Petrov]: Marcus, right, yeah he's great. So he's got you down for Foundations, the ninety day, three cycle thing.\",\"L50: [Ivan Petrov]: ... So if you signed up on the, what was it, the 5th?\",\"L51: [Renata Cruz]: I think it was the 6th actually.\",\"L58: [Ivan Petrov]: Okay, quick one — have you done any other treatment for the foot, like PT, orthotics, cortisone, any of that?\",\"L108: [Ivan Petrov]: Alright, I think that's everything on my checklist here.\"],\"reasoning\":\"Ivan demonstrates real pre-call review: he has the intake open (L9), knows her occupation (L5), the exact condition and duration (L9, L11), her location (L11), and the plan she purchased (L17). He also works from a checklist (L108), indicating structured preparation. However, there are visible gaps: he could not recall which salesperson she spoke with (L15) and had the signup/billing date wrong (L50-L51), a factual detail that should have been verified before a billing conversation. Treatment history (L58) was gathered live rather than pre-reviewed, though asking it is appropriate. Preparation is solid and clearly evident but not flawless — minor accuracy lapses on handoff and billing details.\",\"score\":8}",
+      "reasoning": "<present>",
+      "ms": 12162
+    },
+    {
+      "label": "B  D3 schema (differs)",
+      "ok": true,
+      "http": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "end_turn",
+      "error": null,
+      "resolved_provider": "Anthropic",
+      "generation_id": "gen-1787303252-8gMOmnQ8rRwLLbvkLcV5",
+      "usage": {
+        "prompt_tokens": 6928,
+        "completion_tokens": 846,
+        "reasoning_tokens": 263,
+        "cached_tokens": 0,
+        "cost": 0.090255
+      },
+      "content": "{\"evidence\":[\"L13: [Ivan Petrov]: Cool. So what we're gonna do today is just kind of get you rolling — I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps. Should be quick.\",\"L14: [Renata Cruz]: Okay, sounds good.\",\"L48: [Ivan Petrov]: Okay so let's talk logistics for a sec, because I want to make sure you're set before we lose track of time here.\",\"L62: [Ivan Petrov]: Alright, so let's talk about what happens next, because this is the important part.\",\"L80: [Ivan Petrov]: Cool, um, let's see — I think that pretty much covers the setup stuff. Any questions on the app or the billing or anything like that before we keep going?\",\"L102: [Ivan Petrov]: Cool. Alright so I think we're in good shape. Let's see, we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer.\"],\"reasoning\":\"Ivan frames the agenda early and explicitly at L13, listing the four items in sequence (app tour, program overview, billing, first steps), and the client assents at L14. He signposts transitions as he moves through each block (L48, L62) and checks for questions mid-call (L80), and the call actually follows the stated sequence, with a recap at L104. Gaps: the time expectation is vague rather than concrete — 'Should be quick' (L13) with no stated duration, and time is only surfaced late at L102; and he never invites the client to add her own items or priorities to the agenda before diving in — at L13 he states the plan without asking what she wants to cover. These are minor omissions against otherwise clear, followed-through framing.\",\"score\":4.5}",
+      "reasoning": "<present>",
+      "ms": 16070
+    }
+  ]
+}

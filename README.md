@@ -34,12 +34,13 @@ npm run build && npm start
 
 | command | what it does | costs money |
 |---|---|---|
-| `npm test` | 94 unit tests — rubric arithmetic, evidence verification, transcript parsing | no |
+| `npm test` | 107 unit tests — rubric arithmetic, evidence verification, transcript parsing | no |
 | `npm run worker-check` | run lifecycle: idempotency, the four states, the stale-worker sweep | no |
-| `npm run browser-seed` | seeds a still-scoring and a dead run so all four states are viewable | no |
-| `npm run browser-test` | 74 Playwright assertions against a running build | no |
+| `npm run browser-seed` | seeds a fact-pass, a still-scoring and a dead run so every state is viewable | no |
+| `npm run browser-test` | 96 Playwright assertions against a running build | no |
 | `npm run screenshots` | writes `screenshots/` | no |
 | `npm run report` | re-derives every citation from the transcript, then renders the page | no |
+| `npm run evidence` | recomputes every determinism figure from the raw API responses | no |
 | `npm run score -- coaching-01` | scores one fixture end to end | **yes, ~$0.64–0.80** |
 
 `npm run report` is the important one. It exists because the report page once shipped three quotes

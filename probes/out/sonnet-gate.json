@@ -1,0 +1,76 @@
+{
+  "model": "anthropic/claude-sonnet-5",
+  "gate1": true,
+  "gate2": false,
+  "verdict": "STAY ON OPUS — the trap is not reliably caught on Sonnet. Record this as a measured reason.",
+  "distribution": {
+    "0": 2,
+    "6": 7,
+    "8": 4,
+    "9": 5,
+    "10": 2
+  },
+  "trap": [
+    {
+      "label": "run-1",
+      "ok": true,
+      "determination": "booked_live",
+      "quotedBoth": false,
+      "lines": [
+        185,
+        188
+      ],
+      "cached": 0,
+      "cost": 0.056846
+    },
+    {
+      "label": "run-2",
+      "ok": true,
+      "determination": "booked_live",
+      "quotedBoth": false,
+      "lines": [
+        188,
+        187
+      ],
+      "cached": 13385,
+      "cost": 0.005473
+    },
+    {
+      "label": "run-3",
+      "ok": true,
+      "determination": "booked_live",
+      "quotedBoth": false,
+      "lines": [
+        187,
+        188
+      ],
+      "cached": 13385,
+      "cost": 0.005763
+    },
+    {
+      "label": "run-4",
+      "ok": true,
+      "determination": "not_booked",
+      "quotedBoth": false,
+      "lines": [
+        188,
+        187
+      ],
+      "cached": 13385,
+      "cost": 0.005843
+    },
+    {
+      "label": "run-5",
+      "ok": true,
+      "determination": "booked_live",
+      "quotedBoth": false,
+      "lines": [
+        187,
+        188
+      ],
+      "cached": 13385,
+      "cost": 0.005603
+    }
+  ],
+  "spend": 0.12270800000000001
+}

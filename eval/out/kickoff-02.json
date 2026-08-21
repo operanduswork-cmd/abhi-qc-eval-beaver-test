@@ -1,0 +1,2889 @@
+{
+  "callType": "kickoff",
+  "coach": "Ivan Petrov",
+  "client": "Renata Cruz",
+  "transcriptSha256": "19939aaaf18048b184d576b6e46ead42fe518b3a22dd1b3ee1cd9736595eda2d",
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "Pre-Call Preparation",
+      "score": 8,
+      "maxPoints": 10,
+      "bucketMatched": "Strong",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": false,
+      "absenceStatement": "3 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L9 Ivan opens with \"I've got your intake here, I see you're dealing with the plantar fasciitis\" — a clear, natural use of pre-call notes, backed by the nurse/ICU detail (L5, L7), the Tampa location (L11), and the Foundations 90-day plan (L17, L50). That's well past Mid. But the prep is uneven at the edges: he can't recall which salesperson she spoke to (L15), he re-asks the core goal question at L44 (\"what are you hoping to get out of this?\") which the sales notes should have carried, and several details (Tampa, ICU, sign-up date) are asked as confirmations rather than stated. So it isn't seamless Elite delivery, but it is clearly Strong with only minor redundancy.",
+      "quickFix": "Come in already knowing the sales rep's name and the client's stated goal, and state them rather than asking: e.g. \"Marcus mentioned your goal is to get through a twelve-hour ICU shift and walk without thinking about every step — you don't need to repeat any of that.\" Replace the confirmation questions (Tampa, ICU, sign-up date) with statements from the CRM.",
+      "evidence": [
+        {
+          "quote": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+          "exact": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+          "status": "verified",
+          "line": 9,
+          "claimedLine": 9,
+          "speaker": "Ivan Petrov",
+          "charStart": 747,
+          "charEnd": 864,
+          "wordCount": 22
+        },
+        {
+          "quote": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+          "exact": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+          "status": "verified",
+          "line": 5,
+          "claimedLine": 5,
+          "speaker": "Ivan Petrov",
+          "charStart": 278,
+          "charEnd": 342,
+          "wordCount": 14
+        },
+        {
+          "quote": "So he's got you down for Foundations, the ninety day, three cycle thing.",
+          "exact": "So he's got you down for Foundations, the ninety day, three cycle thing.",
+          "status": "verified",
+          "line": 17,
+          "claimedLine": 17,
+          "speaker": "Ivan Petrov",
+          "charStart": 1598,
+          "charEnd": 1670,
+          "wordCount": 13
+        },
+        {
+          "quote": "Hey, is this Renata?",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 1,
+          "speaker": "Ivan Petrov",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 4
+        },
+        {
+          "quote": "I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+          "exact": "I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+          "status": "verified",
+          "line": 9,
+          "claimedLine": 9,
+          "speaker": "Ivan Petrov",
+          "charStart": 783,
+          "charEnd": 864,
+          "wordCount": 15
+        },
+        {
+          "quote": "Okay and you're in Tampa, is that right?",
+          "exact": "Okay and you're in Tampa, is that right?",
+          "status": "verified",
+          "line": 11,
+          "claimedLine": 11,
+          "speaker": "Ivan Petrov",
+          "charStart": 1060,
+          "charEnd": 1100,
+          "wordCount": 8
+        },
+        {
+          "quote": "What unit are you on, ICU right?",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 7,
+          "speaker": "Ivan Petrov",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 7
+        },
+        {
+          "quote": "you're on the ninety day Foundations plan, that's three cycles of thirty days each",
+          "exact": "you're on the ninety day Foundations plan, that's three cycles of thirty days each",
+          "status": "verified",
+          "line": 50,
+          "claimedLine": 50,
+          "speaker": "Ivan Petrov",
+          "charStart": 5747,
+          "charEnd": 5829,
+          "wordCount": 14
+        },
+        {
+          "quote": "and he walked you through pricing and all that already so we don't need to go back over that?",
+          "exact": "and he walked you through pricing and all that already so we don't need to go back over that?",
+          "status": "verified",
+          "line": 19,
+          "claimedLine": 19,
+          "speaker": "Ivan Petrov",
+          "charStart": 1786,
+          "charEnd": 1879,
+          "wordCount": 19
+        },
+        {
+          "quote": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis",
+          "exact": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis",
+          "status": "verified",
+          "line": 9,
+          "claimedLine": 9,
+          "speaker": "Ivan Petrov",
+          "charStart": 747,
+          "charEnd": 830,
+          "wordCount": 15
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D1.r1",
+          "text": "Fully reviewed intake, references goals naturally, no repetition.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+              "exact": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+              "status": "verified",
+              "line": 9,
+              "claimedLine": 9,
+              "speaker": "Ivan Petrov",
+              "charStart": 747,
+              "charEnd": 864,
+              "wordCount": 22
+            },
+            {
+              "quote": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+              "exact": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+              "status": "verified",
+              "line": 5,
+              "claimedLine": 5,
+              "speaker": "Ivan Petrov",
+              "charStart": 278,
+              "charEnd": 342,
+              "wordCount": 14
+            },
+            {
+              "quote": "So he's got you down for Foundations, the ninety day, three cycle thing.",
+              "exact": "So he's got you down for Foundations, the ninety day, three cycle thing.",
+              "status": "verified",
+              "line": 17,
+              "claimedLine": 17,
+              "speaker": "Ivan Petrov",
+              "charStart": 1598,
+              "charEnd": 1670,
+              "wordCount": 13
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+              "exact": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+              "status": "verified",
+              "line": 44,
+              "claimedLine": 44,
+              "speaker": "Ivan Petrov",
+              "charStart": 4926,
+              "charEnd": 5012,
+              "wordCount": 19
+            },
+            {
+              "quote": "So I know you talked to Marcus, or was it — who'd you talk to on the sales side?",
+              "exact": "So I know you talked to Marcus, or was it — who'd you talk to on the sales side?",
+              "status": "verified",
+              "line": 15,
+              "claimedLine": 15,
+              "speaker": "Ivan Petrov",
+              "charStart": 1434,
+              "charEnd": 1514,
+              "wordCount": 19
+            }
+          ]
+        },
+        {
+          "id": "D1.r2",
+          "text": "References specific goals + name + injuries within the first 2 minutes.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "Hey, is this Renata?",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 1,
+              "speaker": "Ivan Petrov",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 4
+            },
+            {
+              "quote": "I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+              "exact": "I see you're dealing with the plantar fasciitis, it's been what, over a year now?",
+              "status": "verified",
+              "line": 9,
+              "claimedLine": 9,
+              "speaker": "Ivan Petrov",
+              "charStart": 783,
+              "charEnd": 864,
+              "wordCount": 15
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+              "exact": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+              "status": "verified",
+              "line": 44,
+              "claimedLine": 44,
+              "speaker": "Ivan Petrov",
+              "charStart": 4926,
+              "charEnd": 5012,
+              "wordCount": 19
+            }
+          ]
+        },
+        {
+          "id": "D1.r3",
+          "text": "Uses at least 2 specific details from CRM/notes naturally and in passing.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "Okay and you're in Tampa, is that right?",
+              "exact": "Okay and you're in Tampa, is that right?",
+              "status": "verified",
+              "line": 11,
+              "claimedLine": 11,
+              "speaker": "Ivan Petrov",
+              "charStart": 1060,
+              "charEnd": 1100,
+              "wordCount": 8
+            },
+            {
+              "quote": "What unit are you on, ICU right?",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 7,
+              "speaker": "Ivan Petrov",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 7
+            },
+            {
+              "quote": "you're on the ninety day Foundations plan, that's three cycles of thirty days each",
+              "exact": "you're on the ninety day Foundations plan, that's three cycles of thirty days each",
+              "status": "verified",
+              "line": 50,
+              "claimedLine": 50,
+              "speaker": "Ivan Petrov",
+              "charStart": 5747,
+              "charEnd": 5829,
+              "wordCount": 14
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D1.r4",
+          "text": "May (but need not) explicitly tell client they don't need to repeat the sales call.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "and he walked you through pricing and all that already so we don't need to go back over that?",
+              "exact": "and he walked you through pricing and all that already so we don't need to go back over that?",
+              "status": "verified",
+              "line": 19,
+              "claimedLine": 19,
+              "speaker": "Ivan Petrov",
+              "charStart": 1786,
+              "charEnd": 1879,
+              "wordCount": 19
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D1.r5",
+          "text": "Score 10 when delivery is seamless and at least one verbal acknowledgement is present; 9 when otherwise elite without the verbal acknowledgement.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis",
+              "exact": "Okay, so I've got your intake here, I see you're dealing with the plantar fasciitis",
+              "status": "verified",
+              "line": 9,
+              "claimedLine": 9,
+              "speaker": "Ivan Petrov",
+              "charStart": 747,
+              "charEnd": 830,
+              "wordCount": 15
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "So I know you talked to Marcus, or was it — who'd you talk to on the sales side?",
+              "exact": "So I know you talked to Marcus, or was it — who'd you talk to on the sales side?",
+              "status": "verified",
+              "line": 15,
+              "claimedLine": 15,
+              "speaker": "Ivan Petrov",
+              "charStart": 1434,
+              "charEnd": 1514,
+              "wordCount": 19
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787311846-ZUhVvRAzyUS6dOU6yaQn",
+      "usage": {
+        "promptTokens": 11214,
+        "completionTokens": 1304,
+        "cachedTokens": 0,
+        "cost": 0.12739
+      }
+    },
+    {
+      "id": "D2",
+      "title": "Rapport & Tone",
+      "score": 7,
+      "maxPoints": 10,
+      "bucketMatched": "Strong",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "1 of 5 required behaviours are not evidenced in the transcript. 3 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L23 Renata starts to open up — \"it's been a lot more than just the foot thing, if I'm being real\" — and Ivan talks over her back onto plantar fasciitis mechanics. That pattern repeats at L37, L47, L75 and L85: the client repeatedly reaches for something personal and the coach redirects to logistics or reassurance. The tone is friendly, he adapts to her fatigue (L102), uses her name naturally (L116, L120), and there's genuine laughter (L31, L93). But there is no personal sharing from the coach that is relevant to her, and while the client does volunteer personal material (L75, L99), it is consistently not received or explored. That's warm and conversational but surface-level — Strong, not Elite. Because r4 is entirely absent and the emotional mirroring repeatedly fails to land, this sits at the lower tier of Strong rather than collapsing to Mid, since the call clearly exceeds mechanical/transactional.",
+      "quickFix": "When Renata trailed off at L23 (\"more than just the foot thing\") and L75 (\"there's been a lot going on where I just kind of lose —\"), stop and say \"say more about that\" instead of redirecting to program mechanics. Then reflect it back verbatim (\"I like that you're naming that — it's not just the foot\") and offer one brief, relevant personal parallel of your own (e.g. a past client or your own experience with a chronic issue) so the exchange is two-way rather than a one-sided intake.",
+      "evidence": [
+        {
+          "quote": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+          "exact": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+          "status": "verified",
+          "line": 5,
+          "claimedLine": 5,
+          "speaker": "Ivan Petrov",
+          "charStart": 278,
+          "charEnd": 342,
+          "wordCount": 14
+        },
+        {
+          "quote": "we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer",
+          "exact": "we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer",
+          "status": "verified",
+          "line": 102,
+          "claimedLine": 102,
+          "speaker": "Ivan Petrov",
+          "charStart": 13201,
+          "charEnd": 13317,
+          "wordCount": 25
+        },
+        {
+          "quote": "Cool, um, let's see — I think that pretty much covers the setup stuff.",
+          "exact": "Cool, um, let's see — I think that pretty much covers the setup stuff.",
+          "status": "verified",
+          "line": 80,
+          "claimedLine": 80,
+          "speaker": "Ivan Petrov",
+          "charStart": 10122,
+          "charEnd": 10192,
+          "wordCount": 14
+        },
+        {
+          "quote": "sorry, my dog's going nuts in the background, one sec",
+          "exact": "sorry, my dog's going nuts in the background, one sec",
+          "status": "verified",
+          "line": 92,
+          "claimedLine": 92,
+          "speaker": "Ivan Petrov",
+          "charStart": 12087,
+          "charEnd": 12140,
+          "wordCount": 10
+        },
+        {
+          "quote": "well, I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+          "exact": "well, I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+          "status": "verified",
+          "line": 116,
+          "claimedLine": 116,
+          "speaker": "Ivan Petrov",
+          "charStart": 14920,
+          "charEnd": 15009,
+          "wordCount": 18
+        },
+        {
+          "quote": "Awesome, thanks Renata, talk soon, and get some rest after that shift.",
+          "exact": "Awesome, thanks Renata, talk soon, and get some rest after that shift.",
+          "status": "verified",
+          "line": 120,
+          "claimedLine": 120,
+          "speaker": "Ivan Petrov",
+          "charStart": 15284,
+          "charEnd": 15354,
+          "wordCount": 12
+        },
+        {
+          "quote": "Yeah, honestly it's pretty rough, I don't sleep great even on my days off, my body just doesn't know what time it is half the time.",
+          "exact": "Yeah, honestly it's pretty rough, I don't sleep great even on my days off, my body just doesn't know what time it is half the time.",
+          "status": "verified",
+          "line": 99,
+          "claimedLine": 99,
+          "speaker": "Renata Cruz",
+          "charStart": 12812,
+          "charEnd": 12943,
+          "wordCount": 26
+        },
+        {
+          "quote": "that's kind of my worry a little bit, like, I've started stuff before and just — with the shift work my schedule's just so unpredictable",
+          "exact": "that's kind of my worry a little bit, like, I've started stuff before and just — with the shift work my schedule's just so unpredictable",
+          "status": "verified",
+          "line": 75,
+          "claimedLine": 75,
+          "speaker": "Renata Cruz",
+          "charStart": 9199,
+          "charEnd": 9335,
+          "wordCount": 25
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D2.r1",
+          "text": "Warm, calm, personalized, matches client energy.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+              "exact": "Oh nice, nice, yeah I saw you're a nurse, that's — that's a lot.",
+              "status": "verified",
+              "line": 5,
+              "claimedLine": 5,
+              "speaker": "Ivan Petrov",
+              "charStart": 278,
+              "charEnd": 342,
+              "wordCount": 14
+            },
+            {
+              "quote": "we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer",
+              "exact": "we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer",
+              "status": "verified",
+              "line": 102,
+              "claimedLine": 102,
+              "speaker": "Ivan Petrov",
+              "charStart": 13201,
+              "charEnd": 13317,
+              "wordCount": 25
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't want to quit, right?",
+              "exact": "Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't want to quit, right?",
+              "status": "verified",
+              "line": 24,
+              "claimedLine": 24,
+              "speaker": "Ivan Petrov",
+              "charStart": 2287,
+              "charEnd": 2386,
+              "wordCount": 18
+            },
+            {
+              "quote": "Totally, yeah, the DIY thing only gets you so far, especially with something chronic like this.",
+              "exact": "Totally, yeah, the DIY thing only gets you so far, especially with something chronic like this.",
+              "status": "verified",
+              "line": 38,
+              "claimedLine": 38,
+              "speaker": "Ivan Petrov",
+              "charStart": 4181,
+              "charEnd": 4276,
+              "wordCount": 16
+            }
+          ]
+        },
+        {
+          "id": "D2.r2",
+          "text": "Conversation is natural and non-scripted.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "Cool, um, let's see — I think that pretty much covers the setup stuff.",
+              "exact": "Cool, um, let's see — I think that pretty much covers the setup stuff.",
+              "status": "verified",
+              "line": 80,
+              "claimedLine": 80,
+              "speaker": "Ivan Petrov",
+              "charStart": 10122,
+              "charEnd": 10192,
+              "wordCount": 14
+            },
+            {
+              "quote": "sorry, my dog's going nuts in the background, one sec",
+              "exact": "sorry, my dog's going nuts in the background, one sec",
+              "status": "verified",
+              "line": 92,
+              "claimedLine": 92,
+              "speaker": "Ivan Petrov",
+              "charStart": 12087,
+              "charEnd": 12140,
+              "wordCount": 10
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Alright, I think that's everything on my checklist here.",
+              "exact": "Alright, I think that's everything on my checklist here.",
+              "status": "verified",
+              "line": 108,
+              "claimedLine": 108,
+              "speaker": "Ivan Petrov",
+              "charStart": 14004,
+              "charEnd": 14060,
+              "wordCount": 9
+            }
+          ]
+        },
+        {
+          "id": "D2.r3",
+          "text": "Uses client's name organically.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "well, I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+              "exact": "well, I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+              "status": "verified",
+              "line": 116,
+              "claimedLine": 116,
+              "speaker": "Ivan Petrov",
+              "charStart": 14920,
+              "charEnd": 15009,
+              "wordCount": 18
+            },
+            {
+              "quote": "Awesome, thanks Renata, talk soon, and get some rest after that shift.",
+              "exact": "Awesome, thanks Renata, talk soon, and get some rest after that shift.",
+              "status": "verified",
+              "line": 120,
+              "claimedLine": 120,
+              "speaker": "Ivan Petrov",
+              "charStart": 15284,
+              "charEnd": 15354,
+              "wordCount": 12
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D2.r4",
+          "text": "Shares something personal and relevant.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": []
+        },
+        {
+          "id": "D2.r5",
+          "text": "Client opens up spontaneously with personal stories.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "Yeah, honestly it's pretty rough, I don't sleep great even on my days off, my body just doesn't know what time it is half the time.",
+              "exact": "Yeah, honestly it's pretty rough, I don't sleep great even on my days off, my body just doesn't know what time it is half the time.",
+              "status": "verified",
+              "line": 99,
+              "claimedLine": 99,
+              "speaker": "Renata Cruz",
+              "charStart": 12812,
+              "charEnd": 12943,
+              "wordCount": 26
+            },
+            {
+              "quote": "that's kind of my worry a little bit, like, I've started stuff before and just — with the shift work my schedule's just so unpredictable",
+              "exact": "that's kind of my worry a little bit, like, I've started stuff before and just — with the shift work my schedule's just so unpredictable",
+              "status": "verified",
+              "line": 75,
+              "claimedLine": 75,
+              "speaker": "Renata Cruz",
+              "charStart": 9199,
+              "charEnd": 9335,
+              "wordCount": 25
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "exact": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "status": "verified",
+              "line": 76,
+              "claimedLine": 76,
+              "speaker": "Ivan Petrov",
+              "charStart": 9493,
+              "charEnd": 9600,
+              "wordCount": 20
+            },
+            {
+              "quote": "honestly it's been a lot more than just the foot thing, if I'm being real. It's kind of turned into this whole —",
+              "exact": "honestly it's been a lot more than just the foot thing, if I'm being real. It's kind of turned into this whole —",
+              "status": "verified",
+              "line": 23,
+              "claimedLine": 23,
+              "speaker": "Renata Cruz",
+              "charStart": 2159,
+              "charEnd": 2271,
+              "wordCount": 23
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787311866-fBs4lIdw9tiOMY0dVRE3",
+      "usage": {
+        "promptTokens": 9683,
+        "completionTokens": 1443,
+        "cachedTokens": 0,
+        "cost": 0.12315
+      }
+    },
+    {
+      "id": "D3",
+      "title": "Agenda Framing",
+      "score": 4.5,
+      "maxPoints": 5,
+      "bucketMatched": "Elite",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": false,
+      "absenceStatement": "1 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L13 Ivan gives a genuine upfront agenda with four sequenced phases (app tour → program overview → billing → first steps), and Renata explicitly consents at L14 with \"Okay, sounds good.\" That satisfies two of the three Elite elements crisply. What is missing is explicit time framing: \"Should be quick\" is a vague duration gesture, not a stated length like \"we've got 30 minutes,\" and the only time reference later (L102, \"we're coming up on time here\") comes after the fact and was never set at the top. So the agenda is fully present, sequenced, and consented to, but delivered informally and without a stated clock. Per the tiebreak on unverifiable Elite elements, this sits at the lower end of the Elite band rather than collapsing to Mid, since it clearly exceeds \"partial agenda\" criteria.",
+      "quickFix": "At L13, prepend an explicit duration and tighten the sequence: \"We've got about 30 minutes today — first I'll get you into the app, then we'll walk the three program phases, then confirm billing and renewal dates, and we'll finish by locking in your assessment videos and our next call. Sound good?\" — then wait for her confirmation.",
+      "evidence": [
+        {
+          "quote": "So what we're gonna do today is just kind of get you rolling — I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps. Should be quick.",
+          "exact": "so what we're gonna do today is just kind of get you rolling — I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps. Should be quick.",
+          "status": "verified",
+          "line": 13,
+          "claimedLine": 13,
+          "speaker": "Ivan Petrov",
+          "charStart": 1160,
+          "charEnd": 1378,
+          "wordCount": 43
+        },
+        {
+          "quote": "Okay, sounds good.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 14,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 3
+        },
+        {
+          "quote": "I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps",
+          "exact": "I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps",
+          "status": "verified",
+          "line": 13,
+          "claimedLine": 13,
+          "speaker": "Ivan Petrov",
+          "charStart": 1223,
+          "charEnd": 1360,
+          "wordCount": 26
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D3.r1",
+          "text": "Clear agenda with explicit time framing AND ≥3 sequenced phases (numbered or natural-language) AND client verbal consent (\"sounds good\").",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "So what we're gonna do today is just kind of get you rolling — I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps. Should be quick.",
+              "exact": "so what we're gonna do today is just kind of get you rolling — I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps. Should be quick.",
+              "status": "verified",
+              "line": 13,
+              "claimedLine": 13,
+              "speaker": "Ivan Petrov",
+              "charStart": 1160,
+              "charEnd": 1378,
+              "wordCount": 43
+            },
+            {
+              "quote": "Okay, sounds good.",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 14,
+              "speaker": "Renata Cruz",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 3
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Let's see, we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer.",
+              "exact": "Let's see, we're coming up on time here — I know you said you're wiped from your shift, so I don't want to keep you much longer.",
+              "status": "verified",
+              "line": 102,
+              "claimedLine": 102,
+              "speaker": "Ivan Petrov",
+              "charStart": 13190,
+              "charEnd": 13318,
+              "wordCount": 27
+            }
+          ]
+        },
+        {
+          "id": "D3.r2",
+          "text": "Score 5 when all three elements are crisp; 4.5 when the agenda is fully present and sequenced but slightly informal in delivery.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps",
+              "exact": "I'll show you the app, we'll talk a little about the program, get your billing squared away, and then get you started on your first steps",
+              "status": "verified",
+              "line": 13,
+              "claimedLine": 13,
+              "speaker": "Ivan Petrov",
+              "charStart": 1223,
+              "charEnd": 1360,
+              "wordCount": 26
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Should be quick.",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 13,
+              "speaker": "Ivan Petrov",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 3
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787311989-gNlhrmd7dvmCK11DnYVh",
+      "usage": {
+        "promptTokens": 10408,
+        "completionTokens": 781,
+        "cachedTokens": 0,
+        "cost": 0.11013
+      }
+    },
+    {
+      "id": "D4",
+      "title": "Goal Alignment & Deep Why",
+      "score": 5,
+      "maxPoints": 15,
+      "bucketMatched": "Mid",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "3 of 4 required behaviours are not evidenced in the transcript. 1 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L44 Ivan asks the single goal question — \"what are you hoping to get out of this?\" — gets \"walk without the pain\" at L45, and at L46 immediately generalises it into a category statement about \"our plantar fasciitis clients\" before pivoting to logistics at L48. That is the textbook Mid pattern: ask goals, accept the first physical answer, no probing. The client repeatedly opens emotional doors — L23 \"it's been a lot more than just the foot thing\", L37 \"I've tried so many things on my own\", L75 \"there's been a lot going on where I just kind of lose —\", L85 \"is this gonna actually be different\" — and each time she is cut off mid-sentence and redirected to program mechanics or reassurance. No \"why is that important to you\", no impact question, no 30-day success metric (Friday video upload is a logistics deadline, not a success metric), no North Star statement, and therefore no client confirmation. The goal is never referenced again after L46.",
+      "quickFix": "After Renata says she wants to walk without pain (L45), stop and dig: \"Why does that matter to you — what does pain-free walking give you back?\" and follow her opening at L23/L75 (\"a lot more than just the foot thing\") with a second why to surface the identity driver (nurse who can finish a shift, be present off-shift). Then reflect it back as a North Star — \"What I hear you saying is you want to be the nurse who finishes a twelve-hour shift and still has something left for her own life\" — get an explicit \"yes, that's exactly it\", and pin a concrete 30-day metric (e.g. \"by day 30, first ten steps out of bed are under a 3/10\"), then reference it again in the recap at L104.",
+      "evidence": [
+        {
+          "quote": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+          "exact": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+          "status": "verified",
+          "line": 44,
+          "claimedLine": 44,
+          "speaker": "Ivan Petrov",
+          "charStart": 4926,
+          "charEnd": 5012,
+          "wordCount": 19
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D4.r1",
+          "text": "Extracts emotional drivers + clear 30-day success metrics. ≥2 follow-up questions on \"why\".",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+              "exact": "So — what's the actual goal for you here, like what are you hoping to get out of this?",
+              "status": "verified",
+              "line": 44,
+              "claimedLine": 44,
+              "speaker": "Ivan Petrov",
+              "charStart": 4926,
+              "charEnd": 5012,
+              "wordCount": 19
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients. Okay perfect, we can definitely work with that.",
+              "exact": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients. Okay perfect, we can definitely work with that.",
+              "status": "verified",
+              "line": 46,
+              "claimedLine": 46,
+              "speaker": "Ivan Petrov",
+              "charStart": 5161,
+              "charEnd": 5300,
+              "wordCount": 25
+            },
+            {
+              "quote": "Yeah the twelve hour shifts are brutal on the feet no matter what, but especially with what you've got going on. Okay so let's talk logistics for a sec",
+              "exact": "Yeah the twelve hour shifts are brutal on the feet no matter what, but especially with what you've got going on. Okay so let's talk logistics for a sec",
+              "status": "verified",
+              "line": 48,
+              "claimedLine": 48,
+              "speaker": "Ivan Petrov",
+              "charStart": 5466,
+              "charEnd": 5617,
+              "wordCount": 29
+            }
+          ]
+        },
+        {
+          "id": "D4.r2",
+          "text": "Extracts emotional/identity driver (fear, family, legacy, career, self-image).",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't want to quit, right? It affects everything else too, the whole chain.",
+              "exact": "Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't want to quit, right? It affects everything else too, the whole chain.",
+              "status": "verified",
+              "line": 24,
+              "claimedLine": 24,
+              "speaker": "Ivan Petrov",
+              "charStart": 2287,
+              "charEnd": 2435,
+              "wordCount": 26
+            },
+            {
+              "quote": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "exact": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "status": "verified",
+              "line": 76,
+              "claimedLine": 76,
+              "speaker": "Ivan Petrov",
+              "charStart": 9493,
+              "charEnd": 9600,
+              "wordCount": 20
+            }
+          ]
+        },
+        {
+          "id": "D4.r3",
+          "text": "Builds a North Star statement: \"What I hear you saying is you want to be the active husband and father you envision for decades to come.\" Defines specific 30-day success metric.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients. Okay perfect, we can definitely work with that.",
+              "exact": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients. Okay perfect, we can definitely work with that.",
+              "status": "verified",
+              "line": 46,
+              "claimedLine": 46,
+              "speaker": "Ivan Petrov",
+              "charStart": 5161,
+              "charEnd": 5300,
+              "wordCount": 25
+            }
+          ]
+        },
+        {
+          "id": "D4.r4",
+          "text": "Client verbally confirms (\"Yes, that's exactly it\").",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": []
+        }
+      ],
+      "generationId": "gen-1787312019-CHijsKiiUVhJfzd46YEj",
+      "usage": {
+        "promptTokens": 10121,
+        "completionTokens": 1162,
+        "cachedTokens": 0,
+        "cost": 0.11827
+      }
+    },
+    {
+      "id": "D5",
+      "title": "Program Explanation (3 Phases)",
+      "score": 6,
+      "maxPoints": 10,
+      "bucketMatched": "Strong",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "2 of 4 required behaviours are not evidenced in the transcript. 2 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L40 Ivan names all three canonical phases in correct order — Retraining, Remodeling, Integrating — which is fully creditable phase identification. But when Renata directly asks the differentiating question at L41, he deflects at L42 (\"I don't want to overload you\"), so no outcomes per phase are given, no analogy or reassessment cadence appears, and the phases are never tied to her stated goal of walking pain-free (L46 he generalises it to \"a lot of our plantar fasciitis clients\"). Belief transfer is partial: L86's progressive-loading framing helps, and L82 explains adaptive progression, but her hedged \"that makes sense I think\" (L83) shows it did not fully land. Complete, correctly ordered naming but brief and generic delivery places this squarely in the Strong band at the lower tier.",
+      "quickFix": "When Renata asked \"what's the difference between them\" at L41, answer it: give one sentence of outcome per phase tied to her goal — e.g. \"Retraining: calm the plantar tissue and fix how you load the foot so hour six of a shift stops spiking; Remodeling: load the calf and foot to build real tissue capacity; Integrating: put that capacity back into twelve hours on your feet.\" Add an analogy (foundation → walls → roof) plus a reassessment cadence (\"we recheck your videos at week 4, 8 and 12\"), then close with \"does that make sense as a path?\" and get explicit confirmation.",
+      "evidence": [
+        {
+          "quote": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+          "exact": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+          "status": "verified",
+          "line": 40,
+          "claimedLine": 40,
+          "speaker": "Ivan Petrov",
+          "charStart": 4439,
+          "charEnd": 4607,
+          "wordCount": 30
+        },
+        {
+          "quote": "the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches, it's actually built around progressive loading",
+          "exact": "the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches, it's actually built around progressive loading",
+          "status": "verified",
+          "line": 86,
+          "claimedLine": 86,
+          "speaker": "Ivan Petrov",
+          "charStart": 11107,
+          "charEnd": 11261,
+          "wordCount": 25
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D5.r1",
+          "text": "All 3 phases clearly named (in any equivalent phrasing) with outcomes for each.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+              "exact": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+              "status": "verified",
+              "line": 40,
+              "claimedLine": 40,
+              "speaker": "Ivan Petrov",
+              "charStart": 4439,
+              "charEnd": 4607,
+              "wordCount": 30
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go, I don't want to overload you with too much info on the first call.",
+              "exact": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go, I don't want to overload you with too much info on the first call.",
+              "status": "verified",
+              "line": 42,
+              "claimedLine": 42,
+              "speaker": "Ivan Petrov",
+              "charStart": 4691,
+              "charEnd": 4862,
+              "wordCount": 36
+            }
+          ]
+        },
+        {
+          "id": "D5.r2",
+          "text": "Uses an analogy (pyramid, mountain, ladder) or reassessment cadence (\"week 4, 8, 12, 16\").",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "the program's gonna progress as your foot tolerates more, so it's not like a fixed thing, it adjusts based on what you upload",
+              "exact": "the program's gonna progress as your foot tolerates more, so it's not like a fixed thing, it adjusts based on what you upload",
+              "status": "verified",
+              "line": 82,
+              "claimedLine": 82,
+              "speaker": "Ivan Petrov",
+              "charStart": 10452,
+              "charEnd": 10577,
+              "wordCount": 23
+            }
+          ]
+        },
+        {
+          "id": "D5.r3",
+          "text": "Each phase tied to the client's specific goal.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients. Okay perfect, we can definitely work with that.",
+              "exact": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients. Okay perfect, we can definitely work with that.",
+              "status": "verified",
+              "line": 46,
+              "claimedLine": 46,
+              "speaker": "Ivan Petrov",
+              "charStart": 5161,
+              "charEnd": 5300,
+              "wordCount": 25
+            }
+          ]
+        },
+        {
+          "id": "D5.r4",
+          "text": "High belief transfer — client understands WHY the path is structured this way.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches, it's actually built around progressive loading",
+              "exact": "the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches, it's actually built around progressive loading",
+              "status": "verified",
+              "line": 86,
+              "claimedLine": 86,
+              "speaker": "Ivan Petrov",
+              "charStart": 11107,
+              "charEnd": 11261,
+              "wordCount": 25
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Okay, and what's the difference between them, like —",
+              "exact": "Okay, and what's the difference between them, like —",
+              "status": "verified",
+              "line": 41,
+              "claimedLine": 41,
+              "speaker": "Renata Cruz",
+              "charStart": 4623,
+              "charEnd": 4675,
+              "wordCount": 9
+            },
+            {
+              "quote": "Okay, that makes sense I think.",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 83,
+              "speaker": "Renata Cruz",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 6
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787312036-b03i3rPy8W5EJA9OEVo8",
+      "usage": {
+        "promptTokens": 11075,
+        "completionTokens": 1110,
+        "cachedTokens": 0,
+        "cost": 0.1218
+      }
+    },
+    {
+      "id": "D6",
+      "title": "Journey & Expectation Setting",
+      "score": 3,
+      "maxPoints": 10,
+      "bucketMatched": "Mid",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "3 of 5 required behaviours are not evidenced in the transcript. 2 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L84 Ivan does gesture at emotional friction — \"some weeks feel like nothing's happening. That's pretty normal honestly\" — and Renata responds by opening up about her fear that this won't be different (L85). That is the one genuine moment of expectation setting, but Ivan immediately pivots to reassurance about the protocol (L86) rather than sitting with the valley, naming a specific window (weeks 3–4), or telling her what to do when it hits. Elsewhere the call is logistical: phases are named but not explained (L42 explicitly defers), timeline is delivery-focused (videos Friday, program Monday). There is no distinction between good discomfort and bad pain, no framing of month one as foundational rather than transformational, and no link back to a North Star — indeed no North Star was constructed at all; her \"walk without pain\" goal at L45 was generalised and dropped. When she raises her real adherence worry at L75 (\"there's been a lot going on where I just kind of lose —\") Ivan answers with scheduling flexibility, not psychological prep. So: expectations exist but are mostly informational, with one brief, un-developed normalization. That is above pure vagueness but well short of Strong's \"timeline explained, structure ok\" plus physical-discomfort normalization — the structure was explicitly not explained and discomfort was never addressed. This sits at the top of Mid.",
+      "quickFix": "Explicitly walk the emotional arc: \"Month one is foundational, not transformational — you probably won't feel dramatically better by day 30, and that's the plan working. Around week 3–4 most people hit a valley where it feels like nothing's changing; that's exactly when I want you to message me instead of going quiet.\" Then separate good discomfort (calf/foot working, fades within a day) from bad pain (sharp heel pain that's worse the next morning — stop and tell me). Explain what each of the three phases actually feels like rather than deferring it. Finally, tie it to her stated goal: \"At week 8 I'm going to ask you whether you're starting to walk without thinking about every step\" — and check she's heard it.\n",
+      "evidence": [
+        {
+          "quote": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+          "exact": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+          "status": "verified",
+          "line": 40,
+          "claimedLine": 40,
+          "speaker": "Ivan Petrov",
+          "charStart": 4439,
+          "charEnd": 4607,
+          "wordCount": 30
+        },
+        {
+          "quote": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+          "exact": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+          "status": "verified",
+          "line": 68,
+          "claimedLine": 68,
+          "speaker": "Ivan Petrov",
+          "charStart": 8306,
+          "charEnd": 8483,
+          "wordCount": 34
+        },
+        {
+          "quote": "I know foot stuff especially when it's chronic like yours, it can be frustrating, like some weeks feel like nothing's happening. That's pretty normal honestly, foot tissue's slow to change.",
+          "exact": "I know foot stuff especially when it's chronic like yours, it can be frustrating, like some weeks feel like nothing's happening. That's pretty normal honestly, foot tissue's slow to change.",
+          "status": "verified",
+          "line": 84,
+          "claimedLine": 84,
+          "speaker": "Ivan Petrov",
+          "charStart": 10671,
+          "charEnd": 10860,
+          "wordCount": 30
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D6.r1",
+          "text": "Clearly explains milestones, timeline, challenges.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+              "exact": "So there's three phases in the program — Phase 1 is Retraining, Phase 2 is Remodeling, and Phase 3 is Integrating. You'll move through all three over your three cycles.",
+              "status": "verified",
+              "line": 40,
+              "claimedLine": 40,
+              "speaker": "Ivan Petrov",
+              "charStart": 4439,
+              "charEnd": 4607,
+              "wordCount": 30
+            },
+            {
+              "quote": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+              "exact": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+              "status": "verified",
+              "line": 68,
+              "claimedLine": 68,
+              "speaker": "Ivan Petrov",
+              "charStart": 8306,
+              "charEnd": 8483,
+              "wordCount": 34
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go, I don't want to overload you with too much info on the first call.",
+              "exact": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go, I don't want to overload you with too much info on the first call.",
+              "status": "verified",
+              "line": 42,
+              "claimedLine": 42,
+              "speaker": "Ivan Petrov",
+              "charStart": 4691,
+              "charEnd": 4862,
+              "wordCount": 36
+            }
+          ]
+        },
+        {
+          "id": "D6.r2",
+          "text": "Normalizes emotional friction explicitly: \"There will be a week where you feel like you're not progressing — that's normal.\" Explains valleys (weeks 3–4).",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "I know foot stuff especially when it's chronic like yours, it can be frustrating, like some weeks feel like nothing's happening. That's pretty normal honestly, foot tissue's slow to change.",
+              "exact": "I know foot stuff especially when it's chronic like yours, it can be frustrating, like some weeks feel like nothing's happening. That's pretty normal honestly, foot tissue's slow to change.",
+              "status": "verified",
+              "line": 84,
+              "claimedLine": 84,
+              "speaker": "Ivan Petrov",
+              "charStart": 10671,
+              "charEnd": 10860,
+              "wordCount": 30
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Yeah the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches, it's actually built around progressive loading",
+              "exact": "Yeah the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches, it's actually built around progressive loading",
+              "status": "verified",
+              "line": 86,
+              "claimedLine": 86,
+              "speaker": "Ivan Petrov",
+              "charStart": 11102,
+              "charEnd": 11261,
+              "wordCount": 26
+            }
+          ]
+        },
+        {
+          "id": "D6.r3",
+          "text": "Distinguishes good discomfort from bad pain.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": []
+        },
+        {
+          "id": "D6.r4",
+          "text": "Explains the first month is foundational, not transformational.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": []
+        },
+        {
+          "id": "D6.r5",
+          "text": "Links back to North Star: \"When we're at week 8, I'll ask if you feel like you're becoming…\"",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": []
+        }
+      ],
+      "generationId": "gen-1787311920-8Ss0w95LTnavl6p5L72U",
+      "usage": {
+        "promptTokens": 9986,
+        "completionTokens": 1300,
+        "cachedTokens": 0,
+        "cost": 0.12109
+      }
+    },
+    {
+      "id": "D7",
+      "title": "Support System Clarity",
+      "score": 3,
+      "maxPoints": 5,
+      "bucketMatched": "Mid",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "1 of 5 required behaviours are not evidenced in the transcript.",
+      "reasoning": "At L28 and L34 Ivan does the core work: the app is named as \"home base\", the messaging tab is identified as the day-to-day channel, the community tab is described and later framed as optional (L90), and support email is carved out for account issues (L122). Response expectations are stated concretely at L88 (\"check messages daily... same day, sometimes next morning\"). The client confirms understanding at L81 and L105. What is missing is accountability framing — Renata raises exactly this at L75 (\"that's kind of my worry a little bit... I've started stuff before\") and Ivan responds with program flexibility (L76) rather than asking how she wants to be held accountable, e.g. pushed vs. left alone. No check-in cadence or nudge protocol is agreed. So channels and response times are solid, accountability style is absent — above the vague-mid description but short of elite.",
+      "quickFix": "After Renata's L75 admission about starting things and falling off, ask the accountability question directly: \"Do you want me to chase you if you go quiet for a few days, or hang back and let you come to me?\" Then convert the answer into a concrete rule — e.g. \"I'll message you every Sunday for a check-in, and if I don't hear from you for five days I'll ping you.\" Pair that with the existing app/response-time explanation and state it as a single sentence: \"The app messaging tab is our main channel, same-day replies weekdays, community tab optional, support email for login issues.\"",
+      "evidence": [
+        {
+          "quote": "And then there's a messaging tab, that's how you and I talk day to day, and there's the community tab too",
+          "exact": "And then there's a messaging tab, that's how you and I talk day to day, and there's the community tab too",
+          "status": "verified",
+          "line": 34,
+          "claimedLine": 34,
+          "speaker": "Ivan Petrov",
+          "charStart": 3513,
+          "charEnd": 3618,
+          "wordCount": 21
+        },
+        {
+          "quote": "if the app gives you any trouble logging back in later, just email support, don't wait on me for that kind of thing",
+          "exact": "if the app gives you any trouble logging back in later, just email support, don't wait on me for that kind of thing",
+          "status": "verified",
+          "line": 122,
+          "claimedLine": 122,
+          "speaker": "Ivan Petrov",
+          "charStart": 15458,
+          "charEnd": 15573,
+          "wordCount": 23
+        },
+        {
+          "quote": "video tool, so anytime you and I hop on a call, if we ever need to do a form check live or whatever",
+          "exact": "video tool, so anytime you and I hop on a call, if we ever need to do a form check live or whatever",
+          "status": "verified",
+          "line": 78,
+          "claimedLine": 78,
+          "speaker": "Ivan Petrov",
+          "charStart": 9856,
+          "charEnd": 9955,
+          "wordCount": 23
+        },
+        {
+          "quote": "that's the training app, that's basically your home base for everything — your program, your videos, messaging me, all of it lives there",
+          "exact": "that's the training app, that's basically your home base for everything — your program, your videos, messaging me, all of it lives there",
+          "status": "verified",
+          "line": 28,
+          "claimedLine": 28,
+          "speaker": "Ivan Petrov",
+          "charStart": 2813,
+          "charEnd": 2949,
+          "wordCount": 23
+        },
+        {
+          "quote": "response times — so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+          "exact": "response times — so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+          "status": "verified",
+          "line": 88,
+          "claimedLine": 88,
+          "speaker": "Ivan Petrov",
+          "charStart": 11505,
+          "charEnd": 11639,
+          "wordCount": 26
+        },
+        {
+          "quote": "that's kind of the group space where everyone in the program hangs out, shares wins, asks questions",
+          "exact": "that's kind of the group space where everyone in the program hangs out, shares wins, asks questions",
+          "status": "verified",
+          "line": 34,
+          "claimedLine": 34,
+          "speaker": "Ivan Petrov",
+          "charStart": 3620,
+          "charEnd": 3719,
+          "wordCount": 17
+        },
+        {
+          "quote": "it's optional, but people post progress there, ask questions, sometimes I'll drop tips in there for the whole group",
+          "exact": "it's optional, but people post progress there, ask questions, sometimes I'll drop tips in there for the whole group",
+          "status": "verified",
+          "line": 90,
+          "claimedLine": 90,
+          "speaker": "Ivan Petrov",
+          "charStart": 11788,
+          "charEnd": 11903,
+          "wordCount": 19
+        },
+        {
+          "quote": "Any questions on the app or the billing or anything like that before we keep going?",
+          "exact": "Any questions on the app or the billing or anything like that before we keep going?",
+          "status": "verified",
+          "line": 80,
+          "claimedLine": 80,
+          "speaker": "Ivan Petrov",
+          "charStart": 10193,
+          "charEnd": 10276,
+          "wordCount": 16
+        },
+        {
+          "quote": "No I think I'm good on that part.",
+          "exact": "No I think I'm good on that part.",
+          "status": "verified",
+          "line": 81,
+          "claimedLine": 81,
+          "speaker": "Renata Cruz",
+          "charStart": 10292,
+          "charEnd": 10325,
+          "wordCount": 8
+        },
+        {
+          "quote": "Okay, sounds good, Friday for the videos.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 105,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 7
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D7.r1",
+          "text": "Clearly explains all channels + when to use each.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "And then there's a messaging tab, that's how you and I talk day to day, and there's the community tab too",
+              "exact": "And then there's a messaging tab, that's how you and I talk day to day, and there's the community tab too",
+              "status": "verified",
+              "line": 34,
+              "claimedLine": 34,
+              "speaker": "Ivan Petrov",
+              "charStart": 3513,
+              "charEnd": 3618,
+              "wordCount": 21
+            },
+            {
+              "quote": "if the app gives you any trouble logging back in later, just email support, don't wait on me for that kind of thing",
+              "exact": "if the app gives you any trouble logging back in later, just email support, don't wait on me for that kind of thing",
+              "status": "verified",
+              "line": 122,
+              "claimedLine": 122,
+              "speaker": "Ivan Petrov",
+              "charStart": 15458,
+              "charEnd": 15573,
+              "wordCount": 23
+            },
+            {
+              "quote": "video tool, so anytime you and I hop on a call, if we ever need to do a form check live or whatever",
+              "exact": "video tool, so anytime you and I hop on a call, if we ever need to do a form check live or whatever",
+              "status": "verified",
+              "line": 78,
+              "claimedLine": 78,
+              "speaker": "Ivan Petrov",
+              "charStart": 9856,
+              "charEnd": 9955,
+              "wordCount": 23
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D7.r2",
+          "text": "Primary channel named explicitly (\"the training app is our main channel for daily check-ins\").",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "that's the training app, that's basically your home base for everything — your program, your videos, messaging me, all of it lives there",
+              "exact": "that's the training app, that's basically your home base for everything — your program, your videos, messaging me, all of it lives there",
+              "status": "verified",
+              "line": 28,
+              "claimedLine": 28,
+              "speaker": "Ivan Petrov",
+              "charStart": 2813,
+              "charEnd": 2949,
+              "wordCount": 23
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D7.r3",
+          "text": "Response time stated (\"I respond within 24h\"). the community platform/community access mentioned and how to use it.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "response times — so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+              "exact": "response times — so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+              "status": "verified",
+              "line": 88,
+              "claimedLine": 88,
+              "speaker": "Ivan Petrov",
+              "charStart": 11505,
+              "charEnd": 11639,
+              "wordCount": 26
+            },
+            {
+              "quote": "that's kind of the group space where everyone in the program hangs out, shares wins, asks questions",
+              "exact": "that's kind of the group space where everyone in the program hangs out, shares wins, asks questions",
+              "status": "verified",
+              "line": 34,
+              "claimedLine": 34,
+              "speaker": "Ivan Petrov",
+              "charStart": 3620,
+              "charEnd": 3719,
+              "wordCount": 17
+            },
+            {
+              "quote": "it's optional, but people post progress there, ask questions, sometimes I'll drop tips in there for the whole group",
+              "exact": "it's optional, but people post progress there, ask questions, sometimes I'll drop tips in there for the whole group",
+              "status": "verified",
+              "line": 90,
+              "claimedLine": 90,
+              "speaker": "Ivan Petrov",
+              "charStart": 11788,
+              "charEnd": 11903,
+              "wordCount": 19
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D7.r4",
+          "text": "Accountability style asked or framed (\"Do you want me to push you, or to stay in the background?\").",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "I mean, honestly the biggest thing is just consistency, showing up for the videos so I can actually adjust things for you as we go",
+              "exact": "I mean, honestly the biggest thing is just consistency, showing up for the videos so I can actually adjust things for you as we go",
+              "status": "verified",
+              "line": 74,
+              "claimedLine": 74,
+              "speaker": "Ivan Petrov",
+              "charStart": 9029,
+              "charEnd": 9159,
+              "wordCount": 25
+            },
+            {
+              "quote": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "exact": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "status": "verified",
+              "line": 76,
+              "claimedLine": 76,
+              "speaker": "Ivan Petrov",
+              "charStart": 9493,
+              "charEnd": 9600,
+              "wordCount": 20
+            }
+          ]
+        },
+        {
+          "id": "D7.r5",
+          "text": "Client visibly understands how to reach the coach and what to expect.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "Any questions on the app or the billing or anything like that before we keep going?",
+              "exact": "Any questions on the app or the billing or anything like that before we keep going?",
+              "status": "verified",
+              "line": 80,
+              "claimedLine": 80,
+              "speaker": "Ivan Petrov",
+              "charStart": 10193,
+              "charEnd": 10276,
+              "wordCount": 16
+            },
+            {
+              "quote": "No I think I'm good on that part.",
+              "exact": "No I think I'm good on that part.",
+              "status": "verified",
+              "line": 81,
+              "claimedLine": 81,
+              "speaker": "Renata Cruz",
+              "charStart": 10292,
+              "charEnd": 10325,
+              "wordCount": 8
+            },
+            {
+              "quote": "Okay, sounds good, Friday for the videos.",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 105,
+              "speaker": "Renata Cruz",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 7
+            }
+          ],
+          "counterEvidence": []
+        }
+      ],
+      "generationId": "gen-1787312073-Ywv5fvlzLeROEJwYuMmx",
+      "usage": {
+        "promptTokens": 9934,
+        "completionTokens": 1346,
+        "cachedTokens": 7728,
+        "cost": 0.048544
+      }
+    },
+    {
+      "id": "D8",
+      "title": "Coaching Intelligence Questions",
+      "score": 0,
+      "maxPoints": 10,
+      "bucketMatched": "Fail",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "Not evidenced in the transcript: none of this dimension's required behaviours were found. The rubric names no default here, so absence carries its full cost and the score sits at the bottom of the scale.",
+      "reasoning": "At L75 Renata volunteers the single richest behavioral opening of the call — \"I've started stuff before and just... there's been a lot going on where I just kind of lose —\" — and Ivan cuts her off at L76 with a feature pitch about built-in flexibility rather than asking what actually stopped her. The same pattern repeats at L23, L37, L47 and L85, where she starts describing the broader emotional impact and self-doubt and is talked over each time. Every question Ivan does ask is logistical or clinical: equipment (L54, L56), gym vs home (L56), prior treatment (L58-L60), days off (L94), sleep (L98), and a single flat goal question (L44) whose answer he generalises into \"that's the big one for a lot of our plantar fasciitis clients\" rather than personalising. There is no behavioral-pattern question, no consistency-trigger probe, no learning-style question, no stress-response inquiry, and no archetype read — the Worrier signals at L85 (\"is this gonna actually be different\") are answered with reassurance, not explored. Answers gathered (sleep, rotation) are explicitly parked with \"nothing to do about it right now\" (L100). This is squarely the Mid band: generic logistical questions only, surface-level, answers not used to adapt approach. It is not a 0 because he did ask about equipment, availability, prior treatment history and a goal, which is more than the Fail description's bare minimum.",
+      "quickFix": "When Renata opened the door at L75 (\"I've started stuff before... there's been a lot going on\"), stop and mine it: \"What specifically stopped you last time — was it the schedule, or did motivation drop off?\" and \"What usually throws you off a program in week three?\" Then add three questions the call never asked: learning style (\"Do you want me pushing you hard or checking in gently?\"), stress response (\"When a week goes sideways at work, what happens to your training?\"), and a self-awareness probe (\"What's your honest read on why the PT didn't stick?\"). Finally, name the archetype back — her repeated \"is this gonna actually be different\" and self-doubt read as Worrier — and state the adaptation out loud: \"So I'll send you short weekly proof-of-progress notes and keep sessions to 15 minutes on shift days, because I don't think you need pushing, you need evidence it's working.\"",
+      "evidence": [],
+      "requirements": [
+        {
+          "id": "D8.r1",
+          "text": "Asks key behavioral + self-awareness questions.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "exact": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+              "status": "verified",
+              "line": 76,
+              "claimedLine": 76,
+              "speaker": "Ivan Petrov",
+              "charStart": 9493,
+              "charEnd": 9600,
+              "wordCount": 20
+            }
+          ]
+        },
+        {
+          "id": "D8.r2",
+          "text": "Asks about behavioral patterns (\"What has stopped you in the past?\").",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "I mean that's kind of my worry a little bit, like, I've started stuff before and just — with the shift work my schedule's just so unpredictable",
+              "exact": "I mean that's kind of my worry a little bit, like, I've started stuff before and just — with the shift work my schedule's just so unpredictable",
+              "status": "verified",
+              "line": 75,
+              "claimedLine": 75,
+              "speaker": "Renata Cruz",
+              "charStart": 9192,
+              "charEnd": 9335,
+              "wordCount": 27
+            }
+          ]
+        },
+        {
+          "id": "D8.r3",
+          "text": "Probes consistency triggers (\"What usually throws you off a program?\").",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "there's been a lot going on where I just kind of lose —",
+              "exact": "there's been a lot going on where I just kind of lose —",
+              "status": "verified",
+              "line": 75,
+              "claimedLine": 75,
+              "speaker": "Renata Cruz",
+              "charStart": 9422,
+              "charEnd": 9477,
+              "wordCount": 13
+            }
+          ]
+        },
+        {
+          "id": "D8.r4",
+          "text": "Asks about learning style (\"How do you learn best — do you need to be pushed or supported?\").",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": []
+        },
+        {
+          "id": "D8.r5",
+          "text": "Asks about stress response.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "And sleep — I'm guessing that's also all over the place with nights and days mixing?",
+              "exact": "And sleep — I'm guessing that's also all over the place with nights and days mixing?",
+              "status": "verified",
+              "line": 98,
+              "claimedLine": 98,
+              "speaker": "Ivan Petrov",
+              "charStart": 12712,
+              "charEnd": 12796,
+              "wordCount": 16
+            }
+          ]
+        },
+        {
+          "id": "D8.r6",
+          "text": "Uses answers to personalize coaching approach.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Okay, we'll keep that in mind, nothing to do about it right now really, just flagging it for myself.",
+              "exact": "Okay, we'll keep that in mind, nothing to do about it right now really, just flagging it for myself.",
+              "status": "verified",
+              "line": 100,
+              "claimedLine": 100,
+              "speaker": "Ivan Petrov",
+              "charStart": 13007,
+              "charEnd": 13107,
+              "wordCount": 19
+            }
+          ]
+        },
+        {
+          "id": "D8.r7",
+          "text": "Identifies client archetype signals (Doer / Controller / Worrier / Follower).",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Yeah the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches",
+              "exact": "Yeah the good news is we've got a pretty specific protocol for exactly this, so it's not just generic stretches",
+              "status": "verified",
+              "line": 86,
+              "claimedLine": 86,
+              "speaker": "Ivan Petrov",
+              "charStart": 11102,
+              "charEnd": 11213,
+              "wordCount": 20
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787311945-1OfNbPeXBs9yBsAK872X",
+      "usage": {
+        "promptTokens": 9952,
+        "completionTokens": 1392,
+        "cachedTokens": 0,
+        "cost": 0.12331
+      }
+    },
+    {
+      "id": "D9",
+      "title": "Next Steps & Diagnostics",
+      "score": 7,
+      "maxPoints": 10,
+      "bucketMatched": "Strong",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "1 of 6 required behaviours are not evidenced in the transcript. 3 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L68 Ivan gives a genuinely dated pipeline — upload by Friday, program built over the weekend, live Monday — and Renata confirms it twice (L69, L105), which is the core of this dimension done well. The pipeline is complete: assessments tab → film listed movements → upload → coach builds → start date, with the app tour at L32-L34 orienting her to where things live. Filming guidance exists but is delegated to in-app instructions ('side angle mostly', 'should be pretty self-explanatory'), and there is no live demo or screen share — she set up her own password unassisted rather than being walked through a shared screen. Minor residual ambiguity remains around program phases (L41-L42, deferred) and next-call scheduling handed to an assistant (L112). Clear instructions, real timeline, but no demo and a couple of loose ends: Strong, not Elite.",
+      "quickFix": "Screen-share the app live during the call: open the assessments tab together, click into one movement video, read the on-screen filming instructions aloud (phone at hip height, side angle, full body in frame), and have Renata film one test clip on the call so the first upload is already done. Then restate the dated chain — 'videos by Friday, program in your app Monday morning' — and ask her to repeat it back, and book the two-week check-in date live instead of routing it to an assistant.",
+      "evidence": [
+        {
+          "quote": "go into the app, go to that assessments tab I showed you, and there's gonna be a list of movement videos we need you to film",
+          "exact": "go into the app, go to that assessments tab I showed you, and there's gonna be a list of movement videos we need you to film",
+          "status": "verified",
+          "line": 64,
+          "claimedLine": 64,
+          "speaker": "Ivan Petrov",
+          "charStart": 7752,
+          "charEnd": 7876,
+          "wordCount": 26
+        },
+        {
+          "quote": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+          "exact": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+          "status": "verified",
+          "line": 104,
+          "claimedLine": 104,
+          "speaker": "Ivan Petrov",
+          "charStart": 13432,
+          "charEnd": 13557,
+          "wordCount": 23
+        },
+        {
+          "quote": "It's things like a squat, a single leg balance, calf raises, stuff like that.",
+          "exact": "It's things like a squat, a single leg balance, calf raises, stuff like that.",
+          "status": "verified",
+          "line": 64,
+          "claimedLine": 64,
+          "speaker": "Ivan Petrov",
+          "charStart": 7878,
+          "charEnd": 7955,
+          "wordCount": 14
+        },
+        {
+          "quote": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+          "exact": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+          "status": "verified",
+          "line": 68,
+          "claimedLine": 68,
+          "speaker": "Ivan Petrov",
+          "charStart": 8306,
+          "charEnd": 8483,
+          "wordCount": 34
+        },
+        {
+          "quote": "And once your program's live you'll get a notification, and from there it's just following what's on your calendar in the app",
+          "exact": "And once your program's live you'll get a notification, and from there it's just following what's on your calendar in the app",
+          "status": "verified",
+          "line": 72,
+          "claimedLine": 72,
+          "speaker": "Ivan Petrov",
+          "charStart": 8828,
+          "charEnd": 8953,
+          "wordCount": 22
+        },
+        {
+          "quote": "there's instructions right in the app for each one, it'll show you kind of a diagram of where to put your phone, side angle mostly",
+          "exact": "there's instructions right in the app for each one, it'll show you kind of a diagram of where to put your phone, side angle mostly",
+          "status": "verified",
+          "line": 66,
+          "claimedLine": 66,
+          "speaker": "Ivan Petrov",
+          "charStart": 8043,
+          "charEnd": 8173,
+          "wordCount": 25
+        },
+        {
+          "quote": "just something you can move in, shorts or leggings, whatever you're comfortable with, mainly I just need to see the joint",
+          "exact": "just something you can move in, shorts or leggings, whatever you're comfortable with, mainly I just need to see the joint",
+          "status": "verified",
+          "line": 70,
+          "claimedLine": 70,
+          "speaker": "Ivan Petrov",
+          "charStart": 8652,
+          "charEnd": 8773,
+          "wordCount": 21
+        },
+        {
+          "quote": "on the left side, or bottom if you're on your phone, there's a tab that says \"assessments,\" that's where your intake videos are gonna go",
+          "exact": "on the left side, or bottom if you're on your phone, there's a tab that says \"assessments,\" that's where your intake videos are gonna go",
+          "status": "verified",
+          "line": 32,
+          "claimedLine": 32,
+          "speaker": "Ivan Petrov",
+          "charStart": 3314,
+          "charEnd": 3450,
+          "wordCount": 25
+        },
+        {
+          "quote": "get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+          "exact": "get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+          "status": "verified",
+          "line": 68,
+          "claimedLine": 68,
+          "speaker": "Ivan Petrov",
+          "charStart": 8320,
+          "charEnd": 8482,
+          "wordCount": 30
+        },
+        {
+          "quote": "Okay, sounds good, Friday for the videos.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 105,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 7
+        },
+        {
+          "quote": "Okay, Friday, got it. That works.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 69,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 6
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D9.r1",
+          "text": "Clear, confident, client understands exactly what to do.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "go into the app, go to that assessments tab I showed you, and there's gonna be a list of movement videos we need you to film",
+              "exact": "go into the app, go to that assessments tab I showed you, and there's gonna be a list of movement videos we need you to film",
+              "status": "verified",
+              "line": 64,
+              "claimedLine": 64,
+              "speaker": "Ivan Petrov",
+              "charStart": 7752,
+              "charEnd": 7876,
+              "wordCount": 26
+            },
+            {
+              "quote": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+              "exact": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+              "status": "verified",
+              "line": 104,
+              "claimedLine": 104,
+              "speaker": "Ivan Petrov",
+              "charStart": 13432,
+              "charEnd": 13557,
+              "wordCount": 23
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go",
+              "exact": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go",
+              "status": "verified",
+              "line": 42,
+              "claimedLine": 42,
+              "speaker": "Ivan Petrov",
+              "charStart": 4691,
+              "charEnd": 4794,
+              "wordCount": 22
+            }
+          ]
+        },
+        {
+          "id": "D9.r2",
+          "text": "Pipeline: diagnostics → film → upload → program → start date.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "It's things like a squat, a single leg balance, calf raises, stuff like that.",
+              "exact": "It's things like a squat, a single leg balance, calf raises, stuff like that.",
+              "status": "verified",
+              "line": 64,
+              "claimedLine": 64,
+              "speaker": "Ivan Petrov",
+              "charStart": 7878,
+              "charEnd": 7955,
+              "wordCount": 14
+            },
+            {
+              "quote": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+              "exact": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+              "status": "verified",
+              "line": 68,
+              "claimedLine": 68,
+              "speaker": "Ivan Petrov",
+              "charStart": 8306,
+              "charEnd": 8483,
+              "wordCount": 34
+            },
+            {
+              "quote": "And once your program's live you'll get a notification, and from there it's just following what's on your calendar in the app",
+              "exact": "And once your program's live you'll get a notification, and from there it's just following what's on your calendar in the app",
+              "status": "verified",
+              "line": 72,
+              "claimedLine": 72,
+              "speaker": "Ivan Petrov",
+              "charStart": 8828,
+              "charEnd": 8953,
+              "wordCount": 22
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D9.r3",
+          "text": "Explains how to film videos (angle, device).",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "there's instructions right in the app for each one, it'll show you kind of a diagram of where to put your phone, side angle mostly",
+              "exact": "there's instructions right in the app for each one, it'll show you kind of a diagram of where to put your phone, side angle mostly",
+              "status": "verified",
+              "line": 66,
+              "claimedLine": 66,
+              "speaker": "Ivan Petrov",
+              "charStart": 8043,
+              "charEnd": 8173,
+              "wordCount": 25
+            },
+            {
+              "quote": "just something you can move in, shorts or leggings, whatever you're comfortable with, mainly I just need to see the joint",
+              "exact": "just something you can move in, shorts or leggings, whatever you're comfortable with, mainly I just need to see the joint",
+              "status": "verified",
+              "line": 70,
+              "claimedLine": 70,
+              "speaker": "Ivan Petrov",
+              "charStart": 8652,
+              "charEnd": 8773,
+              "wordCount": 21
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Should be pretty self-explanatory honestly, and if you get stuck just message me.",
+              "exact": "Should be pretty self-explanatory honestly, and if you get stuck just message me.",
+              "status": "verified",
+              "line": 66,
+              "claimedLine": 66,
+              "speaker": "Ivan Petrov",
+              "charStart": 8175,
+              "charEnd": 8256,
+              "wordCount": 13
+            }
+          ]
+        },
+        {
+          "id": "D9.r4",
+          "text": "Removes all confusion with demo or screen share.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "on the left side, or bottom if you're on your phone, there's a tab that says \"assessments,\" that's where your intake videos are gonna go",
+              "exact": "on the left side, or bottom if you're on your phone, there's a tab that says \"assessments,\" that's where your intake videos are gonna go",
+              "status": "verified",
+              "line": 32,
+              "claimedLine": 32,
+              "speaker": "Ivan Petrov",
+              "charStart": 3314,
+              "charEnd": 3450,
+              "wordCount": 25
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Should be pretty self-explanatory honestly, and if you get stuck just message me.",
+              "exact": "Should be pretty self-explanatory honestly, and if you get stuck just message me.",
+              "status": "verified",
+              "line": 66,
+              "claimedLine": 66,
+              "speaker": "Ivan Petrov",
+              "charStart": 8175,
+              "charEnd": 8256,
+              "wordCount": 13
+            }
+          ]
+        },
+        {
+          "id": "D9.r5",
+          "text": "Time specified (\"send by Saturday, program Monday\").",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+              "exact": "get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+              "status": "verified",
+              "line": 68,
+              "claimedLine": 68,
+              "speaker": "Ivan Petrov",
+              "charStart": 8320,
+              "charEnd": 8482,
+              "wordCount": 30
+            }
+          ],
+          "counterEvidence": []
+        },
+        {
+          "id": "D9.r6",
+          "text": "Client verbally confirms they understand.",
+          "state": "not_evidenced",
+          "evidence": [
+            {
+              "quote": "Okay, sounds good, Friday for the videos.",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 105,
+              "speaker": "Renata Cruz",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 7
+            },
+            {
+              "quote": "Okay, Friday, got it. That works.",
+              "exact": "",
+              "status": "too_short",
+              "line": null,
+              "claimedLine": 69,
+              "speaker": "Renata Cruz",
+              "charStart": null,
+              "charEnd": null,
+              "wordCount": 6
+            }
+          ],
+          "counterEvidence": []
+        }
+      ],
+      "generationId": "gen-1787311967-eNL41SwalxjfgJ1ZDeV5",
+      "usage": {
+        "promptTokens": 9717,
+        "completionTokens": 1542,
+        "cachedTokens": 0,
+        "cost": 0.12584
+      }
+    },
+    {
+      "id": "D10",
+      "title": "Booking Next Call",
+      "score": 0,
+      "maxPoints": 5,
+      "bucketMatched": "Fail",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "Not evidenced in the transcript: none of this dimension's required behaviours were found. The rubric names no default here, so absence carries its full cost and the score sits at the bottom of the scale.",
+      "reasoning": "At L111 the client herself proactively offers to book — \"do we want to pick a date now or —\" — and the coach declines, deferring to an assistant (L112) and a link (L114). Booking is raised and discussed, so it is more than a passing mention, but no date or time is locked and scheduling constraints are used as a reason to defer rather than resolved live. This is the textbook Mid pattern: attempted, excessive flexibility, no live lock.",
+      "quickFix": "When Renata asked \"do we want to pick a date now?\", take the offer: propose a concrete slot two weeks out around her known Tuesday/Wednesday off (e.g. \"Tuesday the 20th, 2pm your time in Tampa — does that work?\"), confirm it verbally, and say the invite is going out now, with a note that you'll move it if her rotation shifts.",
+      "evidence": [],
+      "requirements": [
+        {
+          "id": "D10.r1",
+          "text": "Date and time confirmed verbally during the call.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "honestly my assistant handles the scheduling on that side, so she'll reach out to you probably later this week or early next with some times",
+              "exact": "honestly my assistant handles the scheduling on that side, so she'll reach out to you probably later this week or early next with some times",
+              "status": "verified",
+              "line": 112,
+              "claimedLine": 112,
+              "speaker": "Ivan Petrov",
+              "charStart": 14333,
+              "charEnd": 14473,
+              "wordCount": 25
+            },
+            {
+              "quote": "I'll just send you a link once we're a couple weeks in and you can pick a slot.",
+              "exact": "I'll just send you a link once we're a couple weeks in and you can pick a slot.",
+              "status": "verified",
+              "line": 114,
+              "claimedLine": 114,
+              "speaker": "Ivan Petrov",
+              "charStart": 14593,
+              "charEnd": 14672,
+              "wordCount": 18
+            }
+          ]
+        },
+        {
+          "id": "D10.r2",
+          "text": "Coach navigates the client's scheduling constraints live (time zones, weekly availability, conflicts).",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Way easier than me guessing at your shift rotation right now anyway.",
+              "exact": "Way easier than me guessing at your shift rotation right now anyway.",
+              "status": "verified",
+              "line": 114,
+              "claimedLine": 114,
+              "speaker": "Ivan Petrov",
+              "charStart": 14673,
+              "charEnd": 14741,
+              "wordCount": 12
+            },
+            {
+              "quote": "Okay, do we want to pick a date now or —",
+              "exact": "Okay, do we want to pick a date now or —",
+              "status": "verified",
+              "line": 111,
+              "claimedLine": 111,
+              "speaker": "Renata Cruz",
+              "charStart": 14271,
+              "charEnd": 14311,
+              "wordCount": 11
+            }
+          ]
+        },
+        {
+          "id": "D10.r3",
+          "text": "Score 5 when booking is crisp and the coach proactively closes it; 4.5 when booking is confirmed but slightly rushed or with minor ambiguity.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "for our next call, I usually like to check in after you've had a couple weeks in the program",
+              "exact": "for our next call, I usually like to check in after you've had a couple weeks in the program",
+              "status": "verified",
+              "line": 110,
+              "claimedLine": 110,
+              "speaker": "Ivan Petrov",
+              "charStart": 14115,
+              "charEnd": 14207,
+              "wordCount": 19
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787312005-FCpqbag2lKXm24XrOiKe",
+      "usage": {
+        "promptTokens": 10284,
+        "completionTokens": 661,
+        "cachedTokens": 0,
+        "cost": 0.106555
+      }
+    },
+    {
+      "id": "D11",
+      "title": "Close, Recap & Confidence",
+      "score": 3,
+      "maxPoints": 5,
+      "bucketMatched": "Mid",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": true,
+      "absenceStatement": "1 of 3 required behaviours are not evidenced in the transcript. 2 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L104 Ivan does a forward-looking action recap (\"So to recap real quick — get those videos uploaded by Friday...\") which is a next-steps summary rather than a structured \"here's what we covered today: X, Y, Z\" review of the session's content. There is a light confidence line at L116 (\"I think you're gonna do great with this\"), which is generic encouragement, not an emotional anchor like \"you're in exactly the right place\" or \"I'm excited about this journey with you.\" Notably, when Renata voices her real emotional stake at L117 (\"I'm hopeful, it's just been a long fourteen months\"), Ivan deflects to logistics (\"get those videos in\"). The close then trails off with two afterthought logistics items (L106 shoes, L122 support email) after the apparent goodbye, dissipating energy. This is a positive but basic close: warm, clear next steps, no structured content recap, no emotional anchor — solidly mid.",
+      "quickFix": "Before saying goodbye, deliver a two-part close: (1) a content recap — \"Here's what we covered today: the app and where everything lives, the three phases, your billing and renewal dates, your equipment and schedule, and your goal of walking pain-free\"; then (2) an explicit confidence and emotion anchor tied to her words — \"Fourteen months is a long time, and after PT and resting it, you're in exactly the right place now; people with your consistency are exactly who succeeds here, and I'm genuinely excited to be in this with you.\" Park all logistics (shoes, support email) before that moment so the call ends on the emotional beat, not an afterthought.",
+      "evidence": [
+        {
+          "quote": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+          "exact": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+          "status": "verified",
+          "line": 104,
+          "claimedLine": 104,
+          "speaker": "Ivan Petrov",
+          "charStart": 13432,
+          "charEnd": 13557,
+          "wordCount": 23
+        },
+        {
+          "quote": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+          "exact": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+          "status": "verified",
+          "line": 116,
+          "claimedLine": 116,
+          "speaker": "Ivan Petrov",
+          "charStart": 14926,
+          "charEnd": 15009,
+          "wordCount": 17
+        },
+        {
+          "quote": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+          "exact": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+          "status": "verified",
+          "line": 116,
+          "claimedLine": 116,
+          "speaker": "Ivan Petrov",
+          "charStart": 14926,
+          "charEnd": 15009,
+          "wordCount": 17
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D11.r1",
+          "text": "Strong recap, reinforces confidence.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+              "exact": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+              "status": "verified",
+              "line": 104,
+              "claimedLine": 104,
+              "speaker": "Ivan Petrov",
+              "charStart": 13432,
+              "charEnd": 13557,
+              "wordCount": 23
+            },
+            {
+              "quote": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+              "exact": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+              "status": "verified",
+              "line": 116,
+              "claimedLine": 116,
+              "speaker": "Ivan Petrov",
+              "charStart": 14926,
+              "charEnd": 15009,
+              "wordCount": 17
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "Oh, and one more thing I forgot — shoes.",
+              "exact": "Oh, and one more thing I forgot — shoes.",
+              "status": "verified",
+              "line": 106,
+              "claimedLine": 106,
+              "speaker": "Ivan Petrov",
+              "charStart": 13705,
+              "charEnd": 13745,
+              "wordCount": 9
+            },
+            {
+              "quote": "Oh — actually real quick, one thing, if the app gives you any trouble logging back in later, just email support",
+              "exact": "Oh — actually real quick, one thing, if the app gives you any trouble logging back in later, just email support",
+              "status": "verified",
+              "line": 122,
+              "claimedLine": 122,
+              "speaker": "Ivan Petrov",
+              "charStart": 15421,
+              "charEnd": 15532,
+              "wordCount": 21
+            }
+          ]
+        },
+        {
+          "id": "D11.r2",
+          "text": "Structured recap: \"Here's what we covered today: X, Y, Z.\" Confidence anchor: \"You're in the right place\" / \"You're exactly the type of person who succeeds here.\" Emotional reinforcement: excitement for the journey.",
+          "state": "not_evidenced",
+          "evidence": [],
+          "counterEvidence": [
+            {
+              "quote": "Totally, well hey, get those videos in and we'll get you moving in the right direction. Sound good?",
+              "exact": "Totally, well hey, get those videos in and we'll get you moving in the right direction. Sound good?",
+              "status": "verified",
+              "line": 118,
+              "claimedLine": 118,
+              "speaker": "Ivan Petrov",
+              "charStart": 15124,
+              "charEnd": 15223,
+              "wordCount": 18
+            },
+            {
+              "quote": "Thanks, yeah, I'm — I mean I'm hopeful, it's just been a long fourteen months so —",
+              "exact": "Thanks, yeah, I'm — I mean I'm hopeful, it's just been a long fourteen months so —",
+              "status": "verified",
+              "line": 117,
+              "claimedLine": 117,
+              "speaker": "Renata Cruz",
+              "charStart": 15026,
+              "charEnd": 15108,
+              "wordCount": 17
+            }
+          ]
+        },
+        {
+          "id": "D11.r3",
+          "text": "Does NOT end with only logistics.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+              "exact": "I'm really glad we got this set up, Renata, I think you're gonna do great with this",
+              "status": "verified",
+              "line": 116,
+              "claimedLine": 116,
+              "speaker": "Ivan Petrov",
+              "charStart": 14926,
+              "charEnd": 15009,
+              "wordCount": 17
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "if the app gives you any trouble logging back in later, just email support, don't wait on me for that kind of thing",
+              "exact": "if the app gives you any trouble logging back in later, just email support, don't wait on me for that kind of thing",
+              "status": "verified",
+              "line": 122,
+              "claimedLine": 122,
+              "speaker": "Ivan Petrov",
+              "charStart": 15458,
+              "charEnd": 15573,
+              "wordCount": 23
+            }
+          ]
+        }
+      ],
+      "generationId": "gen-1787312091-YAgB9hFU9NpLZT6EzYbH",
+      "usage": {
+        "promptTokens": 9640,
+        "completionTokens": 1157,
+        "cachedTokens": 0,
+        "cost": 0.115675
+      }
+    },
+    {
+      "id": "D12",
+      "title": "Post-Call Execution",
+      "score": 3.5,
+      "maxPoints": 5,
+      "bucketMatched": "Strong",
+      "disabled": false,
+      "disabledReason": null,
+      "notEvidenced": false,
+      "absenceStatement": "2 required behaviour(s) have both supporting and contradicting evidence, so they cannot be treated as established.",
+      "reasoning": "At L68 and again in the recap at L104, Ivan makes two genuinely time-bound coach-side commitments: he will review the uploaded videos over the weekend and the program will be live Monday. He also commits to a messaging response standard (same day / next morning, L88), which is a real if softer promise. What is missing is a diagnostics-assigned-live moment (the assessments already exist in the app; he does not assign anything on the call), any recap-email commitment with timing, and the scheduling handoff at L112 is explicitly vague (\"probably later this week or early next\") and delegated. So this is clearly above Mid — two concrete commitments with crisp timing (weekend build, Monday live) plus a general responsiveness promise — but short of the Elite requirement of 2-3+ crisp, coach-owned deliverables including in-call assignment and recap timing.",
+      "quickFix": "Add two more time-stamped, coach-owned commitments on the call: assign the diagnostics live (\"I'm assigning your assessment videos in the app right now — you'll see them in the next minute\") and promise a written recap with a clock (\"I'll send you a recap email with your Friday/Monday dates within 15 minutes of hanging up\"), and replace \"my assistant will reach out probably later this week\" with a specific date for the scheduling link.",
+      "evidence": [
+        {
+          "quote": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+          "exact": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+          "status": "verified",
+          "line": 68,
+          "claimedLine": 68,
+          "speaker": "Ivan Petrov",
+          "charStart": 8306,
+          "charEnd": 8483,
+          "wordCount": 34
+        },
+        {
+          "quote": "get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+          "exact": "get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+          "status": "verified",
+          "line": 104,
+          "claimedLine": 104,
+          "speaker": "Ivan Petrov",
+          "charStart": 13457,
+          "charEnd": 13557,
+          "wordCount": 17
+        },
+        {
+          "quote": "so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+          "exact": "so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+          "status": "verified",
+          "line": 88,
+          "claimedLine": 88,
+          "speaker": "Ivan Petrov",
+          "charStart": 11522,
+          "charEnd": 11639,
+          "wordCount": 23
+        },
+        {
+          "quote": "that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+          "exact": "that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+          "status": "verified",
+          "line": 68,
+          "claimedLine": 68,
+          "speaker": "Ivan Petrov",
+          "charStart": 8361,
+          "charEnd": 8482,
+          "wordCount": 23
+        }
+      ],
+      "requirements": [
+        {
+          "id": "D12.r1",
+          "text": "Multiple explicit post-call commitments with precise deadlines: recap timing (\"recap within 10 minutes\"), diagnostics assigned live (\"assigning your diagnostics in the training app now\"), program delivery date stated (\"program loaded by Monday\").",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+              "exact": "So if you can get those uploaded by, let's say Friday, that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday.",
+              "status": "verified",
+              "line": 68,
+              "claimedLine": 68,
+              "speaker": "Ivan Petrov",
+              "charStart": 8306,
+              "charEnd": 8483,
+              "wordCount": 34
+            },
+            {
+              "quote": "get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+              "exact": "get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday",
+              "status": "verified",
+              "line": 104,
+              "claimedLine": 104,
+              "speaker": "Ivan Petrov",
+              "charStart": 13457,
+              "charEnd": 13557,
+              "wordCount": 17
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "honestly my assistant handles the scheduling on that side, so she'll reach out to you probably later this week or early next",
+              "exact": "honestly my assistant handles the scheduling on that side, so she'll reach out to you probably later this week or early next",
+              "status": "verified",
+              "line": 112,
+              "claimedLine": 112,
+              "speaker": "Ivan Petrov",
+              "charStart": 14333,
+              "charEnd": 14457,
+              "wordCount": 22
+            }
+          ]
+        },
+        {
+          "id": "D12.r2",
+          "text": "All time-bound.",
+          "state": "contradicted",
+          "evidence": [
+            {
+              "quote": "so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+              "exact": "so I try to check messages daily, usually I'll get back to you same day, sometimes next morning if it's late at night",
+              "status": "verified",
+              "line": 88,
+              "claimedLine": 88,
+              "speaker": "Ivan Petrov",
+              "charStart": 11522,
+              "charEnd": 11639,
+              "wordCount": 23
+            }
+          ],
+          "counterEvidence": [
+            {
+              "quote": "I'll send you a link when we get there, not something you need to worry about right now",
+              "exact": "I'll send you a link when we get there, not something you need to worry about right now",
+              "status": "verified",
+              "line": 78,
+              "claimedLine": 78,
+              "speaker": "Ivan Petrov",
+              "charStart": 9997,
+              "charEnd": 10084,
+              "wordCount": 18
+            }
+          ]
+        },
+        {
+          "id": "D12.r3",
+          "text": "Score 5 when 3+ commitments with crisp timing; 4.5 when 2+ commitments with precise timing.",
+          "state": "present",
+          "evidence": [
+            {
+              "quote": "that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+              "exact": "that gives me the weekend to look at everything and build out your actual program, so you'd have it ready to start Monday",
+              "status": "verified",
+              "line": 68,
+              "claimedLine": 68,
+              "speaker": "Ivan Petrov",
+              "charStart": 8361,
+              "charEnd": 8482,
+              "wordCount": 23
+            }
+          ],
+          "counterEvidence": []
+        }
+      ],
+      "generationId": "gen-1787312109-z4JLEdpujfn7keLC4RCJ",
+      "usage": {
+        "promptTokens": 10993,
+        "completionTokens": 930,
+        "cachedTokens": 0,
+        "cost": 0.116845
+      }
+    }
+  ],
+  "caps": [
+    {
+      "id": "kickoff-cap-followups",
+      "determination": "indeterminate",
+      "scope": "total",
+      "target": null,
+      "clamp": 70,
+      "nonRecoverable": false,
+      "statement": "Both supporting and contradicting evidence exist, so this cannot be settled from the transcript. The cap is NOT applied and the call is scored on the branch where it does not fire. Supporting: L8 \"Yeah, ICU, so it's — it's pretty nonstop, twelve hour shifts, on my feet basical\" · L60 \"And the inserts, you still wearing those day to day or just at work?\" · L59 \"Yeah, I did like eight weeks of PT last spring, and I've got some over the count\". Contradicting: L24 \"Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't w\" · L38 \"Totally, yeah, the DIY thing only gets you so far, especially with something chr\" · L76 \"Yeah, no, we build flexibility into it, the program's not gonna be like \"you mus\".",
+      "supporting": [
+        {
+          "quote": "Yeah, ICU, so it's — it's pretty nonstop, twelve hour shifts, on my feet basically the whole time.",
+          "exact": "Yeah, ICU, so it's — it's pretty nonstop, twelve hour shifts, on my feet basically the whole time.",
+          "status": "verified",
+          "line": 8,
+          "claimedLine": 8,
+          "speaker": "Renata Cruz",
+          "charStart": 613,
+          "charEnd": 711,
+          "wordCount": 18
+        },
+        {
+          "quote": "And the inserts, you still wearing those day to day or just at work?",
+          "exact": "And the inserts, you still wearing those day to day or just at work?",
+          "status": "verified",
+          "line": 60,
+          "claimedLine": 60,
+          "speaker": "Ivan Petrov",
+          "charStart": 7345,
+          "charEnd": 7413,
+          "wordCount": 14
+        },
+        {
+          "quote": "Yeah, I did like eight weeks of PT last spring, and I've got some over the counter inserts I wear at work.",
+          "exact": "Yeah, I did like eight weeks of PT last spring, and I've got some over the counter inserts I wear at work.",
+          "status": "verified",
+          "line": 59,
+          "claimedLine": 59,
+          "speaker": "Renata Cruz",
+          "charStart": 7113,
+          "charEnd": 7219,
+          "wordCount": 22
+        },
+        {
+          "quote": "What unit are you on, ICU right?",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 7,
+          "speaker": "Ivan Petrov",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 7
+        },
+        {
+          "quote": "And sleep — I'm guessing that's also all over the place with nights and days mixing?",
+          "exact": "And sleep — I'm guessing that's also all over the place with nights and days mixing?",
+          "status": "verified",
+          "line": 98,
+          "claimedLine": 98,
+          "speaker": "Ivan Petrov",
+          "charStart": 12712,
+          "charEnd": 12796,
+          "wordCount": 16
+        },
+        {
+          "quote": "It's pretty random honestly, we rotate every six weeks, so right now I've got Tuesdays and Wednesdays off",
+          "exact": "It's pretty random honestly, we rotate every six weeks, so right now I've got Tuesdays and Wednesdays off",
+          "status": "verified",
+          "line": 95,
+          "claimedLine": 95,
+          "speaker": "Renata Cruz",
+          "charStart": 12413,
+          "charEnd": 12518,
+          "wordCount": 18
+        }
+      ],
+      "counterEvidence": [
+        {
+          "quote": "Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't want to quit, right?",
+          "exact": "Yeah, no, for sure, plantar fasciitis is one of those things that just doesn't want to quit, right?",
+          "status": "verified",
+          "line": 24,
+          "claimedLine": 24,
+          "speaker": "Ivan Petrov",
+          "charStart": 2287,
+          "charEnd": 2386,
+          "wordCount": 18
+        },
+        {
+          "quote": "Totally, yeah, the DIY thing only gets you so far, especially with something chronic like this.",
+          "exact": "Totally, yeah, the DIY thing only gets you so far, especially with something chronic like this.",
+          "status": "verified",
+          "line": 38,
+          "claimedLine": 38,
+          "speaker": "Ivan Petrov",
+          "charStart": 4181,
+          "charEnd": 4276,
+          "wordCount": 16
+        },
+        {
+          "quote": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+          "exact": "Yeah, no, we build flexibility into it, the program's not gonna be like \"you must train at 7am\" or whatever",
+          "status": "verified",
+          "line": 76,
+          "claimedLine": 76,
+          "speaker": "Ivan Petrov",
+          "charStart": 9493,
+          "charEnd": 9600,
+          "wordCount": 20
+        }
+      ]
+    },
+    {
+      "id": "kickoff-cap-talkshare",
+      "determination": "indeterminate",
+      "scope": "total",
+      "target": null,
+      "clamp": 80,
+      "nonRecoverable": false,
+      "statement": "Coach word share 73.1%. The rubric states this cap in TIME, but the transcript has no timestamps, so time share is bounded at 69.4%-75.1% for a speaking-rate ratio of 0.9-1.2. Threshold is 70.0%. The interval straddles it. The cap is recorded as indeterminate and NOT applied — a penalty that cannot be established is not applied.",
+      "supporting": [],
+      "counterEvidence": []
+    },
+    {
+      "id": "kickoff-cap-confusion",
+      "determination": "indeterminate",
+      "scope": "total",
+      "target": null,
+      "clamp": 75,
+      "nonRecoverable": false,
+      "statement": "Both supporting and contradicting evidence exist, so this cannot be settled from the transcript. The cap is NOT applied and the call is scored on the branch where it does not fire. Supporting: L41 \"Okay, and what's the difference between them, like —\" · L42 \"Yeah so it just kind of builds, each one builds on the last one. We'll get into \". Contradicting: L65 \"Okay, and how do I film it, like what angle or —\" · L66 \"Yeah so there's instructions right in the app for each one, it'll show you kind \" · L69 \"And is there like a certain outfit I should wear for the videos or does it matte\".",
+      "supporting": [
+        {
+          "quote": "Okay, and what's the difference between them, like —",
+          "exact": "Okay, and what's the difference between them, like —",
+          "status": "verified",
+          "line": 41,
+          "claimedLine": 41,
+          "speaker": "Renata Cruz",
+          "charStart": 4623,
+          "charEnd": 4675,
+          "wordCount": 9
+        },
+        {
+          "quote": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go",
+          "exact": "Yeah so it just kind of builds, each one builds on the last one. We'll get into the specifics as you go",
+          "status": "verified",
+          "line": 42,
+          "claimedLine": 42,
+          "speaker": "Ivan Petrov",
+          "charStart": 4691,
+          "charEnd": 4794,
+          "wordCount": 22
+        },
+        {
+          "quote": "Okay, that makes sense I think.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 83,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 6
+        }
+      ],
+      "counterEvidence": [
+        {
+          "quote": "Okay, and how do I film it, like what angle or —",
+          "exact": "Okay, and how do I film it, like what angle or —",
+          "status": "verified",
+          "line": 65,
+          "claimedLine": 65,
+          "speaker": "Renata Cruz",
+          "charStart": 7971,
+          "charEnd": 8019,
+          "wordCount": 12
+        },
+        {
+          "quote": "Yeah so there's instructions right in the app for each one, it'll show you kind of a diagram",
+          "exact": "Yeah so there's instructions right in the app for each one, it'll show you kind of a diagram",
+          "status": "verified",
+          "line": 66,
+          "claimedLine": 66,
+          "speaker": "Ivan Petrov",
+          "charStart": 8035,
+          "charEnd": 8127,
+          "wordCount": 18
+        },
+        {
+          "quote": "And is there like a certain outfit I should wear for the videos or does it matter?",
+          "exact": "And is there like a certain outfit I should wear for the videos or does it matter?",
+          "status": "verified",
+          "line": 69,
+          "claimedLine": 69,
+          "speaker": "Renata Cruz",
+          "charStart": 8533,
+          "charEnd": 8615,
+          "wordCount": 17
+        },
+        {
+          "quote": "Nah, doesn't matter, just something you can move in, shorts or leggings, whatever you're comfortable with",
+          "exact": "Nah, doesn't matter, just something you can move in, shorts or leggings, whatever you're comfortable with",
+          "status": "verified",
+          "line": 70,
+          "claimedLine": 70,
+          "speaker": "Ivan Petrov",
+          "charStart": 8631,
+          "charEnd": 8736,
+          "wordCount": 16
+        },
+        {
+          "quote": "Okay, no that makes sense.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 43,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 5
+        }
+      ]
+    },
+    {
+      "id": "kickoff-cap-northstar",
+      "determination": "fired",
+      "scope": "dimension",
+      "target": "D4",
+      "clamp": 10,
+      "nonRecoverable": false,
+      "statement": "Not evidenced in the transcript: no instances found, so this condition holds and the cap applies. The client offered a goal but the coach generalised it and moved on to logistics; no explicit long-term North Star statement was constructed or articulated together.",
+      "supporting": [],
+      "counterEvidence": [
+        {
+          "quote": "I mean, mainly I just want to be able to walk without the pain, like just normal, not have to think about every step.",
+          "exact": "I mean, mainly I just want to be able to walk without the pain, like just normal, not have to think about every step.",
+          "status": "verified",
+          "line": 45,
+          "claimedLine": 45,
+          "speaker": "Renata Cruz",
+          "charStart": 5028,
+          "charEnd": 5145,
+          "wordCount": 24
+        },
+        {
+          "quote": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients.",
+          "exact": "Right, yeah, walk pain free, that's the big one for a lot of our plantar fasciitis clients.",
+          "status": "verified",
+          "line": 46,
+          "claimedLine": 46,
+          "speaker": "Ivan Petrov",
+          "charStart": 5161,
+          "charEnd": 5252,
+          "wordCount": 17
+        }
+      ]
+    },
+    {
+      "id": "kickoff-cap-recap",
+      "determination": "indeterminate",
+      "scope": "dimension",
+      "target": "D11",
+      "clamp": 3,
+      "nonRecoverable": false,
+      "statement": "Both supporting and contradicting evidence exist, so this cannot be settled from the transcript. The cap is NOT applied and the call is scored on the branch where it does not fire. Supporting: L104 \"So to recap real quick — get those videos uploaded by Friday, I'll build your pr\". Contradicting: L106 \"Oh, and one more thing I forgot — shoes.\" · L122 \"Oh — actually real quick, one thing, if the app gives you any trouble logging ba\".",
+      "supporting": [
+        {
+          "quote": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday, and just message me in the app if anything comes up before then.",
+          "exact": "So to recap real quick — get those videos uploaded by Friday, I'll build your program over the weekend, you'll be live Monday, and just message me in the app if anything comes up before then.",
+          "status": "verified",
+          "line": 104,
+          "claimedLine": 104,
+          "speaker": "Ivan Petrov",
+          "charStart": 13432,
+          "charEnd": 13623,
+          "wordCount": 36
+        },
+        {
+          "quote": "Okay, sounds good, Friday for the videos.",
+          "exact": "",
+          "status": "too_short",
+          "line": null,
+          "claimedLine": 105,
+          "speaker": "Renata Cruz",
+          "charStart": null,
+          "charEnd": null,
+          "wordCount": 7
+        }
+      ],
+      "counterEvidence": [
+        {
+          "quote": "Oh, and one more thing I forgot — shoes.",
+          "exact": "Oh, and one more thing I forgot — shoes.",
+          "status": "verified",
+          "line": 106,
+          "claimedLine": 106,
+          "speaker": "Ivan Petrov",
+          "charStart": 13705,
+          "charEnd": 13745,
+          "wordCount": 9
+        },
+        {
+          "quote": "Oh — actually real quick, one thing, if the app gives you any trouble logging back in later",
+          "exact": "Oh — actually real quick, one thing, if the app gives you any trouble logging back in later",
+          "status": "verified",
+          "line": 122,
+          "claimedLine": 122,
+          "speaker": "Ivan Petrov",
+          "charStart": 15421,
+          "charEnd": 15512,
+          "wordCount": 18
+        }
+      ]
+    }
+  ],
+  "total": {
+    "dimensions": [
+      {
+        "id": "D1",
+        "score": 8,
+        "maxPoints": 10,
+        "disabled": false,
+        "notEvidenced": false
+      },
+      {
+        "id": "D2",
+        "score": 7,
+        "maxPoints": 10,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D3",
+        "score": 4.5,
+        "maxPoints": 5,
+        "disabled": false,
+        "notEvidenced": false
+      },
+      {
+        "id": "D4",
+        "score": 5,
+        "maxPoints": 15,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D5",
+        "score": 6,
+        "maxPoints": 10,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D6",
+        "score": 3,
+        "maxPoints": 10,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D7",
+        "score": 3,
+        "maxPoints": 5,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D8",
+        "score": 0,
+        "maxPoints": 10,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D9",
+        "score": 7,
+        "maxPoints": 10,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D10",
+        "score": 0,
+        "maxPoints": 5,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D11",
+        "score": 3,
+        "maxPoints": 5,
+        "disabled": false,
+        "notEvidenced": true
+      },
+      {
+        "id": "D12",
+        "score": 3.5,
+        "maxPoints": 5,
+        "disabled": false,
+        "notEvidenced": false
+      }
+    ],
+    "rawTotal": 50,
+    "maxPossible": 100,
+    "normalizedTotal": 50,
+    "band": {
+      "name": "FAIL",
+      "min": 0,
+      "max": 59
+    },
+    "appliedTotalCaps": [],
+    "arithmeticNotes": [
+      "kickoff-cap-followups is INDETERMINATE — supporting and contradicting evidence both exist. It is NOT applied: a penalty that cannot be established is not applied. Scored on the branch where the cap does not fire.",
+      "kickoff-cap-talkshare is INDETERMINATE — supporting and contradicting evidence both exist. It is NOT applied: a penalty that cannot be established is not applied. Scored on the branch where the cap does not fire.",
+      "kickoff-cap-confusion is INDETERMINATE — supporting and contradicting evidence both exist. It is NOT applied: a penalty that cannot be established is not applied. Scored on the branch where the cap does not fire.",
+      "kickoff-cap-recap is INDETERMINATE — supporting and contradicting evidence both exist. It is NOT applied: a penalty that cannot be established is not applied. Scored on the branch where the cap does not fire."
+    ]
+  },
+  "talkShare": {
+    "bySpeaker": {
+      "Ivan Petrov": {
+        "words": 1909,
+        "chars": 10139,
+        "wordShare": 0.7308575803981623,
+        "charShare": 0.7382946188014272
+      },
+      "Renata Cruz": {
+        "words": 703,
+        "chars": 3594,
+        "wordShare": 0.26914241960183766,
+        "charShare": 0.2617053811985728
+      }
+    },
+    "coach": "Ivan Petrov",
+    "client": "Renata Cruz",
+    "coachWordShare": 0.7308575803981623,
+    "coachCharShare": 0.7382946188014272,
+    "coachTimeShareLow": 0.6935261207585556,
+    "coachTimeShareHigh": 0.7510721170869891,
+    "rateRatioRange": {
+      "min": 0.9,
+      "max": 1.2
+    }
+  },
+  "cost": 1.481414,
+  "ok": true,
+  "failures": []
+}

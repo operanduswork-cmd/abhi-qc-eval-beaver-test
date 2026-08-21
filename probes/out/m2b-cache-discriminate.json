@@ -1,0 +1,9 @@
+{
+  "probe": "M2b",
+  "verdict": "Only the ENUM invalidates. Give every dimension the same schema NAME and group by shared enum - fewer distinct enums = fewer cache misses.",
+  "control": 6880,
+  "name_differs": 6880,
+  "enum_differs": 0,
+  "name_breaks": false,
+  "enum_breaks": true
+}

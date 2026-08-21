@@ -19,7 +19,8 @@
     "e2e": "node --experimental-strip-types eval/e2e.ts",
     "browser-seed": "node --experimental-strip-types test/browser/seed.ts",
     "browser-test": "python test/browser/app.py",
-    "screenshots": "python test/browser/screenshots.py"
+    "screenshots": "python test/browser/screenshots.py",
+    "evidence": "node --experimental-strip-types scripts/evidence.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.47.10",
