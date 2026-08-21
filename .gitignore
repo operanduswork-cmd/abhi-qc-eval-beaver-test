@@ -68,12 +68,7 @@ test/browser/seeded.json
 
 # Process artefacts, kept locally and not published. Superseded by app/index.html (the deck the
 # app actually serves) and screenshots/ (what it looks like); none of it is referenced by any code.
-wireframes/
 screens/
 graphify-out/
 research/
 design/reference-frames/
-
-# Working notes for the agent building this, and a backend scratch doc. Neither is a deliverable.
-CLAUDE.md
-HANDOFF-BACKEND.md

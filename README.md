@@ -200,6 +200,9 @@ are in **[`eval/REPORT.md`](eval/REPORT.md)**, including what was *not* measured
 | `supabase/migrations/` | Full schema. Decisions are documented in the DDL. |
 | `eval/`, `probes/` | Measurement harnesses and their recorded results. |
 | `DECISIONS.md` | The decisions log: every choice, every bug found, and what caused it. |
+| `CLAUDE.md` | The constraints and the eight corrections, derived from a 13-agent research pass. |
+| `HANDOFF-BACKEND.md` | The orchestrator's brief to the implementer: probes, schema, pipeline order, and which decisions were closed before coding started. |
+| `wireframes/` | Where the interface started, before the design deck the app now serves. |
 
 `app/index.html` is the design deck served directly, with one screen revealed per route — so the
 report a visitor sees and the report `npm run render` produces are the same code path, and
