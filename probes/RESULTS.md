@@ -132,7 +132,7 @@ that is *stably wrong*.
 
 ## Cost — measured, no longer an estimate
 
-`HANDOFF-BACKEND.md` said cost was UNMEASURED and must not be quoted. It now is.
+Cost was recorded as UNMEASURED and not to be quoted until this ran. It now is.
 
 | | |
 |---|---|

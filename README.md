@@ -119,6 +119,54 @@ enums, arithmetic in code, evidence gating, content-hash idempotency — never a
 
 ---
 
+## What was measured
+
+Every figure here is recomputed from the raw API responses by **`npm run evidence`**, which prints
+the source file beside each number and exits non-zero if any of them stops matching. The responses
+themselves are committed in `probes/out/` and `eval/out/` — a number nobody can check is a claim,
+not evidence.
+
+**57 repeated measurements, split by model, because 25 of them are about a model that is not in
+this product:**
+
+| | n | what it establishes |
+|---|---|---|
+| M3 — enum, adversarially prompted | 20 | the score enum is a hard constraint |
+| M5 — the booking contradiction | 10 | the hardest case, same answer every time |
+| full end-to-end runs | 2 | whole-pipeline stability |
+| **Opus subtotal — the system that ships** | **32** | |
+| Sonnet enum gate | 20 | why Sonnet was rejected |
+| Sonnet trap gate | 5 | why Sonnet was rejected |
+| **Sonnet subtotal** | **25** | |
+
+Merging those into one "57 tests" would claim 78% more about the shipped system than was measured.
+
+**The results:**
+
+| | |
+|---|---|
+| enum: emitted the demanded illegal `7` | **0 / 20** |
+| enum: emitted the same legal value | **20 / 20** |
+| the trap: `indeterminate`, both lines quoted | **10 / 10** |
+| the trap: said the call was booked | **0 / 10** |
+| two full runs: dimensions identical | **11 / 12** |
+| two full runs: caps identical | **6 / 6** |
+| fabricated quotes, all runs | **0** |
+
+**And the weak number, stated rather than buried.** Thirty of those 32 test one question at a
+time. Only **two** run all twelve dimensions end to end, so the whole-pipeline figure is a sample.
+A real one needs roughly 5 reruns × 4 transcripts ≈ $24 against a $10 budget. The one dimension
+that moved is **D12** — the only dimension carrying a criterion no transcript can settle, since
+there are zero timestamps in any of them. The instrument is weakest exactly where the wobble is.
+
+`probes/RESULTS.md` says this about its own best result, and said it before the result was used
+anywhere:
+
+> *"10/10 is a strong result but it is one dimension on one transcript. It is not a determinism
+> claim for the whole system, and it must not be reported as one."*
+
+---
+
 ## The adversarial case
 
 `coaching-01` is a warm, likeable call. At **L188** the client says *"Wednesday the 10th at
@@ -151,7 +199,7 @@ are in **[`eval/REPORT.md`](eval/REPORT.md)**, including what was *not* measured
 | `app/` | Route handlers. They return HTML, not React pages. |
 | `supabase/migrations/` | Full schema. Decisions are documented in the DDL. |
 | `eval/`, `probes/` | Measurement harnesses and their recorded results. |
-| `BRAINDUMP.md` | ~1,600 lines: every decision, every bug found, and what caused it. |
+| `DECISIONS.md` | The decisions log: every choice, every bug found, and what caused it. |
 
 `app/index.html` is the design deck served directly, with one screen revealed per route — so the
 report a visitor sees and the report `npm run render` produces are the same code path, and
