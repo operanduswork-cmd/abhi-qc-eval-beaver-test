@@ -249,26 +249,51 @@ const evRow = (e: any) => {
 };
 
 /**
- * The badge on a dimension that has an unmet requirement.
+ * The badge beside a dimension's score.
  *
- * It used to read NOT EVIDENCED, which every reader takes as "this dimension has no evidence".
- * It does not mean that. `notEvidenced` means AT LEAST ONE required behaviour was looked for and
- * not found — the dimension can be, and usually is, extensively evidenced otherwise. On one real
- * run all three flagged dimensions carried evidence: D3 with 2 quotes, D4 with NINE and a score
- * of 10/15, and D10 with five (the booking contradiction). Read as "no evidence", that badge
- * argues for zeroing a score that nine verified quotes support.
+ * Two rewrites, both caused by the same mistake in opposite directions.
  *
- * So it names the gap and, where the scorer counted it, how big the gap is — the count comes out
- * of the absenceStatement the contract already carries.
+ * It first read NOT EVIDENCED, which every reader takes as "this dimension has no evidence". It
+ * does not mean that — `notEvidenced` means at least one required behaviour was looked for and
+ * not found, on a dimension that is usually well evidenced otherwise.
+ *
+ * The fix for that was a red outlined "1 OF 5 NOT MET" pill, which was accurate and worse. Seven
+ * of twelve rows carried it on a 73/100 run, at the same visual weight as the score, in the
+ * warning colour — so a dimension scoring 7/10 Strong announced itself as a failure. At the
+ * summary level you see the badge and not the reasoning, so the whole report read as a list of
+ * misses when it was mostly a list of hits with one gap each.
+ *
+ * So: state what was MET, in a muted tone, because the score chip beside it already carries the
+ * verdict and its colour. The red treatment is reserved for the one case that genuinely warrants
+ * an alarm — nothing evidenced at all — which is a different finding, not a louder version of
+ * the same one.
  */
 const gapBadge = (d: any) => {
-  const m = /(\d+)\s+of\s+(\d+)\s+required behaviours?/i.exec(String(d.absenceStatement ?? ""));
-  const label = m ? `${m[1]} OF ${m[2]} NOT MET` : "REQUIREMENT NOT MET";
-  return (
-    `<span title="Some required behaviour was not found. The rest of this dimension is still ` +
-    `evidenced." style="font:700 9px var(--qc-mono);letter-spacing:.1em;color:var(--qc-at-risk);` +
-    `border:1px solid var(--qc-at-risk);border-radius:999px;padding:2px 7px;flex:none">${label}</span>`
-  );
+  const statement = String(d.absenceStatement ?? "");
+  const pill = (text: string, tone: string, outlined: boolean) =>
+    `<span style="font:700 9px var(--qc-mono);letter-spacing:.1em;color:var(${tone});flex:none;` +
+    (outlined
+      ? `border:1px solid var(${tone});border-radius:999px;padding:2px 7px`
+      : `padding:2px 0`) +
+    `">${text}</span>`;
+
+  // Nothing found at all. A real alarm, and a different finding from "one requirement missing".
+  if (!d.evidence.length) {
+    return pill("NOTHING EVIDENCED", "--qc-fail", true);
+  }
+
+  const m = /(\d+)\s+of\s+(\d+)\s+required behaviours?/i.exec(statement);
+  if (m) {
+    const missing = Number(m[1]);
+    const total = Number(m[2]);
+    return pill(`${total - missing} OF ${total} MET`, "--qc-ink-dim", false);
+  }
+
+  // The three-state case: a requirement with evidence on both sides, which is not the same as
+  // one that is absent and must not be worded as though it were.
+  if (/contradicting/i.test(statement)) return pill("CONTESTED", "--qc-ink-dim", false);
+
+  return pill("PARTIAL", "--qc-ink-dim", false);
 };
 
 const row = (d: any) => {

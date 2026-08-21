@@ -860,7 +860,8 @@ export function renderPending(contract: ReportContract, progress: RunProgress): 
              '<span style="font:9.5px var(--qc-mono);color:var(--qc-ink-dim);width:16px">'+
              ('0' + (i+1)).slice(-2) + '</span>'+
              '<span data-qc="ring" style="width:13px;height:13px;border-radius:999px;'+
-               'border:1.25px solid var(--qc-rule-strong);flex:none;display:block"></span>'+
+               'border:1.25px solid var(--qc-rule-strong);flex:none;display:flex;'+
+               'align-items:center;justify-content:center"></span>'+
              '<span style="display:flex;color:var(--qc-ink-dim)">' + (M[d.id] || '') + '</span>'+
              '<span style="flex:1;font:11.5px var(--qc-body);color:var(--qc-brand)">' + d.title + '</span>'+
              '<span data-qc="state" style="font:700 9.5px var(--qc-mono);letter-spacing:.1em"></span>'+
@@ -887,6 +888,15 @@ export function renderPending(contract: ReportContract, progress: RunProgress): 
     dimensions: 'SCORING THE TWELVE DIMENSIONS',
     synthesis:  'WRITING THE BRIEF'
   };
+
+  // A completed dimension gets a tick inside its ring rather than just a green outline — an
+  // empty green circle and an empty grey circle are the same shape, and at 13px the colour is
+  // doing all the work. Sits inside the ring, so the spinner's ::after still traces the same
+  // circle and nothing about moving the spinner changes.
+  var TICK = '<svg viewBox="0 0 24 24" width="8" height="8" aria-hidden="true" '+
+    'style="display:block;fill:none;stroke:currentColor;stroke-width:3.6;stroke-linecap:round;'+
+    'stroke-linejoin:round">'+
+    '<path d="M4.5 12.5 L9.5 17.5 L19.5 6.5"/></svg>';
 
   function spinOn(el){
     var was = scr.querySelector('[data-spin]');
@@ -942,8 +952,16 @@ export function renderPending(contract: ReportContract, progress: RunProgress): 
       var live = !isFailed && d.id === prog.currentDimensionId && prog.phase === 'dimensions';
 
       row.style.opacity = done ? '1' : '.55';
-      if(ring) ring.style.borderColor = done ? 'var(--qc-elite)'
-                                     : (isFailed ? 'var(--qc-fail)' : 'var(--qc-rule-strong)');
+      if(ring){
+        ring.style.borderColor = done ? 'var(--qc-elite)'
+                               : (isFailed ? 'var(--qc-fail)' : 'var(--qc-rule-strong)');
+        ring.style.color = 'var(--qc-elite)';
+        // Only a landed dimension gets the tick. Setting it every paint is idempotent, and
+        // clearing it matters for the retry path, where rows go back to pending.
+        var has = ring.firstChild;
+        if(done && !has) ring.innerHTML = TICK;
+        else if(!done && has) ring.innerHTML = '';
+      }
       if(st){
         // Deliberately NOT a score. Rows committed mid-run are pre-arithmetic: computeTotal can
         // still promote a maximum, scale a score, or floor one to 0 on a non-recoverable cap. A
