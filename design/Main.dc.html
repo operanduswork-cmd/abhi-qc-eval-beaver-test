@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap">
+  <style>
+    :root{
+      --paper:#FAFAFA; --raised:#FFFFFF; --sunk:#F4F4F4;
+      --ink:#131628; --muted:rgba(19,22,40,.62); --dim:rgba(19,22,40,.38);
+      --brand:#131628; --brand-hi:#252854; --brand-tint:rgba(19,22,40,.06);
+      --rule:rgba(19,22,40,.10); --rule-2:rgba(19,22,40,.18);
+      --elite:#1F9E6E; --strong:#455876; --incon:#B8860B; --risk:#EF6B51; --fail:#F44336;
+      --disp:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    }
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+    a{color:var(--brand);text-decoration:none} a:hover{color:var(--brand-hi)}
+    .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+    .sec{margin-top:44px;padding-top:36px;border-top:1px solid var(--rule)}
+    .h{font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:-.015em;margin-bottom:6px}
+    .hs{font-family:var(--body);font-size:13px;color:var(--muted);margin-bottom:22px;max-width:60ch;line-height:1.55}
+    .sw{height:76px;border-radius:8px;border:1px solid var(--rule)}
+    .nm{font-family:var(--mono);font-size:11px;color:var(--ink);margin-top:10px}
+    .hx{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:3px}
+  </style>
+</helmet>
+
+<div style="padding:56px 52px 76px 52px;background:var(--paper)">
+
+  <div class="lab" style="margin-bottom:16px">QC Evaluator &nbsp;·&nbsp; design system &nbsp;·&nbsp; 01 palette</div>
+  <div style="font-family:var(--disp);font-weight:600;font-size:62px;line-height:.98;letter-spacing:-.045em;max-width:14ch">
+    Two colours.<br>That&rsquo;s the whole&nbsp;system.
+  </div>
+  <div style="font-family:var(--body);font-size:15px;line-height:1.6;color:var(--muted);max-width:62ch;margin-top:22px">
+    Palette and type ramp extracted from a live reference stylesheet rather than invented &mdash; hex
+    values and an open-licence typeface, no marks or identity. <span style="color:var(--ink);font-weight:600">Ink
+    and accent are the same colour.</span> There is nothing to spend sparingly, so emphasis comes from
+    weight, scale and surface instead of hue &mdash; which is also why it cannot drift into the
+    accent-on-neutral look that reads as machine-generated.
+  </div>
+
+  <!-- GROUND -->
+  <div class="sec">
+    <div class="h">Ground &amp; ink</div>
+    <div class="hs">Three surface values do all the structural work. No shadows anywhere in the system.</div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+      <div><div class="sw" style="background:#FAFAFA"></div><div class="nm">--qc-paper</div><div class="hx">#FAFAFA &nbsp;·&nbsp; page</div></div>
+      <div><div class="sw" style="background:#FFFFFF"></div><div class="nm">--qc-raised</div><div class="hx">#FFFFFF &nbsp;·&nbsp; rows, cards</div></div>
+      <div><div class="sw" style="background:#F4F4F4"></div><div class="nm">--qc-sunk</div><div class="hx">#F4F4F4 &nbsp;·&nbsp; inputs, quick-fix</div></div>
+      <div><div class="sw" style="background:#131628"></div><div class="nm">--qc-ink</div><div class="hx">#131628 &nbsp;·&nbsp; 16.4:1</div></div>
+    </div>
+  </div>
+
+  <!-- ACCENT -->
+  <div class="sec">
+    <div class="h">Brand &mdash; the same value as ink</div>
+    <div class="hs">Full-strength navy is the score, the primary button fill, and cited line numbers. Body copy is the identical hue at 62%, captions at 38%. One colour, three jobs.</div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+      <div><div class="sw" style="background:#131628"></div><div class="nm">--qc-brand</div><div class="hx">#131628 &nbsp;·&nbsp; 16.4:1 AAA</div></div>
+      <div><div class="sw" style="background:#252854"></div><div class="nm">--qc-brand-hi</div><div class="hx">#252854 &nbsp;·&nbsp; hover</div></div>
+      <div><div class="sw" style="background:rgba(19,22,40,.06)"></div><div class="nm">--qc-brand-tint</div><div class="hx">6% &nbsp;·&nbsp; chip fill</div></div>
+      <div><div class="sw" style="background:var(--paper);border:1px solid var(--rule-2);display:flex;align-items:center;justify-content:center">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--dim)">rule .10 / .18</div></div>
+        <div class="nm">--qc-rule</div><div class="hx">ink @ 10% and 18%</div></div>
+    </div>
+  </div>
+
+  <!-- BANDS -->
+  <div class="sec">
+    <div class="h">Bands</div>
+    <div class="hs">
+      Five, from the rubric &mdash; their names, never ours. Re-darkened for AA on a light ground,
+      which is the same move BeaverMind make in their own stylesheet when they drop their accent
+      to <span style="font-family:var(--mono);font-size:12px">#4269D4</span> on paper.
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px">
+      <div><div class="sw" style="height:52px;background:#1F9E6E"></div><div class="nm">ELITE</div><div class="hx">#1F9E6E · 90&ndash;100</div></div>
+      <div><div class="sw" style="height:52px;background:#455876"></div><div class="nm">STRONG</div><div class="hx">#455876 · 80&ndash;89</div></div>
+      <div><div class="sw" style="height:52px;background:#B8860B"></div><div class="nm">INCONSISTENT</div><div class="hx">#B8860B · 70&ndash;79</div></div>
+      <div><div class="sw" style="height:52px;background:#EF6B51"></div><div class="nm">AT RISK</div><div class="hx">#EF6B51 · 60&ndash;69</div></div>
+      <div><div class="sw" style="height:52px;background:#F44336"></div><div class="nm">FAIL</div><div class="hx">#F44336 · &lt;60</div></div>
+    </div>
+  </div>
+
+  <!-- PROVENANCE -->
+  <div class="sec">
+    <div class="h">Provenance</div>
+    <div class="hs">Read verbatim out of the reference&rsquo;s live CSS bundles. Their dominant accent was the violet; we took the navy instead, so it is struck through rather than deleted &mdash; the record stays honest about what was there.</div>
+    <div style="background:var(--raised);border:1px solid var(--rule);border-radius:8px;padding:22px 24px;font-family:var(--mono);font-size:11.5px;line-height:2;color:var(--muted);overflow-x:auto">
+      <div style="opacity:.45;text-decoration:line-through"><span>--color-electric-purple</span> : #6F00FF <span style="color:var(--dim)">&nbsp; 30 occurrences &mdash; not adopted</span></div>
+      <div><span style="color:var(--brand);font-weight:600">--color-charcoal-blue</span>&nbsp;&nbsp; : #131628 <span style="color:var(--dim)">&nbsp; 15 occurrences &mdash; adopted as brand</span></div>
+      <div><span style="color:var(--brand)">--color-gray-lightest</span>&nbsp;&nbsp; : #F6F6F6</div>
+      <div><span style="color:var(--brand)">--color-alert</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : #F44336</div>
+      <div><span style="color:var(--brand)">--font-primary</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : "Poppins"</div>
+      <div><span style="color:var(--brand)">--radius-md/lg/2xl</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 6 / 8 / 16px &nbsp;&nbsp; <span style="color:var(--brand)">--spacing</span> : 4px</div>
+      <div><span style="color:var(--brand)">--container-6xl</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 1152px</div>
+      <div><span style="color:var(--brand)">--ease-in-out</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : cubic-bezier(.4,0,.2,1) &nbsp;&nbsp; .15s</div>
+    </div>
+  </div>
+
+  <!-- BANNED -->
+  <div class="sec">
+    <div class="h">Banned</div>
+    <div class="hs">The list exists because the previous pass at this design failed it.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 36px">
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Box-shadows and elevated cards</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Gradients, glassmorphism, blur</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Pill buttons everywhere</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Centred heroes, competing CTAs</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Emoji or dingbats as icons</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Scroll animations, fade-ins, parallax</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Poppins below 20px</div>
+      <div style="font-family:var(--body);font-size:13px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--rule)">Introducing a second hue</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#131628","options":["#131628","#252854","#131628","#EF6B51"]}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* QC Evaluator — colour.
+   Ink and brand are the SAME value (#131628). There is no accent colour:
+   emphasis comes from weight, scale and surface, which leaves colour free to
+   mean exactly one thing — band state. The five band hues are the only hues
+   in the system. A sixth is a bug. */
+
+:root {
+  /* ground — three surface values do all the structural work */
+  --qc-paper:        #FAFAFA;              /* page */
+  --qc-raised:       #FFFFFF;              /* rows, cards */
+  --qc-sunk:         #F4F4F4;              /* inputs, quick-fix boxes */
+
+  /* brand — the same value as ink, by design */
+  --qc-brand:        #131628;              /* 16.4:1 on paper — AAA */
+  --qc-brand-hi:     #252854;              /* hover only */
+  --qc-brand-tint:   rgba(19, 22, 40, .06);/* chip and notice fills */
+  --qc-ink-muted:    rgba(19, 22, 40, .62);/* body copy */
+  --qc-ink-dim:      rgba(19, 22, 40, .38);/* captions, micro-labels */
+  --qc-ink-faint:    rgba(19, 22, 40, .05);/* N/A chip fill */
+
+  /* rules — there are no shadows anywhere in this system */
+  --qc-rule:         rgba(19, 22, 40, .10);
+  --qc-rule-strong:  rgba(19, 22, 40, .18);
+
+  /* bands — the rubric's names, never ours */
+  --qc-elite:        #1F9E6E;              /* 90–100 */
+  --qc-strong:       #455876;              /* 80–89  */
+  --qc-inconsistent: #B8860B;              /* 70–79  */
+  --qc-at-risk:      #EF6B51;              /* 60–69  */
+  --qc-fail:         #F44336;              /* <60    */
+
+  /* band tints — the chip fill is its own colour at 12% (14% for at-risk) */
+  --qc-elite-tint:        rgba(31, 158, 110, .12);
+  --qc-strong-tint:       rgba(69, 88, 118, .12);
+  --qc-inconsistent-tint: rgba(184, 134, 11, .12);
+  --qc-at-risk-tint:      rgba(239, 107, 81, .14);
+  --qc-fail-tint:         rgba(244, 67, 54, .06);
+
+  /* semantic aliases — use these in product code */
+  --qc-surface-page:   var(--qc-paper);
+  --qc-surface-card:   var(--qc-raised);
+  --qc-surface-input:  var(--qc-sunk);
+  --qc-text-strong:    var(--qc-brand);    /* headings, numerals, line numbers */
+  --qc-text-body:      var(--qc-ink-muted);
+  --qc-text-caption:   var(--qc-ink-dim);
+  --qc-text-inverse:   #FFFFFF;
+  --qc-border:         var(--qc-rule);
+  --qc-border-strong:  var(--qc-rule-strong);
+  --qc-focus-ring:     var(--qc-brand);
+
+  /* recorded, not used. The reference stylesheet's loudest token
+     (--color-electric-purple, 30 occurrences) was considered and declined.
+     Kept on the record so the decision is legible. */
+  --qc-declined-accent: #6F00FF;
+}

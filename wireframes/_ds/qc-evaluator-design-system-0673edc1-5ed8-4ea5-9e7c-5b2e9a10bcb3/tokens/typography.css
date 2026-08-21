@@ -1,0 +1,39 @@
+/* QC Evaluator — type.
+   Three faces with one rule: mono for anything MACHINE-MEASURED, sans for
+   anything JUDGED, Poppins for display only. Test for a new element — could a
+   person have disagreed with it? If yes it is sans. If it fell out of
+   arithmetic or a string match, it is mono. */
+
+:root {
+  --qc-display: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* @kind font */
+  --qc-body:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif; /* @kind font */
+  --qc-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; /* @kind font */
+
+  /* ramp — the reference scale, unchanged */
+  --qc-text-xs:   12px;
+  --qc-text-sm:   14px;
+  --qc-text-base: 16px;
+  --qc-text-lg:   24px;
+  --qc-text-xl:   36px;
+  --qc-text-2xl:  48px;
+  --qc-text-3xl:  72px;
+
+  --qc-leading-tight:  1.25;
+  --qc-leading-normal: 1.5;
+  --qc-leading-body:   1.6;
+
+  /* display steps as used — every size dropped a weight step and tightened */
+  --qc-numeral-size: 80px;   --qc-numeral-weight: 700; --qc-numeral-track: -.05em;  --qc-numeral-leading: .94;
+  --qc-title-size:   52px;   --qc-title-weight:   600; --qc-title-track:   -.04em;  --qc-title-leading:   .98;
+  --qc-lede-size:    26px;   --qc-lede-weight:    600; --qc-lede-track:    -.025em; --qc-lede-leading:    1.3;
+
+  /* dense UI — system stack does all of this */
+  --qc-row-title-size: 16px;  --qc-row-title-weight: 600;
+  --qc-ui-size:        13.5px;
+  --qc-control-size:   13px;   --qc-control-track: .01em;
+
+  /* mono */
+  --qc-mono-size:  11px;
+  --qc-micro-size: 10px;   --qc-micro-track: .12em;  /* micro-labels, uppercase */
+  --qc-label-size: 9.5px;  --qc-label-track: .16em;  /* region labels */
+}

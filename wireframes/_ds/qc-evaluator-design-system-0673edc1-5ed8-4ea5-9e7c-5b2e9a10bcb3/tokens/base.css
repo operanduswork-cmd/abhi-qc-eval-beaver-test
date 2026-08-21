@@ -1,0 +1,30 @@
+/* QC Evaluator — base. Minimal; the system is tokens, not utility classes. */
+
+body {
+  margin: 0;
+  background: var(--qc-paper);
+  color: var(--qc-brand);
+  font-family: var(--qc-body);
+  /* Non-negotiable in a scoring product: chips and line numbers sit in columns
+     down a twelve-row list, and proportional figures make them jitter. */
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Poppins is a DISPLAY face here: never below 20px, never above weight 700. */
+h1, h2, .qc-display {
+  font-family: var(--qc-display);
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+
+a { color: var(--qc-brand); text-decoration: none; }
+a:hover { color: var(--qc-brand-hi); }
+
+::selection { background: var(--qc-brand); color: #fff; }
+
+:focus-visible { outline: 2px solid var(--qc-focus-ring); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

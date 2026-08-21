@@ -1,0 +1,55 @@
+/* QC Evaluator — colour identity override.
+   Restores the reference palette: electric violet chrome, plum masthead,
+   full-spectrum band hues. Loaded AFTER colors.css so it wins.
+   Structure, type and geometry are untouched. */
+
+:root {
+  /* brand — electric violet, from the reference stylesheet */
+  --qc-brand:        #6F00FF;
+  --qc-brand-hi:     #7B2FE8;
+  --qc-brand-tint:   rgba(111, 0, 255, .08);
+
+  /* plum — masthead / inverse surface */
+  --qc-plum:         #423A5E;
+  --qc-plum-deep:    #2E2842;
+
+  /* ink stays for body copy */
+  --qc-ink:          #131628;
+  --qc-ink-muted:    rgba(19, 22, 40, .62);
+  --qc-ink-dim:      rgba(19, 22, 40, .38);
+
+  /* bands — the reference spectrum */
+  --qc-elite:        #3FA85C;
+  --qc-strong:       #2F6FBF;
+  --qc-inconsistent: #E8DE3E;
+  --qc-at-risk:      #EF6B51;
+  --qc-fail:         #F44336;
+
+  --qc-elite-tint:        rgba(63, 168, 92, .14);
+  --qc-strong-tint:       rgba(47, 111, 191, .14);
+  --qc-inconsistent-tint: rgba(232, 222, 62, .22);
+  --qc-at-risk-tint:      rgba(239, 107, 81, .14);
+  --qc-fail-tint:         rgba(244, 67, 54, .10);
+
+  /* semantic aliases re-pointed at the identity */
+  --qc-text-strong:  #131628;
+  --qc-focus-ring:   #6F00FF;
+}
+
+/* masthead / chrome bar picks up the plum surface */
+.qc-masthead,
+[data-qc-masthead] {
+  background: var(--qc-plum);
+  color: #FFFFFF;
+}
+
+/* twelve-step progress fill reads left-to-right through the spectrum */
+.qc-progress-fill {
+  background: linear-gradient(
+    90deg,
+    var(--qc-elite) 0%,
+    var(--qc-strong) 34%,
+    var(--qc-brand) 62%,
+    var(--qc-inconsistent) 100%
+  );
+}

@@ -1,0 +1,28 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",       "title": "P4 · Report",        "x": 0,    "y": 0,    "w": 1200, "h": 2100 },
+    { "file": "Landing.dc.html",    "title": "P1 · Landing",       "x": 1280, "y": 0,    "w": 1200, "h": 1000 },
+    { "file": "RunForm.dc.html",    "title": "P2 · Run form",      "x": 1280, "y": 1080, "w": 1200, "h": 1020 },
+    { "file": "Progress.dc.html",   "title": "P3 · Progress + failure", "x": 2560, "y": 0, "w": 1100, "h": 1000 },
+    { "file": "PdfPage.dc.html",    "title": "PDF · page 1",       "x": 2560, "y": 1080, "w": 794,  "h": 1123, "print": "fixed" },
+    { "file": "System.dc.html",     "title": "Design system",      "x": 0,    "y": 2180, "w": 1100, "h": 1900 },
+    { "file": "Components.dc.html", "title": "Component library",  "x": 1180, "y": 2180, "w": 1100, "h": 1900 }
+  ],
+  "annotations": [
+    {
+      "id": "read-me-first",
+      "x": 0,
+      "y": -190,
+      "w": 620,
+      "text": "THE VERDICT — QC Evaluator design system\n\nStart at P4 · Report. It is built on real coaching-01 data: the D10 booking\ncontradiction at L188/L193 is the case the exercise exists to catch, and the\nreport shows it as INDETERMINATE rather than guessing a score.\n\nTwo deliberate departures from the reference build: evidence quotes carry\ntheir line number in the gutter, and the score uses a band rail instead of a\nsemicircular gauge.\n\nScores are a defensible read of the transcript, not pipeline output — they\nwill be replaced by real runs once the scorer is built."
+    },
+    {
+      "id": "pdf-is-paper",
+      "x": 2560,
+      "y": 940,
+      "w": 420,
+      "text": "The app runs ink; the PDF runs paper.\n\nBeaverMind's own token set is dual-mode, and a full-black PDF drinks ink and\nfails on paper. Same system, correct surface for each medium."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

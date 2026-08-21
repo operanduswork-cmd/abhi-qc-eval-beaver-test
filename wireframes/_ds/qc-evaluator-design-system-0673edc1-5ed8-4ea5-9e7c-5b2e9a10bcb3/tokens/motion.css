@@ -1,0 +1,11 @@
+/* QC Evaluator — motion.
+   One curve, one duration. Motion is for disclosure and progress only:
+   no scroll animation, no fade-in, no parallax, and no spinners —
+   progress is a twelve-row manifest. */
+
+:root {
+  --qc-duration:   .15s; /* @kind other */
+  --qc-duration-disclosure: .22s; /* @kind other */  /* chevron rotate + row expand */
+  --qc-ease:       cubic-bezier(.4, 0, .2, 1); /* @kind other */
+  --qc-transition: all var(--qc-duration) var(--qc-ease);
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap">
+  <style>
+    :root{
+      --paper:#FAFAFA; --raised:#FFFFFF; --sunk:#F4F4F4;
+      --ink:#131628; --muted:rgba(19,22,40,.62); --dim:rgba(19,22,40,.38);
+      --brand:#131628; --brand-tint:rgba(19,22,40,.06);
+      --rule:rgba(19,22,40,.10); --rule-2:rgba(19,22,40,.18);
+      --elite:#1F9E6E; --strong:#455876; --incon:#B8860B; --risk:#EF6B51; --fail:#F44336;
+      --disp:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    }
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+    a{color:var(--brand);text-decoration:none} a:hover{color:#252854}
+    .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+    .sec{margin-top:40px;padding-top:32px;border-top:1px solid var(--rule)}
+    .h{font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:-.015em;margin-bottom:6px}
+    .hs{font-family:var(--body);font-size:13px;color:var(--muted);margin-bottom:22px;max-width:64ch;line-height:1.55}
+    .chip{font-family:var(--mono);font-size:11px;padding:5px 11px;border-radius:999px;display:inline-block}
+    .note{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:9px}
+  </style>
+</helmet>
+
+<div style="padding:56px 52px 76px 52px;background:var(--paper)">
+
+  <div class="lab" style="margin-bottom:16px">QC Evaluator &nbsp;·&nbsp; design system &nbsp;·&nbsp; 03 components</div>
+  <div style="font-family:var(--disp);font-weight:600;font-size:62px;line-height:.98;letter-spacing:-.045em">Every state</div>
+  <div style="font-family:var(--body);font-size:15px;line-height:1.6;color:var(--muted);max-width:62ch;margin-top:22px">
+    The states are the hard part. A rubric that can only say &ldquo;fired&rdquo; or &ldquo;not fired&rdquo;
+    cannot describe the one transcript the exercise is built around, so the components below carry
+    the awkward cases as first-class citizens rather than edge cases.
+  </div>
+
+  <!-- SCORE CHIP -->
+  <div class="sec">
+    <div class="h">Score chip</div>
+    <div class="hs">Mono, band colour on a 12% tint of itself, 999 radius. Right-aligned in every dimension row.</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <div class="chip" style="color:var(--elite);background:rgba(31,158,110,.12)">15/15</div>
+      <div class="chip" style="color:var(--strong);background:var(--brand-tint)">10/15</div>
+      <div class="chip" style="color:var(--incon);background:rgba(184,134,11,.12)">7/10</div>
+      <div class="chip" style="color:var(--risk);background:rgba(239,107,81,.14)">3/10</div>
+      <div class="chip" style="color:#fff;background:var(--fail)">0/5</div>
+      <div class="chip" style="color:var(--dim);background:rgba(19,22,40,.05)">N/A</div>
+      <div class="chip" style="color:var(--dim);border:1px dashed var(--rule-2)">not evidenced</div>
+    </div>
+    <div class="note">five bands · N/A when a dimension switches off · dashed when evidence failed verification</div>
+  </div>
+
+  <!-- CAP -->
+  <div class="sec">
+    <div class="h">Cap notice &mdash; three states</div>
+    <div class="hs">
+      A boolean cannot express <span style="font-family:var(--mono);font-size:12px">coaching-01</span>, where supporting
+      and contradicting evidence both verify. The third state exists so the report can say
+      <span style="color:var(--ink)">&ldquo;cannot verify&rdquo;</span> instead of guessing.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:820px">
+
+      <div style="display:flex;gap:14px;background:rgba(244,67,54,.06);border-left:3px solid var(--fail);padding:14px 18px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--fail);width:118px;flex-shrink:0;padding-top:2px">FIRED</div>
+        <div style="font-family:var(--body);font-size:13.5px;line-height:1.55">No action steps stated for either party before close &rarr; <span style="font-family:var(--mono);font-size:12px">max 70 total</span></div>
+      </div>
+
+      <div style="display:flex;gap:14px;background:var(--brand-tint);border-left:3px solid var(--brand);padding:14px 18px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--brand);width:118px;flex-shrink:0;padding-top:2px">INDETERMINATE</div>
+        <div style="font-family:var(--body);font-size:13.5px;line-height:1.55">
+          Next call booked live &mdash; <span style="color:var(--ink);font-weight:600">cannot be verified.</span>
+          L188 agrees a time; L193 withdraws it. Scored the unverified branch: <span style="font-family:var(--mono);font-size:12px">D10 &rarr; 0/5</span>.
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;border-left:3px solid var(--rule-2);padding:14px 18px">
+        <div class="lab" style="width:118px;flex-shrink:0;padding-top:2px">NOT FIRED</div>
+        <div style="font-family:var(--body);font-size:13.5px;line-height:1.55;color:var(--muted)">
+          Coach talk-share <span style="font-family:var(--mono);font-size:12px;color:var(--ink)">66.6%</span>
+          <span style="font-family:var(--mono);font-size:12px">(63.1&ndash;70.4% at r=0.8&ndash;1.2)</span> &mdash; below 75% on every reading.
+        </div>
+      </div>
+    </div>
+    <div class="note">the interval is shown because the cap is phrased in TIME and we can only measure words</div>
+  </div>
+
+  <!-- EVIDENCE -->
+  <div class="sec">
+    <div class="h">Evidence citation</div>
+    <div class="hs">
+      Line number in the gutter, mono, full-strength brand navy. Derived <em style="font-style:normal;color:var(--ink)">in code</em> from where the
+      quote was found &mdash; never taken from the model. Renders the original span, never the normalised string.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:780px">
+
+      <div style="display:flex;gap:18px">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--brand);width:42px;flex-shrink:0;padding-top:2px">L188</div>
+        <div style="border-left:2px solid var(--rule-2);padding-left:18px">
+          <div class="lab" style="margin-bottom:6px">Malik Osei</div>
+          <div style="font-family:var(--body);font-size:14px;line-height:1.55;max-width:62ch">&ldquo;Wednesday the 10th at four, yeah, I&rsquo;m off that day, that one works. Let&rsquo;s lock that in.&rdquo;</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:18px">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--fail);width:42px;flex-shrink:0;padding-top:2px">L193</div>
+        <div style="border-left:2px solid var(--fail);padding-left:18px">
+          <div class="lab" style="margin-bottom:6px">Priya Raman &nbsp;·&nbsp; <span style="color:var(--fail)">contradicts L188</span></div>
+          <div style="font-family:var(--body);font-size:14px;line-height:1.55;max-width:62ch">&ldquo;Alright, go get some rest, I&rsquo;ll get you those times soon so we can get this locked on the calendar.&rdquo;</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:18px;opacity:.7">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--dim);width:42px;flex-shrink:0;padding-top:2px">L204</div>
+        <div style="border-left:2px dashed var(--rule-2);padding-left:18px">
+          <div class="lab" style="margin-bottom:6px">Malik Osei &nbsp;·&nbsp; <span style="color:var(--incon)">degraded &mdash; contains [inaudible]</span></div>
+          <div style="font-family:var(--body);font-size:14px;line-height:1.55;color:var(--muted);max-width:62ch">&ldquo;Yeah I&rsquo;ll get the [inaudible] over to you before then.&rdquo;</div>
+        </div>
+      </div>
+    </div>
+    <div class="note">minimum 8 words per quote — 8-word quotes are 99.7–100% unique within a transcript; 3-word only 87–94%</div>
+  </div>
+
+  <!-- BAND RAIL -->
+  <div class="sec">
+    <div class="h">Band rail</div>
+    <div class="hs">Replaces the semicircular gauge. Shows score, band, band <em style="font-style:normal;color:var(--ink)">structure</em> and distance to the next band in one object.</div>
+    <div style="max-width:620px">
+      <div style="display:grid;grid-template-columns:60fr 10fr 10fr 10fr 10fr;gap:3px">
+        <div style="height:6px;background:var(--rule-2);border-radius:2px"></div>
+        <div style="height:6px;background:var(--rule-2);border-radius:2px"></div>
+        <div style="height:6px;background:var(--incon);border-radius:2px"></div>
+        <div style="height:6px;background:var(--rule-2);border-radius:2px"></div>
+        <div style="height:6px;background:var(--rule-2);border-radius:2px"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:60fr 10fr 10fr 10fr 10fr;gap:3px;margin-top:9px">
+        <div class="lab" style="font-size:9px">Fail</div>
+        <div class="lab" style="font-size:9px">At risk</div>
+        <div class="lab" style="font-size:9px;color:var(--incon)">Inconsistent</div>
+        <div class="lab" style="font-size:9px">Strong</div>
+        <div class="lab" style="font-size:9px">Elite</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:14px">raw 82 / 105 &nbsp;&rarr;&nbsp; 78 &nbsp;·&nbsp; 2 points from STRONG</div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="sec">
+    <div class="h">Controls</div>
+    <div class="hs">One filled button per screen. Everything else is outlined or ghost.</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <div style="background:var(--brand);color:#fff;font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.01em;height:40px;padding:0 20px;border-radius:6px;display:inline-flex;align-items:center;box-sizing:border-box">Run evaluation</div>
+      <div style="border:1px solid var(--rule-2);border-radius:6px;height:40px;padding:0 18px;font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:.01em;display:inline-flex;align-items:center;box-sizing:border-box">Retry this run</div>
+      <div style="height:40px;padding:0 14px;font-family:var(--body);font-size:13px;color:var(--muted);display:inline-flex;align-items:center;box-sizing:border-box">Copy diagnostics</div>
+      <div style="border:1px solid var(--rule);background:var(--sunk);border-radius:6px;height:40px;padding:0 14px;font-family:var(--body);font-size:13px;color:var(--dim);min-width:200px;display:inline-flex;align-items:center;box-sizing:border-box">Search coach&hellip;</div>
+    </div>
+  </div>
+
+  <!-- PROGRESS ROW -->
+  <div class="sec">
+    <div class="h">Progress row</div>
+    <div class="hs">Four states. Never a spinner.</div>
+    <div style="max-width:560px;display:flex;flex-direction:column;gap:2px">
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:6px;background:var(--raised)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--dim);width:20px">04</div>
+        <div style="font-family:var(--body);font-size:13.5px;flex-grow:1">Movement coaching quality</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--elite)">15/15</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:6px;background:var(--brand-tint)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--brand);width:20px">05</div>
+        <div style="font-family:var(--body);font-size:13.5px;flex-grow:1;color:var(--brand)">Adjustments &amp; strategy</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--brand)">scoring&hellip;</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:6px">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--dim);width:20px">06</div>
+        <div style="font-family:var(--body);font-size:13.5px;flex-grow:1;color:var(--dim)">Action steps &amp; accountability</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--dim)">queued</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:6px;background:rgba(244,67,54,.06)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--fail);width:20px">10</div>
+        <div style="font-family:var(--body);font-size:13.5px;flex-grow:1;color:var(--fail)">Next call booking</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--fail)">failed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNOBSERVABLE -->
+  <div class="sec">
+    <div class="h">Unobservable criterion</div>
+    <div class="hs">Where the rubric asks for something the format cannot show, the report says so instead of inferring it from tone.</div>
+    <div style="border:1px dashed var(--rule-2);border-radius:8px;padding:16px 20px;max-width:760px;background:var(--raised)">
+      <div class="lab" style="margin-bottom:9px;color:var(--brand)">NOT OBSERVABLE IN THIS FORMAT</div>
+      <div style="font-family:var(--body);font-size:13.5px;line-height:1.55;color:var(--muted)">
+        D1 Elite requires &ldquo;listens before responding &mdash; no interruption.&rdquo; The transcript has no
+        overlap markers, no timestamps and strictly alternating turns. This criterion was excluded
+        from the score rather than guessed.
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

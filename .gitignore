@@ -1,0 +1,63 @@
+# deps
+node_modules/
+.pnp
+.pnp.js
+
+# next
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# env — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# os
+.DS_Store
+Thumbs.db
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# probe output — measured numbers are committed deliberately via eval/REPORT.md
+/probes/out/
+
+# graphify working files (graph.json + report are kept)
+graphify-out/.graphify_*
+graphify-out/cache/
+
+# their cloned exercise repo — read-only, never modified, never committed.
+# If the eval harness needs the fixtures, we make our OWN copy elsewhere.
+exercise-source/
+
+# supabase CLI scratch
+supabase/.temp/
+
+# compilation intermediates — regenerate via scripts/assemble-packs.mjs
+.scratch/
+
+# scorer output — except the demo run, which app/index.html is rendered from and
+# which the deployed site therefore depends on. Un-ignore it explicitly.
+eval/out/*
+!eval/out/coaching-01.json
+
+# report page backups from local edit sessions — regenerate with `npm run render`
+app/index.bak*.html
+.vercel
+.scratch/
+
+# ids of the demo runs seeded by `npm run browser-seed` — machine-local, regenerate
+test/browser/seeded.json

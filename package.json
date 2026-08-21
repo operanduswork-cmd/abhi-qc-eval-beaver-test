@@ -1,0 +1,36 @@
+{
+  "name": "beavermind-qc-evaluator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types \"test/**/*.test.ts\"",
+    "eval": "node --experimental-strip-types eval/run.ts",
+    "score": "node --experimental-strip-types eval/score-one.ts",
+    "render": "node --experimental-strip-types scripts/render-report.ts",
+    "validate": "node --experimental-strip-types scripts/validate-report.ts",
+    "report": "npm run validate && npm run render",
+    "synth": "node --experimental-strip-types eval/synth-one.ts",
+    "worker-check": "node --experimental-strip-types eval/worker-check.ts",
+    "e2e": "node --experimental-strip-types eval/e2e.ts",
+    "browser-seed": "node --experimental-strip-types test/browser/seed.ts",
+    "browser-test": "python test/browser/app.py",
+    "screenshots": "python test/browser/screenshots.py"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.47.10",
+    "next": "^15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
+  }
+}

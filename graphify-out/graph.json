@@ -1,0 +1,878 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "scoring_determinism_flow",
+        "label": "Scoring Determinism Flow",
+        "nodes": [
+          "scoring_pipeline",
+          "exercise_source_coaching_01",
+          "exercise_source_coaching_rubric",
+          "handoff_backend"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "BRAINDUMP.md"
+      },
+      {
+        "id": "design_system_evolution",
+        "label": "Design System Evolution",
+        "nodes": [
+          "design_main",
+          "design_components",
+          "design_icons",
+          "design_reference_frames_frame_0057",
+          "design_reference_frames_frame_0059"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "BRAINDUMP.md"
+      },
+      {
+        "id": "adversarial_test_suite",
+        "label": "Adversarial Test Suite",
+        "nodes": [
+          "exercise_source_coaching_01",
+          "exercise_source_coaching_02",
+          "exercise_source_kickoff_02"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "HANDOFF-BACKEND.md"
+      },
+      {
+        "id": "beavermind_design_system",
+        "label": "BeaverMind Design System Implementation",
+        "nodes": [
+          "design_main",
+          "design_components"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "BRAINDUMP.md"
+      },
+      {
+        "id": "halden_method_phases",
+        "label": "Halden Method Phases",
+        "nodes": [
+          "halden_method",
+          "rubrics_kickoff_call_rubric",
+          "rubrics_coaching_call_rubric"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "rubrics/kickoff-call-rubric.md"
+      },
+      {
+        "id": "scoring_determinism_strategy",
+        "label": "Scoring Determinism Strategy",
+        "nodes": [
+          "scoring_pipeline",
+          "determinism_boundary",
+          "handoff_backend"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "CLAUDE.md"
+      },
+      {
+        "id": "call_evaluation_system",
+        "label": "Call Evaluation System Components",
+        "nodes": [
+          "readme",
+          "rubrics_coaching_call_rubric",
+          "rubrics_kickoff_call_rubric",
+          "design_reference_frames_frame_0064"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "README.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "db_schema",
+      "label": "Database Schema",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "contributor": null,
+      "file_type": "code",
+      "norm_label": "database schema",
+      "rationale": "Postgres schema for runs, dimensions, caps, and reports.",
+      "source_file": "HANDOFF-BACKEND.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "scoring_pipeline",
+      "label": "Scoring Pipeline Logic",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "contributor": null,
+      "file_type": "code",
+      "norm_label": "scoring pipeline logic",
+      "rationale": "5-stage algorithm for deterministic scoring.",
+      "source_file": "HANDOFF-BACKEND.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exercise_source_coaching_rubric",
+      "label": "Coaching Rubric",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "coaching rubric",
+      "rationale": null,
+      "source_file": "exercise-source/coaching-rubric.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exercise_source_kickoff_rubric",
+      "label": "Kick-off Rubric",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "kick-off rubric",
+      "rationale": null,
+      "source_file": "exercise-source/kickoff-rubric.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "handoff_backend",
+      "label": "Backend Handoff",
+      "author": null,
+      "captured_at": null,
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "backend handoff",
+      "rationale": "Technical implementation details and pipeline logic.",
+      "source_file": "HANDOFF-BACKEND.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_components",
+      "label": "Design System: Components",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "Report UI & Evidence Display",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "design system: components",
+      "rationale": "Defines UI states for scores, caps, and evidence.",
+      "source_file": "design/Components.dc.html",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_main",
+      "label": "Design System: Palette",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "Report UI & Evidence Display",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "design system: palette",
+      "rationale": "Defines the 'Ink and Paper' dual-mode palette.",
+      "source_file": "design/Main.dc.html",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exercise_source_coaching_01",
+      "label": "Coaching Transcript 01 (Malik Osei)",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "Report UI & Evidence Display",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "coaching transcript 01 (malik osei)",
+      "rationale": "Contains the L188/L193 booking contradiction trap.",
+      "source_file": "exercise-source/coaching-01.txt",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_reference_frames_frame_0059",
+      "label": "Reference Frame: Run Page",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "Report UI & Evidence Display",
+      "contributor": null,
+      "file_type": "image",
+      "norm_label": "reference frame: run page",
+      "rationale": "Source for the evaluation form layout.",
+      "source_file": "design/reference-frames/frame_0059.jpg",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_reference_frames_frame_0061",
+      "label": "Reference Frame: Report Header",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "Report UI & Evidence Display",
+      "contributor": null,
+      "file_type": "image",
+      "norm_label": "reference frame: report header",
+      "rationale": "Source for pull-quote and cap pill styling.",
+      "source_file": "design/reference-frames/frame_0061.jpg",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_reference_frames_frame_0063",
+      "label": "Reference Frame: Dimension List",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "Report UI & Evidence Display",
+      "contributor": null,
+      "file_type": "image",
+      "norm_label": "reference frame: dimension list",
+      "rationale": "Source for collapsible row behavior and gradient masks.",
+      "source_file": "design/reference-frames/frame_0063.jpg",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "braindump",
+      "label": "BeaverMind Stage 2 \u2014 Braindump",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Project Brief & Source Corpus",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "beavermind stage 2 \u2014 braindump",
+      "rationale": "Central repository for all research, decisions, and project history.",
+      "source_file": "BRAINDUMP.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "claude",
+      "label": "BeaverMind Stage-2 \u2014 call QC evaluator",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Project Brief & Source Corpus",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "beavermind stage-2 \u2014 call qc evaluator",
+      "rationale": "High-level project summary and hard constraints.",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exercise_source_coaching_02",
+      "label": "Coaching Transcript 02 (Hannah Vogel)",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Project Brief & Source Corpus",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "coaching transcript 02 (hannah vogel)",
+      "rationale": "Tests D4-disabled and D2-N/A logic.",
+      "source_file": "exercise-source/coaching-02.txt",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exercise_source_kickoff_01",
+      "label": "Kick-off Transcript 01 (Owen Brandt)",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Project Brief & Source Corpus",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "kick-off transcript 01 (owen brandt)",
+      "rationale": "Elite reference call.",
+      "source_file": "exercise-source/kickoff-01.txt",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exercise_source_kickoff_02",
+      "label": "Kick-off Transcript 02 (Renata Cruz)",
+      "author": null,
+      "captured_at": null,
+      "community": 3,
+      "community_name": "Project Brief & Source Corpus",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "kick-off transcript 02 (renata cruz)",
+      "rationale": "Tests talk-share caps (73.4% word share).",
+      "source_file": "exercise-source/kickoff-02.txt",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_icons",
+      "label": "Design System: Icons",
+      "author": null,
+      "captured_at": null,
+      "community": 5,
+      "community_name": "Icon System",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "design system: icons",
+      "rationale": "Custom 1.25/24 geometric icon set.",
+      "source_file": "design/Icons.dc.html",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "design_reference_frames_frame_0057",
+      "label": "Reference Frame: Icons",
+      "author": null,
+      "captured_at": null,
+      "community": 5,
+      "community_name": "Icon System",
+      "contributor": null,
+      "file_type": "image",
+      "norm_label": "reference frame: icons",
+      "rationale": "Source for the geometric icon language.",
+      "source_file": "design/reference-frames/frame_0057.jpg",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "determinism_boundary",
+      "label": "Deterministic vs Model Boundary",
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "file_type": "concept",
+      "norm_label": "deterministic vs model boundary",
+      "rationale": "Rule: Code falsifies claims (negatives); Model identifies behaviors (positives).",
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "id": "claude_md",
+      "label": "Call QC Evaluator Constraints",
+      "community": 0,
+      "community_name": "Backend Architecture & Scoring",
+      "file_type": "document",
+      "norm_label": "call qc evaluator constraints",
+      "rationale": "Defines hard constraints and the 'eight corrections' for the backend implementation.",
+      "source_file": "CLAUDE.md"
+    },
+    {
+      "id": "readme",
+      "label": "Call Evaluation Exercise README",
+      "community": 2,
+      "community_name": "Coaching Rubric & Transcripts",
+      "file_type": "document",
+      "norm_label": "call evaluation exercise readme",
+      "rationale": "Top-level project documentation defining requirements and constraints.",
+      "source_file": "README.md"
+    },
+    {
+      "id": "rubrics_coaching_call_rubric",
+      "label": "Coaching Call Scoring Rubric",
+      "community": 2,
+      "community_name": "Coaching Rubric & Transcripts",
+      "file_type": "document",
+      "norm_label": "coaching call scoring rubric",
+      "rationale": "Defines 12 dimensions and 3 pillars (Connection, Confidence, Continuity) for coaching calls.",
+      "source_file": "rubrics/coaching-call-rubric.md"
+    },
+    {
+      "id": "transcripts_coaching_01",
+      "label": "Coaching Call Transcript 01 (Malik)",
+      "community": 2,
+      "community_name": "Coaching Rubric & Transcripts",
+      "file_type": "document",
+      "norm_label": "coaching call transcript 01 (malik)",
+      "source_file": "transcripts/coaching-01.txt"
+    },
+    {
+      "id": "transcripts_coaching_02",
+      "label": "Coaching Call Transcript 02 (Hannah)",
+      "community": 2,
+      "community_name": "Coaching Rubric & Transcripts",
+      "file_type": "document",
+      "norm_label": "coaching call transcript 02 (hannah)",
+      "source_file": "transcripts/coaching-02.txt"
+    },
+    {
+      "id": "design_reference_frames_frame_0064",
+      "label": "QC Evaluator UI Screenshot - Overview",
+      "community": 2,
+      "community_name": "Coaching Rubric & Transcripts",
+      "file_type": "image",
+      "norm_label": "qc evaluator ui screenshot - overview",
+      "source_file": "design/reference-frames/frame_0064.jpg"
+    },
+    {
+      "id": "design_reference_frames_frame_0069",
+      "label": "UI Screenshot: Full Report Page",
+      "community": 2,
+      "community_name": "Coaching Rubric & Transcripts",
+      "file_type": "image",
+      "norm_label": "ui screenshot: full report page",
+      "source_file": "design/reference-frames/frame_0069.jpg"
+    },
+    {
+      "id": "halden_method",
+      "label": "Halden Method",
+      "community": 4,
+      "community_name": "Kick-off Rubric & Domain Canon",
+      "file_type": "concept",
+      "norm_label": "halden method",
+      "rationale": "The core coaching methodology consisting of Movement Retraining, Remodeling, and Integrating.",
+      "source_file": "rubrics/kickoff-call-rubric.md"
+    },
+    {
+      "id": "north_star",
+      "label": "North Star Statement",
+      "community": 4,
+      "community_name": "Kick-off Rubric & Domain Canon",
+      "file_type": "concept",
+      "norm_label": "north star statement",
+      "rationale": "Emotional/identity driver for the client's journey.",
+      "source_file": "rubrics/kickoff-call-rubric.md"
+    },
+    {
+      "id": "rubrics_kickoff_call_rubric",
+      "label": "Kick-off Call Scoring Rubric",
+      "community": 4,
+      "community_name": "Kick-off Rubric & Domain Canon",
+      "file_type": "document",
+      "norm_label": "kick-off call scoring rubric",
+      "rationale": "Defines 12 dimensions for initial client kick-off calls, including North Star and Halden Method phases.",
+      "source_file": "rubrics/kickoff-call-rubric.md"
+    },
+    {
+      "id": "transcripts_kickoff_01",
+      "label": "Kick-off Call Transcript 01 (Owen)",
+      "community": 4,
+      "community_name": "Kick-off Rubric & Domain Canon",
+      "file_type": "document",
+      "norm_label": "kick-off call transcript 01 (owen)",
+      "source_file": "transcripts/kickoff-01.txt"
+    },
+    {
+      "id": "transcripts_kickoff_02",
+      "label": "Kick-off Call Transcript 02 (Renata)",
+      "community": 4,
+      "community_name": "Kick-off Rubric & Domain Canon",
+      "file_type": "document",
+      "norm_label": "kick-off call transcript 02 (renata)",
+      "source_file": "transcripts/kickoff-02.txt"
+    },
+    {
+      "id": "design_reference_frames_frame_0065",
+      "label": "QC Evaluator UI Screenshot - Dimension Detail",
+      "community": 6,
+      "community_name": "Expanded Row Evidence",
+      "file_type": "image",
+      "norm_label": "qc evaluator ui screenshot - dimension detail",
+      "source_file": "design/reference-frames/frame_0065.jpg"
+    },
+    {
+      "id": "design_reference_frames_frame_0067",
+      "label": "QC Evaluator UI Screenshot - Feedback Rationale",
+      "community": 7,
+      "community_name": "Feedback Panel (cut from scope)",
+      "file_type": "image",
+      "norm_label": "qc evaluator ui screenshot - feedback rationale",
+      "source_file": "design/reference-frames/frame_0067.jpg"
+    }
+  ],
+  "links": [
+    {
+      "source": "transcripts_coaching_01",
+      "target": "rubrics_coaching_call_rubric",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "transcripts/coaching-01.txt"
+    },
+    {
+      "source": "transcripts_coaching_02",
+      "target": "rubrics_coaching_call_rubric",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "transcripts/coaching-02.txt"
+    },
+    {
+      "source": "transcripts_kickoff_01",
+      "target": "rubrics_kickoff_call_rubric",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "transcripts/kickoff-01.txt"
+    },
+    {
+      "source": "transcripts_kickoff_02",
+      "target": "rubrics_kickoff_call_rubric",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "transcripts/kickoff-02.txt"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "exercise_source_coaching_rubric",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "exercise_source_kickoff_rubric",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "scoring_pipeline",
+      "target": "exercise_source_coaching_rubric",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "scoring_pipeline",
+      "target": "exercise_source_kickoff_rubric",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "braindump",
+      "target": "exercise_source_coaching_01",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "source": "braindump",
+      "target": "exercise_source_coaching_02",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "source": "braindump",
+      "target": "exercise_source_kickoff_01",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "source": "braindump",
+      "target": "exercise_source_kickoff_02",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "source": "claude",
+      "target": "braindump",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md"
+    },
+    {
+      "source": "claude_md",
+      "target": "handoff_backend",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md"
+    },
+    {
+      "source": "design_components",
+      "target": "design_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "design/Components.dc.html"
+    },
+    {
+      "source": "design_components",
+      "target": "exercise_source_coaching_01",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "design/Components.dc.html"
+    },
+    {
+      "source": "design_icons",
+      "target": "design_reference_frames_frame_0057",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "design/Icons.dc.html"
+    },
+    {
+      "source": "design_main",
+      "target": "braindump",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "design/Main.dc.html"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "braindump",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "claude",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "db_schema",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "determinism_boundary",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "handoff_backend",
+      "target": "scoring_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "source": "readme",
+      "target": "rubrics_coaching_call_rubric",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "source": "readme",
+      "target": "rubrics_kickoff_call_rubric",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "source": "rubrics_kickoff_call_rubric",
+      "target": "halden_method",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "rubrics/kickoff-call-rubric.md"
+    },
+    {
+      "source": "rubrics_kickoff_call_rubric",
+      "target": "north_star",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "rubrics/kickoff-call-rubric.md"
+    },
+    {
+      "source": "design_reference_frames_frame_0069",
+      "target": "readme",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "design/reference-frames/frame_0069.jpg"
+    },
+    {
+      "source": "design_components",
+      "target": "design_reference_frames_frame_0061",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "design/Components.dc.html"
+    },
+    {
+      "source": "design_components",
+      "target": "design_reference_frames_frame_0063",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "design/Components.dc.html"
+    },
+    {
+      "source": "design_reference_frames_frame_0064",
+      "target": "rubrics_coaching_call_rubric",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "design/reference-frames/frame_0064.jpg"
+    },
+    {
+      "source": "design_components",
+      "target": "design_reference_frames_frame_0069",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "design/Components.dc.html"
+    },
+    {
+      "source": "design_main",
+      "target": "design_reference_frames_frame_0059",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "design/Main.dc.html"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "scoring_determinism_flow",
+      "label": "Scoring Determinism Flow",
+      "nodes": [
+        "scoring_pipeline",
+        "exercise_source_coaching_01",
+        "exercise_source_coaching_rubric",
+        "handoff_backend"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "id": "design_system_evolution",
+      "label": "Design System Evolution",
+      "nodes": [
+        "design_main",
+        "design_components",
+        "design_icons",
+        "design_reference_frames_frame_0057",
+        "design_reference_frames_frame_0059"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "id": "adversarial_test_suite",
+      "label": "Adversarial Test Suite",
+      "nodes": [
+        "exercise_source_coaching_01",
+        "exercise_source_coaching_02",
+        "exercise_source_kickoff_02"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HANDOFF-BACKEND.md"
+    },
+    {
+      "id": "beavermind_design_system",
+      "label": "BeaverMind Design System Implementation",
+      "nodes": [
+        "design_main",
+        "design_components"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "BRAINDUMP.md"
+    },
+    {
+      "id": "halden_method_phases",
+      "label": "Halden Method Phases",
+      "nodes": [
+        "halden_method",
+        "rubrics_kickoff_call_rubric",
+        "rubrics_coaching_call_rubric"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "rubrics/kickoff-call-rubric.md"
+    },
+    {
+      "id": "scoring_determinism_strategy",
+      "label": "Scoring Determinism Strategy",
+      "nodes": [
+        "scoring_pipeline",
+        "determinism_boundary",
+        "handoff_backend"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md"
+    },
+    {
+      "id": "call_evaluation_system",
+      "label": "Call Evaluation System Components",
+      "nodes": [
+        "readme",
+        "rubrics_coaching_call_rubric",
+        "rubrics_kickoff_call_rubric",
+        "design_reference_frames_frame_0064"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md"
+    }
+  ]
+}
