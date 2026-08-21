@@ -311,6 +311,7 @@ function qcMountRuns(list, empty){
       var runs = (j.runs || []).map(function(r){
         return {
           id: r.id,
+          code: r.code || '',
           label: r.callType + ' call',
           when: new Date(r.createdAt).toLocaleString(undefined,
                   {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}),
@@ -336,11 +337,13 @@ function qcMountRuns(list, empty){
         var tok = TOK[r.band] || '--qc-inconsistent';
         if(sp[0]) sp[0].style.background = 'var(' + tok + ')';
         if(sp[1]){ sp[1].textContent = r.label; sp[1].style.width = '92px'; }
-        // The third span is a grey skeleton bar in the design. A real timestamp belongs there
-        // more than a placeholder does.
+        // The third span is a grey skeleton bar in the design. The run number and the time it
+        // was started belong there more than a placeholder does. The code is the SAME one the
+        // report masthead prints, so a row and the report it opens cannot disagree.
         if(sp[2]){
           sp[2].style.cssText = 'flex:1;font:9.5px var(--qc-mono);color:var(--qc-ink-dim)';
-          sp[2].textContent = r.when;
+          sp[2].innerHTML = (r.code ? '<span style="color:#6F00FF;font-weight:700">#' + r.code +
+                             '</span>&nbsp;&nbsp;·&nbsp;&nbsp;' : '') + r.when;
         }
         if(sp[3]){ sp[3].textContent = r.band; sp[3].style.color = 'var(' + tok + ')'; }
         if(sp[4]){ sp[4].textContent = r.score; sp[4].style.color = 'var(' + tok + ')';

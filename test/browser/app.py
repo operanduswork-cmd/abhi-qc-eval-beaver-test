@@ -191,6 +191,26 @@ with sync_playwright() as p:
     check("this browser's own run is listed with band and score",
           "ELITE" in hist_text and "93" in hist_text)
     check("the list says whose runs these are", "THIS BROWSER" in hist_text)
+
+    # The run number on a list row must be the SAME six characters the report prints. They come
+    # from different places — the row from runs.transcript_sha256, the report from the stored
+    # contract — so one legacy row where the column had never been filled showed "#SEED-1" in the
+    # list and "#E0711E" on the report it opened.
+    row_code = pg.evaluate("""() => {
+        const m = document.body.innerText.match(/#([A-F0-9]{6})/);
+        return m ? m[1] : null;
+    }""")
+    check("each row carries a run number", row_code is not None, str(row_code))
+    if row_code:
+        pg.goto(f"{BASE}/runs/{RUN}", wait_until="networkidle")
+        rep_code = pg.evaluate("""() => {
+            const m = document.body.innerText.match(/RUN #([A-F0-9]{6})/);
+            return m ? m[1] : null;
+        }""")
+        check("and it is the same number the report prints",
+              row_code == rep_code, f"list #{row_code} vs report #{rep_code}")
+        pg.go_back(wait_until="networkidle")
+        pg.wait_for_timeout(400)
     check("empty state is hidden when runs exist", pg.locator('[data-runs="empty"]').first.is_hidden())
 
     # junk is refused with a reason

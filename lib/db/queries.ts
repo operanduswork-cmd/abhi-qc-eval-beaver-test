@@ -323,6 +323,12 @@ export interface RunSummary {
   score: number | null;
   band: string | null;
   createdAt: string;
+  /**
+   * The short run code shown to people — the SAME six characters the report masthead and the
+   * progress hero print. Derived here rather than sent as a raw sha so there is one definition
+   * of "the run number" and a row in the list cannot disagree with the report it opens.
+   */
+  code: string;
 }
 
 /**
@@ -346,7 +352,7 @@ export async function summariesFor(ids: string[]): Promise<RunSummary[]> {
 
   const r = await db()
     .from("runs")
-    .select("id,call_type,status,created_at,run_reports(normalized_total,band)")
+    .select("id,call_type,transcript_sha256,status,created_at,run_reports(normalized_total,band)")
     .in("id", wanted);
   if (r.error || !r.data) return [];
 
@@ -360,6 +366,7 @@ export async function summariesFor(ids: string[]): Promise<RunSummary[]> {
       score: (rep as { normalized_total?: number } | null)?.normalized_total ?? null,
       band: (rep as { band?: string } | null)?.band ?? null,
       createdAt: row.created_at as string,
+      code: String(row.transcript_sha256 ?? "").slice(0, 6).toUpperCase(),
     };
   });
 
