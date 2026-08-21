@@ -1,0 +1,29 @@
+stateDiagram-v2
+    direction TB
+
+    [*] --> queued : POST returns an id, no model call
+    queued --> running : worker runs in after(), response already flushed
+
+    state running {
+        direction TB
+        facts : fact pass — resolves every cap
+        dims : 12 dimensions — commit then heartbeat, each one
+        synth : synthesis — the brief
+        facts --> dims
+        dims --> synth
+    }
+
+    running --> succeeded : contract stored whole
+    running --> failed : no heartbeat for 120s, swept ON READ
+    failed --> queued : re-paste resets the row — SAME id, same URL
+    succeeded --> [*] : immutable
+
+    note right of queued
+        The operator can close the tab.
+        Scoring continues on the server.
+    end note
+
+    note right of failed
+        Says how many dimensions landed
+        and how long ago. Never a spinner.
+    end note

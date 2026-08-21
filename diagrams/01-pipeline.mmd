@@ -1,0 +1,31 @@
+flowchart TD
+    P(["Operator pastes a transcript"]) --> CAN["Canonicalise<br/>BOM · CRLF → LF · NFC · rstrip"]
+    CAN --> SHA[("sha256 of the canonical body<br/>same paste → same run → same URL")]
+
+    CAN --> FACT{{"ONE fact pass<br/>resolves every cap"}}
+    FACT --> PREM[/"Cap outcomes injected as<br/>GIVEN PREMISES"/]
+
+    PREM --> G1["enum 10 7 3 0<br/>D1 D2 D5"]
+    PREM --> G2["enum 15 10 5 0<br/>D3 D4 D6"]
+    PREM --> G3["enum 5 3 0<br/>D7 D8 D9 D11"]
+    PREM --> G4["enum 5 0<br/>D10"]
+    G1 --> D12{{"D12 scored LAST<br/>its inputs are the others' outcomes"}}
+    G2 --> D12
+    G3 --> D12
+    G4 --> D12
+
+    D12 --> VER["Verify every quote<br/>IN CODE"]
+    VER --> ARI["All arithmetic<br/>IN CODE"]
+    ARI --> REP(["Report · PDF · shareable URL"])
+
+    SHA -.->|"idempotency"| REP
+
+    classDef model fill:#E8F0FE,stroke:#3B6FB6,color:#11243E;
+    classDef code  fill:#E3F3E8,stroke:#3E8E5A,color:#103A22;
+    classDef apex  fill:#EDE7F6,stroke:#6F42C1,color:#2A1A4A;
+    classDef store fill:#FCF1D9,stroke:#C79A2C,color:#4A3A05;
+
+    class G1,G2,G3,G4 model;
+    class CAN,VER,ARI code;
+    class FACT,D12 apex;
+    class SHA,PREM store;

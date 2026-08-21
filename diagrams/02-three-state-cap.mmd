@@ -1,0 +1,31 @@
+flowchart TD
+    ASK[/"Never ask: 'were there no follow-up questions?'<br/>Always ask: 'list EVERY instance, empty array if none'"/]
+    ASK --> SUP["supporting[]<br/>verified quotes"]
+    ASK --> CTR["counter_evidence[]<br/>verified quotes"]
+
+    SUP --> PIV{"Which arrays<br/>are non-empty?"}
+    CTR --> PIV
+
+    PIV -->|"only counter<br/>· nothing supports it"| FIRED["FIRED<br/>penalty applied"]
+    PIV -->|"only supporting"| NOT["NOT FIRED<br/>no penalty"]
+    PIV -->|"BOTH · they conflict"| IND{{"INDETERMINATE<br/>penalty NOT applied"}}
+
+    IND --> RULE[/"A penalty that cannot be<br/>established is not applied.<br/>Both sides are quoted.<br/>The scored branch is named."/]
+
+    EX[("coaching-01<br/>L188 'Wednesday the 10th at four… lock that in'<br/>L193 'I'll get you those times soon'")]
+    EX -.->|"a boolean cannot<br/>express this call"| IND
+
+    BLIP["fact pass errored<br/>empty arrays returned"] -->|"factPassSucceeded = false"| IND
+    BLIP -.-> WHY[/"'We did not look' is never<br/>'it is not there'"/]
+
+    classDef code  fill:#E3F3E8,stroke:#3E8E5A,color:#103A22;
+    classDef bad   fill:#FBE4E8,stroke:#C0455E,color:#4A101C;
+    classDef apex  fill:#EDE7F6,stroke:#6F42C1,color:#2A1A4A;
+    classDef store fill:#FCF1D9,stroke:#C79A2C,color:#4A3A05;
+    classDef grey  fill:#EEEEF1,stroke:#8A8A99,color:#26262E;
+
+    class SUP,CTR,NOT code;
+    class FIRED bad;
+    class IND apex;
+    class ASK,RULE,WHY,EX store;
+    class BLIP grey;

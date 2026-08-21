@@ -1,0 +1,29 @@
+flowchart TD
+    RUB[/"The rubric says: 'coach speaks &gt;70% of the TIME'"/]
+    OBS[("Every transcript has ZERO timestamps")]
+    RUB --> GAP{"We can only count WORDS"}
+    OBS --> GAP
+
+    GAP --> WHY["Word share ≠ time share<br/>unless both speak at the same rate.<br/>They do not."]
+
+    WHY --> RATIO["Bound the RATIO of speaking rates<br/>r = 0.9 – 1.2<br/>never claim a rate for either speaker"]
+    RATIO --> FORM["coachTimeShare = Wc / (Wc + r·Wl)<br/>at r = 1 this collapses to word share"]
+
+    FORM --> KO[("kickoff-02<br/>73.1% by WORD → trips a 70% cap<br/>69.4 – 75.1% by TIME → straddles it")]
+
+    KO --> TEST{"Does the WHOLE interval<br/>clear the threshold?"}
+    TEST -->|"entirely above"| FIRE["FIRED"]
+    TEST -->|"entirely at or below"| NOT["NOT FIRED"]
+    TEST -->|"straddles"| IND{{"INDETERMINATE<br/>and NOT applied"}}
+
+    IND --> PUB[/"The interval and the tie-break rule<br/>are printed on the report AND the PDF"/]
+
+    classDef code  fill:#E3F3E8,stroke:#3E8E5A,color:#103A22;
+    classDef bad   fill:#FBE4E8,stroke:#C0455E,color:#4A101C;
+    classDef apex  fill:#EDE7F6,stroke:#6F42C1,color:#2A1A4A;
+    classDef store fill:#FCF1D9,stroke:#C79A2C,color:#4A3A05;
+
+    class WHY,RATIO,FORM,NOT code;
+    class FIRE bad;
+    class IND apex;
+    class RUB,OBS,KO,PUB store;

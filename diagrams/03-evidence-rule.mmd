@@ -1,0 +1,48 @@
+flowchart TD
+    M[/"Model returns:  quote + a line number it believes"/]
+
+    subgraph NAIVE ["THE OBVIOUS WAY"]
+        direction TB
+        N1["Look at the line the model cited"]
+        N2{"Is the quote there?"}
+        N3["Off by one<br/>models get prepended<br/>line numbers wrong routinely"]
+        N4["Citation rejected"]
+        N5["Dimension floored"]
+        N1 --> N2 -->|"no"| N3 --> N4 --> N5
+    end
+
+    subgraph REAL ["WHAT THIS DOES"]
+        direction TB
+        R1["Normalise the quote"]
+        R2["Search the WHOLE transcript"]
+        R3["Map the match back to its span"]
+        R4["DERIVE the line in code"]
+        R5{"≥ 8 words?"}
+        R6["Verified · line is now a fact"]
+        R7["too_short · shown dashed,<br/>never counted as evidence"]
+        R1 --> R2 --> R3 --> R4 --> R5
+        R5 -->|"yes"| R6
+        R5 -->|"no"| R7
+    end
+
+    M --> N1
+    M --> R1
+
+    N5 -.->|"a false negative in the<br/>direction that looks like diligence"| VERDICT
+    R6 --> VERDICT{{"The quote is the key.<br/>The line number is a hint."}}
+
+    W[/"8-word quotes are 99.7–100% unique per transcript.<br/>3-word only 87–94%."/]
+    W -.-> R5
+
+    classDef bad   fill:#FBE4E8,stroke:#C0455E,color:#4A101C;
+    classDef code  fill:#E3F3E8,stroke:#3E8E5A,color:#103A22;
+    classDef apex  fill:#EDE7F6,stroke:#6F42C1,color:#2A1A4A;
+    classDef store fill:#FCF1D9,stroke:#C79A2C,color:#4A3A05;
+    classDef grey  fill:#EEEEF1,stroke:#8A8A99,color:#26262E;
+
+    class N1,N2 grey;
+    class N3,N4,N5 bad;
+    class R1,R2,R3,R4,R5,R6 code;
+    class R7 grey;
+    class VERDICT apex;
+    class M,W store;
